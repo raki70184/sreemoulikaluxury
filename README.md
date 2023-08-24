@@ -3,6 +3,11 @@ This is code repository for sree moulika luxury salon website
 This is the reference website https://nicenailsbaby.in/index.html
 This is the existing website http://sreemoulika.com/services.html
 
+New website reference: https://paint-box.com/
+https://dessangeindia.com/
+
+
+
 
 --------------------------------------------------------------
 ## To Do: 

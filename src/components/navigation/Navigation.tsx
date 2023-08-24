@@ -24,7 +24,7 @@ export const Navigation = () => {
       <CssBaseline />
       <Paper
         sx={{
-          background: "#f4ebea"
+          background: "#fff"
         }}
         elevation={0}
       >
@@ -32,7 +32,7 @@ export const Navigation = () => {
           showLabels
           value={value}
           sx={{
-          background: "#f4ebea"
+          background: "#fff"
         }}
           onChange={(event, newValue) => {
             setValue(newValue);
@@ -61,7 +61,7 @@ export const Navigation = () => {
           <BottomNavigationAction
             icon={<Icon component={Instagram} textRendering={'Instagram'}/>}
             target='_blank'
-            href='https://www.instagram.com/'
+            href='https://www.instagram.com/sm.luxe.hyderabad'
           />
           <BottomNavigationAction
             label='+91-6304400431'

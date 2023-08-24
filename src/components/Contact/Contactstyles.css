@@ -1,0 +1,63 @@
+.contact {
+  letter-spacing: 1px;
+  margin-top: 4rem;
+}
+.address-text {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.place-icon {
+  color: #1976d2; /* Adjust the color as needed */
+  margin-right: 8px;
+  margin-top: 3px;
+}
+
+.phone-header {
+  margin-top: 1.5rem;
+}
+
+.telephone-text {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.telephone-icon {
+  color: #1976d2; /* Adjust the color as needed */
+  margin-right: 8px;
+  margin-top: 1px;
+}
+
+.email-header {
+  margin-top: 1.5rem;
+}
+
+.email-text {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.email-icon {
+  color: #1976d2; /* Adjust the color as needed */
+  margin-right: 8px;
+  margin-top: 1px;
+}
+
+.working-header {
+  margin-top: 1.5rem;
+}
+
+.working-text {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.working-icon {
+  color: #1976d2; /* Adjust the color as needed */
+  margin-right: 8px;
+  margin-top: 1px;
+}

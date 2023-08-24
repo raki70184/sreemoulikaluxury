@@ -30,7 +30,7 @@ function AppBarComponent() {
   return (
     <AppBar position="static" 
     sx={{
-      background: "#f4ebea"
+      background: "#fff"
     }}
       elevation={0}>
         <Grid container alignItems={'center'} justifyContent={'space-between'} paddingTop='40px'>
