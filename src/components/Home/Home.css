@@ -1,0 +1,13 @@
+.header {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    color: pink;
+}
+
+.carousal-wrapper img{
+    object-fit: cover;
+    max-width: fit-content;
+    height: 500px;
+}

@@ -1,0 +1,12 @@
+
+.navigation-wrapper button{
+    background: #fff;
+    align-items: center;
+    text-transform: uppercase;
+    color: #eed26e !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.navigation-wrapper button:hover{
+    border-bottom: 1px solid #eed26e;
+}

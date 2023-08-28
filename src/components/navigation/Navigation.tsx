@@ -3,12 +3,22 @@ import {
   Box,
   CssBaseline,
   BottomNavigation,
-  BottomNavigationAction,
   Paper,
-  Icon
+  Icon,
+  styled
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import MuiBottomNavigationAction from "@mui/material/BottomNavigationAction";
 import {Facebook, YouTube, Instagram, WhatsApp } from "@mui/icons-material";
+
+import "./Navigation.css";
+
+const BottomNavigationAction = styled(MuiBottomNavigationAction)`
+  color: green;
+  &.Mui-selected {
+    color: red;
+  }
+`;
 
 export const Navigation = () => {
   const [value, setValue] = React.useState(0);
@@ -20,20 +30,18 @@ export const Navigation = () => {
   }, [value]);
 
   return (
-    <Box sx={{ pb: 7 }} ref={ref}>
+    <Box ref={ref}>
       <CssBaseline />
       <Paper
         sx={{
-          background: "#fff"
+          bgcolor: '#fff'
         }}
         elevation={0}
       >
         <BottomNavigation
           showLabels
           value={value}
-          sx={{
-          background: "#fff"
-        }}
+          className='navigation-wrapper'
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
@@ -58,16 +66,11 @@ export const Navigation = () => {
             value={value}
             onClick={() => navigate("/contact")}
           />
-          <BottomNavigationAction
+          {/* <BottomNavigationAction
             icon={<Icon component={Instagram} textRendering={'Instagram'}/>}
             target='_blank'
             href='https://www.instagram.com/sm.luxe.hyderabad'
-          />
-          <BottomNavigationAction
-            label='+91-6304400431'
-            target='_blank'
-            href='tel:+916304400431'
-          />
+          /> */}
         </BottomNavigation>
       </Paper>
     </Box>

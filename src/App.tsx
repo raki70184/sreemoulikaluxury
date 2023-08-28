@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import { About, Contact, HomeComponent, Services } from "./components";
+import { About, Contact, HomeComponent, Services, Footer } from "./components";
 import AppBarComponent from "./components/AppBar/AppBarComponent";
 import "./styles.css";
 
 export default function App() {
-  return (
+  return (<>
     <div className="App">
       <AppBarComponent />
       <Routes>
@@ -14,5 +14,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
+      <Footer />
+      </>
   );
 }

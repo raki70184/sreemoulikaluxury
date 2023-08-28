@@ -1,0 +1,15 @@
+.phone-number {
+    padding: 15px !important;
+    min-width: 200px !important;
+    height: 34px;
+    border-radius: 4px !important;
+    border: 2px solid #eed26e !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #eed26e;
+}
+
+.phone-number:hover{
+ background-color: #eed26e;
+ color: #fff;
+}

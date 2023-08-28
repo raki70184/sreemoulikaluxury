@@ -2,10 +2,17 @@ import { Button, Grid, Typography } from "@mui/material";
 import { staticData } from '../utils/constants';
 import { SelfIntroduction, ServicesImageList } from ".";
 import SMHome from "../images/home.jpeg";
+import { HomeSlider } from "./HomeSlider";
+import './Home.css';
 export const HomeComponent = () => {
   const { home, buttonText } = staticData;
   return (
     <>
+    <Grid container>
+      <Grid item sx={{width: '100%', height: '500px', textAlign: 'center'}}>
+        <HomeSlider />
+      </Grid>
+      </Grid>
       <Grid
         container
         direction='row'
