@@ -45,7 +45,7 @@ function AppBarComponent() {
           <Grid item sx={{flex: 1}} textAlign='right'>
           <a
             href='tel:+916304400431'
-            className='phone-number'
+            className='telephone-number'
           >Book Appointment </a>
           </Grid>
         </Grid>

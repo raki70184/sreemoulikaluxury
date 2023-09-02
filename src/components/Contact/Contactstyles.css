@@ -1,63 +1,57 @@
-.contact {
-  letter-spacing: 1px;
-  margin-top: 4rem;
-}
-.address-text {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 1rem;
-}
 
+
+.contact-header {
+  font-family: Helvetica;
+  font-size: 24px;
+  font-weight:700;
+  line-height: 32px;
+  letter-spacing: 0.24px;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  width:50%;
+}
+.contact-Info {
+  letter-spacing: 1px;
+  padding-left:1.5rem;
+  /* width:50%;
+  margin-left:20px; */
+}
 .place-icon {
-  color: #1976d2; /* Adjust the color as needed */
+  color: #000; /* Adjust the color as needed */
   margin-right: 8px;
   margin-top: 3px;
 }
 
-.phone-header {
+.telephone-icon, .email-icon, .working-icon {
+  color: #000; /* Adjust the color as needed */
+  margin-right: 8px;
+  margin-top: 1px;
+}
+
+.email-header, .working-header, .phone-header  {
   margin-top: 1.5rem;
 }
 
-.telephone-text {
+
+.address-text, .telephone-text, .email-text, .working-text{
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight:400;
+  line-height: 24px;
+  letter-spacing: 0.24px;
   display: flex;
   align-items: flex-start;
   margin-top: 1rem;
 }
 
-.telephone-icon {
-  color: #1976d2; /* Adjust the color as needed */
-  margin-right: 8px;
-  margin-top: 1px;
+.phone-header, .address-header, .email-header, .working-header{
+  font-family: Helvetica;
+  font-size: 18px;
+  font-weight:600;
+  line-height: 32px;
+  letter-spacing: 0.3px;
 }
 
-.email-header {
-  margin-top: 1.5rem;
-}
-
-.email-text {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 1rem;
-}
-
-.email-icon {
-  color: #1976d2; /* Adjust the color as needed */
-  margin-right: 8px;
-  margin-top: 1px;
-}
-
-.working-header {
-  margin-top: 1.5rem;
-}
-
-.working-text {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 1rem;
-}
-
-.working-icon {
-  color: #1976d2; /* Adjust the color as needed */
-  margin-right: 8px;
-  margin-top: 1px;
+.contact-grid{
+  width:45%;
 }
