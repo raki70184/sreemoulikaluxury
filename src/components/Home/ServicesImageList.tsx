@@ -5,7 +5,7 @@ import { ImageServiceList } from '../utils';
 
 export const ServicesImageList = () => {
   return (
-    <ImageList  cols={4} gap={8}>
+    <ImageList cols={4} gap={8}>
       {ImageServiceList.map((item) => (
         <ImageListItem key={item.img}>
           <img

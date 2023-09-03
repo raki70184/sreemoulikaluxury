@@ -4,12 +4,10 @@ import {
   CssBaseline,
   BottomNavigation,
   Paper,
-  Icon,
   styled
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import MuiBottomNavigationAction from "@mui/material/BottomNavigationAction";
-import {Facebook, YouTube, Instagram, WhatsApp } from "@mui/icons-material";
 
 import "./Navigation.css";
 
@@ -33,9 +31,7 @@ export const Navigation = () => {
     <Box ref={ref}>
       <CssBaseline />
       <Paper
-        sx={{
-          bgcolor: '#fff'
-        }}
+        sx={{  bgcolor: '#fff' }}
         elevation={0}
       >
         <BottomNavigation
@@ -66,11 +62,6 @@ export const Navigation = () => {
             value={value}
             onClick={() => navigate("/contact")}
           />
-          {/* <BottomNavigationAction
-            icon={<Icon component={Instagram} textRendering={'Instagram'}/>}
-            target='_blank'
-            href='https://www.instagram.com/sm.luxe.hyderabad'
-          /> */}
         </BottomNavigation>
       </Paper>
     </Box>

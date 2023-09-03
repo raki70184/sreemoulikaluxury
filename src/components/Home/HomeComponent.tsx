@@ -8,10 +8,10 @@ export const HomeComponent = () => {
   const { home, buttonText } = staticData;
   return (
     <>
-    <Grid container>
-      <Grid item sx={{width: '100%', height: '500px', textAlign: 'center'}}>
-        <HomeSlider />
-      </Grid>
+      <Grid container>
+        <Grid item sx={{ width: '100%', height: '500px', textAlign: 'center' }}>
+          <HomeSlider />
+        </Grid>
       </Grid>
       <Grid
         container
@@ -25,21 +25,25 @@ export const HomeComponent = () => {
           <Typography variant='h3' marginBottom={'20px'}>{home.tagLine}</Typography>
           <Typography variant='body1' marginBottom={'20px'}>{home.description}</Typography>
           <Typography variant='body1' marginBottom={'50px'}>{home.subDescription}</Typography>
-          <Typography align='center'><Button color="warning" variant="contained" size="medium">{buttonText.bookAppointment}</Button></Typography>
+          <Typography align='center'>
+            <Button color="warning" variant="contained" size="medium">
+              <a href='tel:+916304400431' className="appointment">{buttonText.bookAppointment}</a>
+            </Button>
+          </Typography>
         </Grid>
         <Grid item sm={6}>
           <img src={SMHome} className='image' alt='SMBeauty parlour' />
         </Grid>
       </Grid>
-      <Grid container direction="column" marginTop={8} padding={8}>
+      <Grid container direction="column" marginTop={8}>
         <Grid item>
           <Typography variant='h3' marginBottom={8} align='center'>{home.ourServices}</Typography>
         </Grid>
-        <Grid item>
+        <Grid item flexGrow={1}>
           <ServicesImageList />
         </Grid>
       </Grid>
-      <Grid container direction="column" marginTop={8} padding={8}>
+      <Grid container direction="column" marginTop={8}>
         <Grid item>
           <Typography variant='h3' marginBottom={8} align='center'>About Me</Typography>
         </Grid>
