@@ -5,7 +5,6 @@
     /* border: 1px solid #ccc; */
     border-radius: 5px;
     /* border: 1px solid #ccc; */
-    border-radius: 5px;
     /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); */
     
   }
@@ -16,10 +15,9 @@
   }
 
   .section-1{
-    display: flex;
-    flex-direction: row;
     gap: 2rem;
-  
+    display: flex;
+    justify-content: space-evenly;
   }
 
 
@@ -30,8 +28,15 @@
   .input-group {
     margin-bottom: 15px;
     height:4rem;
+    width: -webkit-fill-available;
+   
   }
   
+  .message-group{
+    margin-bottom: 15px;
+    height:4rem;
+  }
+
   .form-input {
     width: 100%;
     padding: 10px;
@@ -40,29 +45,44 @@
     font-size: 14px;
     height:3rem;
     background: #fafafa;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .submit-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    margin-top: 6rem;
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
   }
   
   .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #ccc;
   }
   
 
   .message-input {
     width: 100%;
-    height: 150px;
+    height: 140px;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    /* Set the maximum number of characters allowed */
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fafafa;
+    
+    /* message placeholder */
+    /* .message-placeholder {
+      text-align: left;
+      /* position the placeholder at the start of the input box */
+      /* position: absolute;
+      top: 0;
+      left: 0;
+    } */ 
   }
