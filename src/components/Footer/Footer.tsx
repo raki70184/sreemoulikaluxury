@@ -45,7 +45,7 @@ export const Footer = () => {
                 </ul>
             </Grid>
             <Grid item>
-                <Typography variant="h4" marginBottom={1}>Bussiness Hours</Typography>
+                <Typography variant="h4" marginBottom={1}>Business Hours</Typography>
                 <ul>
                     <li>Monday : 11.00 - 08.00</li>
                     <li>Tuesday : 11.00 - 08.00</li>

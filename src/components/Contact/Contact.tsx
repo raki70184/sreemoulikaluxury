@@ -9,16 +9,12 @@ import ContactForm from "../ContactForm/ContactForm";
 
 export const Contact = () => {
   return (
-    <Grid
-      container
-      direction={"row"}
-      justifyContent="space-evenly"
-    >
+    <Grid container direction={"row"} justifyContent="space-evenly">
       <Grid item xs={6}>
         <ContactForm />
       </Grid>
       <Grid item xs={4} className="contact-grid">
-      <div className="contact-header">CONTACT INFO</div>
+        <div className="contact-header">CONTACT INFO</div>
         <div className="contact-Info">
           <div className="address-header">ADDRESS:</div>
           <div className="address-text">
@@ -48,6 +44,18 @@ export const Contact = () => {
           </div>
         </div>
       </Grid>
+      <div className="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2618.8006068220047!2d78.53551060705429!3d17.459856918259312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9ba7ce90eeed%3A0xa1dd86151c8e19ff!2sJains%20Balaji%20Big%20Town!5e0!3m2!1sen!2sus!4v1693796290194!5m2!1sen!2sus"
+          
+          width={1100}
+          height="450"
+          style={{
+            border: 0,
+          }}
+          loading="lazy"
+        ></iframe>
+      </div>
     </Grid>
   );
 };
