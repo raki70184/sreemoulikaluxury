@@ -1,11 +1,15 @@
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { ImageServiceList } from '../utils';
 
 export const ServicesImageList = () => {
+  const theme = useTheme();
+  const sm = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    <ImageList cols={4} gap={8}>
+    <ImageList cols={sm ? 1 : 4} gap={8}>
       {ImageServiceList.map((item) => (
         <ImageListItem key={item.img}>
           <img
@@ -19,7 +23,7 @@ export const ServicesImageList = () => {
           <ImageListItemBar
             title={item.title}
             position="below"
-            sx={{marginTop: '16px'}}
+            sx={{ marginTop: '16px' }}
           />
         </ImageListItem>
       ))}

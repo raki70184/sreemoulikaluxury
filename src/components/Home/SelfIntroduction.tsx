@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Hidden, Typography } from '@mui/material';
 import Self from "../images/Self.jpg";
 
 export const SelfIntroduction = () => (
@@ -10,10 +10,12 @@ export const SelfIntroduction = () => (
     spacing={2}
     alignItems='center'
   >
-    <Grid item sm={6}>
-      <img src={Self} className='image' alt='SMBeauty parlour' width="500" height="auto"/>
-    </Grid>
-    <Grid item sm={6} spacing={2} marginTop={8} padding={8}>
+    <Hidden smDown>
+      <Grid item md={6} xs>
+        <img src={Self} className='image' alt='SMBeauty parlour' width="500" height="auto" />
+      </Grid>
+    </Hidden>
+    <Grid item md={6} spacing={2} marginTop={8} padding={8}>
       <Typography variant='body1' marginBottom={'20px'}>Welcome to Sree Moulika Beauty Salon, a vision of beauty realized through passion and experience. Our story began with a deep-rooted love for the art of beauty and a commitment to providing exceptional services that transcend the ordinary since 2000.
 
       </Typography>

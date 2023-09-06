@@ -1,7 +1,12 @@
 import { Grid, Typography } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 import "./Footer.css";
 
 export const Footer = () => {
+    const theme = useTheme();
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
     return (
         <Grid
             container
@@ -9,8 +14,8 @@ export const Footer = () => {
             bgcolor='#f3ede8'
             justifyContent="space-between"
             paddingBottom={2}
-            paddingLeft={20}
-            paddingRight={10}
+            paddingLeft={sm ? 20 : 1}
+            paddingRight={sm ? 10 : 1}
             paddingTop={2}
         >
             <Grid item>
