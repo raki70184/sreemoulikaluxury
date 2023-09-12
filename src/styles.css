@@ -13,7 +13,15 @@ body, .app-bar-background {
   margin: 0 auto;
   /* //padding: 10% 0%; */
 }
+.footer {
+  font-family: sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f3ede8;
+  /* //padding: 10% 0%; */
+}
 
-h3 {
+h3, h5 {
   color: #eed26e;
 }
+

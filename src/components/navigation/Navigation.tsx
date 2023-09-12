@@ -2,12 +2,12 @@ import * as React from "react";
 import {
   Box,
   CssBaseline,
-  BottomNavigation,
   Paper,
   styled
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import MuiBottomNavigationAction from "@mui/material/BottomNavigationAction";
+import MuiBottomNavigation from "@mui/material/BottomNavigation";
 
 import "./Navigation.css";
 
@@ -18,11 +18,17 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)`
   }
 `;
 
-export const Navigation = () => {
+const BottomNavigation = styled(MuiBottomNavigation)((props)=>({
+  [props.theme.breakpoints.down("sm")]: {
+     flexDirection: "column",
+     height: "auto"
+  }
+}));
+
+export const Navigation = (props: any) => {
   const [value, setValue] = React.useState(0);
   const ref = React.useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
   React.useEffect(() => {
     (ref.current as HTMLDivElement).ownerDocument.body.scrollTop = 0;
   }, [value]);
@@ -40,6 +46,7 @@ export const Navigation = () => {
           className='navigation-wrapper'
           onChange={(event, newValue) => {
             setValue(newValue);
+            props.onClose && props.onClose();
           }}
         >
           <BottomNavigationAction

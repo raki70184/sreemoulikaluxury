@@ -40,7 +40,7 @@ function AppBarComponent() {
         background: "#fff"
       }}
       elevation={0}>
-      <Grid container alignItems={'center'} paddingTop='10px' paddingBottom="50px" justifyContent={sm ? 'space-between' : ''}>
+      <Grid container alignItems={'center'} paddingTop='10px' paddingBottom={sm? 1 : "50px"} justifyContent={sm ? 'space-between' : ''}>
         <Grid item>
           <img src={logo} width='100px' />
         </Grid>
@@ -72,12 +72,12 @@ function AppBarComponent() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'right',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -85,7 +85,7 @@ function AppBarComponent() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <Navigation />
+              <Navigation onClose={handleCloseNavMenu} />
             </Menu>
           </Grid>
         </Hidden>

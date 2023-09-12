@@ -6,8 +6,8 @@
     color: #eed26e !important;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-bottom: 11px;
 }
 .navigation-wrapper button:hover{
     border-bottom: 1px solid #eed26e;
 }
-

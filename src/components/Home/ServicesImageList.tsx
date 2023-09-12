@@ -1,6 +1,8 @@
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { ImageServiceList } from '../utils';
@@ -22,11 +24,18 @@ export const ServicesImageList = () => {
           />
           <ImageListItemBar
             title={item.title}
-            position="below"
-            sx={{ marginTop: '16px' }}
+            actionIcon={
+              <IconButton
+                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                aria-label={`info about ${item.title}`}
+              >
+                <InfoIcon />
+              </IconButton>
+            }
           />
         </ImageListItem>
       ))}
     </ImageList>
   );
 }
+

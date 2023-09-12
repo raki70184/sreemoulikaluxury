@@ -6,17 +6,15 @@ import "./Footer.css";
 
 export const Footer = () => {
     const theme = useTheme();
-    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const xs = useMediaQuery(theme.breakpoints.down('xs'));
+    const md = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <Grid
             container
-            direction='row'
+            direction={xs?'column':'row'}
             bgcolor='#f3ede8'
             justifyContent="space-between"
-            paddingBottom={2}
-            paddingLeft={sm ? 20 : 1}
-            paddingRight={sm ? 10 : 1}
-            paddingTop={2}
+            padding={2}
         >
             <Grid item>
                 <div className="left1">
