@@ -8,10 +8,14 @@ body, .app-bar-background {
 }
 
 .App {
-  font-family: sans-serif;
+  font-family: cursive;
   max-width: 1200px;
   margin: 0 auto;
   /* //padding: 10% 0%; */
+}
+
+.MuiTypography-root{
+  font-family: cursive !important;
 }
 .footer {
   font-family: sans-serif;
