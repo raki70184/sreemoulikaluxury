@@ -28,4 +28,19 @@ body, .app-bar-background {
 h3, h5 {
   color: #eed26e;
 }
+ul{
+  padding-left: 1rem;
+}
 
+ul li {
+  font-family: auto;
+}
+
+.svgIcon svg {
+  width: 100px;
+  height: 100px;
+}
+
+.borderSpacing {
+  margin: 2rem 0px;
+}

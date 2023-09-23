@@ -49,7 +49,7 @@ export const HomeComponent = () => {
         <Grid item>
           <Typography variant={sm?'h5':'h3'} marginBottom={sm?1:8} align='center'>{home.ourServices}</Typography>
         </Grid>
-        <Grid item flexGrow={1}>
+        <Grid item flexGrow={1} >
           <ServicesImageList />
         </Grid>
       </Grid>
