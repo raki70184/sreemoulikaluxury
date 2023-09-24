@@ -1,4 +1,7 @@
 
+.navigation-wrapper button span{
+    font-size: 1.5rem !important;
+}
 .navigation-wrapper button{
     background: #fff;
     align-items: center;
@@ -7,6 +10,9 @@
     font-weight: 600;
     letter-spacing: 1px;
     margin-bottom: 11px;
+    width: 200px;
+    text-align: center;
+   
 }
 .navigation-wrapper button:hover{
     border-bottom: 1px solid #eed26e;

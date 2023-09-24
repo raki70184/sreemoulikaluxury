@@ -1,19 +1,20 @@
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import IconButton from '@mui/material/IconButton';
+
+import { useNavigate } from 'react-router-dom';
 import InfoIcon from '@mui/icons-material/Info';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { IconButton, ImageList, ImageListItem, ImageListItemBar, useMediaQuery, useTheme } from '@mui/material';
 import { ImageServiceList } from '../utils';
 
 export const ServicesImageList = () => {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate();
+  const clickHandler = () =>{
+    navigate("/services")
+  }
   return (
     <ImageList cols={sm ? 1 : 4} gap={8}>
       {ImageServiceList.map((item) => (
-        <ImageListItem key={item.img}>
+        <ImageListItem key={item.img} className='serviceImage' onClick={clickHandler}>
           <img
             src={item.img}
             srcSet={item.img}

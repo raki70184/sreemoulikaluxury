@@ -8,32 +8,26 @@ body, .app-bar-background {
 }
 
 .App {
-  font-family: cursive;
-  max-width: 1200px;
+  font-family: "Montserrat",sans-serif;
   margin: 0 auto;
-  /* //padding: 10% 0%; */
 }
 
 .MuiTypography-root{
-  font-family: cursive !important;
+  font-family: "Montserrat",sans-serif;
 }
 .footer {
-  font-family: sans-serif;
-  max-width: 1200px;
+  font-family: "Montserrat",sans-serif;
   margin: 0 auto;
   background-color: #f3ede8;
-  /* //padding: 10% 0%; */
 }
 
 h3, h5 {
   color: #eed26e;
 }
-ul{
-  padding-left: 1rem;
-}
+
 
 ul li {
-  font-family: auto;
+  font-family: "Montserrat",sans-serif;
 }
 
 .svgIcon svg {

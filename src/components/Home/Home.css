@@ -25,3 +25,7 @@
 .self-image  img {
     border-radius: 10px;
 }
+
+.serviceImage{
+    cursor: pointer;
+}

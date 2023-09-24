@@ -1,0 +1,14 @@
+.bannerSvg svg{
+    width: 200px;
+    height: 200px;
+}
+
+.bannerSvg svg rect {
+    fill: #eed26e;
+}
+
+.banner{
+    background: #eed26e;
+    height: 300px;
+    text-align: center;
+  }

@@ -1,15 +1,12 @@
 import React from 'react';
-import { AppBar, IconButton, Menu, Grid, Hidden } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
+import { AppBar, IconButton, Menu, Grid, Hidden,useTheme, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { Navigation } from "../navigation";
 import logo from "../images/Logo.png";
 import './AppBarComponent.css';
-
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function AppBarComponent() {
   
@@ -17,22 +14,15 @@ function AppBarComponent() {
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const navigate = useNavigate();
 
   return (
     <AppBar position="static"
@@ -40,9 +30,9 @@ function AppBarComponent() {
         background: "#fff"
       }}
       elevation={0}>
-      <Grid container alignItems={'center'} paddingTop='10px' paddingBottom={sm? 1 : "50px"} justifyContent={sm ? 'space-between' : ''}>
+      <Grid container alignItems={'center'} paddingTop='10px' paddingBottom={sm? 1 : "50px"} paddingLeft={2} paddingRight={2} justifyContent={sm ? 'space-between' : ''}>
         <Grid item>
-          <img src={logo} width='100px' />
+         <img src={logo} width='200px' onClick={()=>navigate("/")} className='logo'/>
         </Grid>
         <Hidden smDown>
           <Grid item>

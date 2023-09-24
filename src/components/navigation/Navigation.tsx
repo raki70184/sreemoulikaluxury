@@ -37,7 +37,7 @@ export const Navigation = (props: any) => {
     <Box ref={ref}>
       <CssBaseline />
       <Paper
-        sx={{  bgcolor: '#fff' }}
+        sx={{  bgcolor: '#fff'}}
         elevation={0}
       >
         <BottomNavigation

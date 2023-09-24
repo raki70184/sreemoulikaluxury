@@ -1,12 +1,13 @@
-import { Grid, Typography } from "@mui/material";
-import React from "react";
+import { Grid } from "@mui/material";
+
 import { IconText } from "../IconText";
-import { ReactComponent as HairIcon } from "../images/hair-style.svg";
-import { ReactComponent as HairCut } from "../images/hair-cut.svg";
 import { ServicesList } from "../utils";
-import { CardPanel } from "../CardPanel";
+
+import { Banner } from "../Banner/Banner";
+
 export const Services = () => {
-  return (
+  return ( <>
+  <Banner title="Services"/>
     <Grid container justifyContent={"space-evenly"} alignItems={"baseline"} flexDirection={"row"}>
       {ServicesList.map((item: any) => {
         return <IconText text={item.title} Icon={item.img} isNails={item.nailsEnhancement}>
@@ -28,5 +29,6 @@ export const Services = () => {
         </IconText>
       })}
     </Grid>
+    </>
   )
 };

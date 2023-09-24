@@ -2,18 +2,22 @@
     padding: 15px !important;
     min-width: 200px !important;
     height: 34px;
-    border-radius: 4px !important;
+    border-radius: 10px !important;
     border: 2px solid #eed26e !important;
     text-transform: uppercase;
     text-decoration: none;
-    color: #eed26e;
+    color: #eed26e !important;
 }
 
-.telephone-number:hover{
+a.telephone-number:hover{
  background-color: #eed26e;
- color: #fff;
+ color: #fff !important;
 }
 
 .menuIcon{
     color: #eed26e !important;
+}
+
+.logo{
+    cursor: pointer;
 }
