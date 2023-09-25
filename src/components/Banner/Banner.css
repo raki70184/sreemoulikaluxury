@@ -11,6 +11,10 @@
     background-color: #fff;
 }
 
+.bannerButton button:hover{
+    background-color: #8c5030;
+}
+
 a.bannerAppointment{
     text-decoration: none;
     color: #eed26e;
@@ -18,6 +22,6 @@ a.bannerAppointment{
 }
 
 .bannerText h4 {
-    text-shadow: 2px 0px #ddd;
-    font-family: cursive;
+    font-stretch: condensed;
+    font-style: italic;
 }

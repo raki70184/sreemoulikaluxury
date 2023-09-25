@@ -70,11 +70,21 @@ export const Navigation: React.FC<NavigationProps> = (props: any) => {
             />
             {props.children}
           <BottomNavigationAction
+            label="Gallery"
+            value={value}
+            onClick={() => navigate("/gallery")}
+            />
+          <BottomNavigationAction
             label="Contact"
             value={value}
             onClick={() => navigate("/contact")}
-          />
-        </BottomNavigation>
+            />
+          <BottomNavigationAction
+            label="Book"
+            value={value}
+            onClick={() => window.open('tel:916304400431')}
+            />
+            </BottomNavigation>
       </Paper>
     </Box>
   );

@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Hidden } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import davins from "../images/Davins.png";
@@ -16,7 +16,7 @@ export const Footer = () => {
                 &copy; 2023 SM - The Luxe Salon | <a href="#">Salon Policy/FAQ</a>
             </Grid>
             <Grid item container justifyContent={"space-evenly"} padding={2} alignItems={"center"}>
-                <Grid item>Our Premium Brands</Grid>
+                <Hidden smDown><Grid item>Our Premium Brands</Grid></Hidden>
                 <Grid item><img src={davins} width='150px' /></Grid>
                 <Grid item><img src={voesh} width='200px'/></Grid>
             <Grid item textAlign={"right"} >

@@ -9,16 +9,18 @@ export const About: React.FC = () => {
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
   
   return <>
-    <Grid container paddingLeft={2} paddingRight={2} textAlign={sm ? "center" : "left"}>
+    <Grid container paddingLeft={sm?0:2} paddingRight={2} textAlign={"center"}>
       <SelfIntroduction />
       <CardPanel title="Meet Us At The Salon">
         <Grid item xs>
+        <Typography variant="body1">
           At SM, we are dedicated to bringing indulgence, comfort, and luxury right to your fingertips. From our contemporary ambiance to our extensive range of services, products, and color options, take a seat, and you might just find yourself wanting to stay all day.
+          </Typography>
         </Grid>
       </CardPanel>
       <CardPanel title="Our Values" >
         <Grid container flexDirection={sm ? "column" : "row"} marginBottom={2}>
-          <Grid item xs md={4} padding={1} paddingLeft={0} >
+          <Grid item xs md={4} padding={1}  >
             <Typography variant="h5" align="center">Cleanliness</Typography>
             <Typography variant="body1">
               At SM Salon, cleanliness is our top priority. We maintain strict hygiene standards, ensuring that all instruments are thoroughly cleaned, dried, and sealed for sterilization. Our tools undergo rigorous sanitization processes to provide you with a safe and germ-free environment. Your health and well-being are paramount to us.

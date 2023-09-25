@@ -11,16 +11,9 @@ https://dessangeindia.com/
 
 --------------------------------------------------------------
 ## To Do: 
-1. Designing the Mock
-2. Content to be displayed
-    . About salon
-    . List of services
-    . Address and phone Numbers
-3. Images
-4. Designing form 
-5. Title and Logo
-6. Map location
-
+1. Adding Gallery
+2. Images replacement
+3. font sizes changes
 ## Desktop View and Mobile view
 
 1. Things to displayed

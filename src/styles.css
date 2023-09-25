@@ -5,29 +5,37 @@
 
 body, .app-bar-background {
   background-color: #fff !important;
+  font-family: "EB Garamond", Sans-serif;
+  font-size: 12px;
 }
 
 .App {
-  font-family: "Montserrat",sans-serif;
+  font-family: "EB Garamond", Sans-serif;
   margin: 0 auto;
 }
 
 .MuiTypography-root{
-  font-family: "Montserrat",sans-serif;
+  font-family: "Cormorant Garamond", sans-serif !important;
+    font-size: 20px;
+    font-stretch: condensed;
+    font-style: italic;
 }
 .footer {
-  font-family: "Montserrat",sans-serif;
+  font-family: "EB Garamond", Sans-serif;
   margin: 0 auto;
   background-color: #f3ede8;
+  margin-top: 16px;
+  font-size: 12px;
 }
 
 h3, h5 {
   color: #eed26e;
+  font-style: italic;
 }
 
 
 ul li {
-  font-family: "Montserrat",sans-serif;
+  font-family: "EB Garamond", Sans-serif;
   text-transform: capitalize;
 }
 
