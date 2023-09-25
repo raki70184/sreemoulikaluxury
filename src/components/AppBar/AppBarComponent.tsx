@@ -31,12 +31,10 @@ function AppBarComponent() {
       }}
       elevation={0}>
       <Grid container alignItems={'center'} paddingTop='10px' paddingBottom={sm? 1 : "50px"} paddingLeft={2} paddingRight={2} justifyContent={sm ? 'space-between' : ''}>
-        <Grid item>
-         <img src={logo} width='200px' onClick={()=>navigate("/")} className='logo'/>
-        </Grid>
+      
         <Hidden smDown>
           <Grid item>
-            <Navigation />
+            <Navigation > <img src={logo} width='200px' onClick={()=>navigate("/")} className='logo'/></Navigation>
           </Grid>
           <Grid item sx={{ flex: 1 }} textAlign='right'>
             <a

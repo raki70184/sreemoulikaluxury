@@ -63,6 +63,11 @@ export const ImageServiceList = [
 
 export const NailsService = [
     {
+        name: "Polish",
+        list: ["Nail extensions+ regular polish",
+        "regular polish"]
+    },
+    {
         name: "BUILDER/HARD GEL",
         list: ["hard gel overlay + gel polish",
             "hard gel ecapsulated nails"]
@@ -112,10 +117,9 @@ export const ServicesList = [
     {
         img: HairIcon,
         title: "Hair Services",
-        list: ["Hair Smoothening",
-            "Keratin Treatment",
-            "Hair Botox Therapy",
-            "Hair Repair & Strengthening"
+        list: ["women/Men Hair cut",
+            "blow drying",
+            "straightning, curling , crimping"
         ]
     },
     {
@@ -191,10 +195,7 @@ export const ServicesList = [
     {
         img: nailIcon,
         title: "Nails",
-        list: [
-            "Nail extensions+ regular polish",
-            "regular polish"
-        ],
+        list: [],
         nailsEnhancement: NailsService
     }
 ];

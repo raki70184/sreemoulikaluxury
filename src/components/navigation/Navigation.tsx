@@ -25,7 +25,11 @@ const BottomNavigation = styled(MuiBottomNavigation)((props)=>({
   }
 }));
 
-export const Navigation = (props: any) => {
+interface NavigationProps {
+  children?: React.ReactNode;
+  onClose?: ()=>void;
+}
+export const Navigation: React.FC<NavigationProps> = (props: any) => {
   const [value, setValue] = React.useState(0);
   const ref = React.useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -63,7 +67,8 @@ export const Navigation = (props: any) => {
             label="Services"
             value={value}
             onClick={() => navigate("/services")}
-          />
+            />
+            {props.children}
           <BottomNavigationAction
             label="Contact"
             value={value}

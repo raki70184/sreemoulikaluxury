@@ -28,6 +28,7 @@ h3, h5 {
 
 ul li {
   font-family: "Montserrat",sans-serif;
+  text-transform: capitalize;
 }
 
 .svgIcon svg {
@@ -36,5 +37,6 @@ ul li {
 }
 
 .borderSpacing {
-  margin: 2rem 0px;
+  margin: 2rem auto;
+    width: 50%;
 }

@@ -1,4 +1,7 @@
 
+.navigation-wrapper {
+    height: auto !important;
+}
 .navigation-wrapper button span{
     font-size: 1.5rem !important;
 }

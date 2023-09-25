@@ -1,6 +1,8 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import davins from "../images/Davins.png";
+import voesh from "../images/voesh.png";
 
 import "./Footer.css";
 
@@ -8,53 +10,20 @@ export const Footer = () => {
     const theme = useTheme();
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const md = useMediaQuery(theme.breakpoints.down('md'));
-    return (
-        <Grid
-            container
-            direction={xs?'column':'row'}
-            bgcolor='#f3ede8'
-            justifyContent="space-between"
-            padding={2}
-        >
+    return (<>
+        <Grid container alignItems={"center"} spacing={3} justifyContent={"center"}>
             <Grid item>
-                <div className="left1">
-                    <Typography variant="h4" marginBottom={1}>Email</Typography>
-                    <Typography variant="body1">glamteam.sreemoulika@gmail.com</Typography>
-                </div>
-                <div className="left1">
-                    <Typography variant="h4" marginBottom={1}>Address</Typography>
-                    <Typography variant="body1" noWrap>
-                        #304, Jain Balaji BigTown Mall, <br />
-                        Safilguda, Malkajgiri, <br />
-                        Hyderabad, Telangana - 500047</Typography>
-                </div>
+                &copy; 2023 SM - The Luxe Salon | <a href="#">Salon Policy/FAQ</a>
             </Grid>
-            <Grid item>
-                <Typography variant="h4" marginBottom={1}>Services</Typography>
-                <ul>
-                    <li><a href="#">Hair Treatment</a></li>
-                    <li><a href="#">Hair Services</a></li>
-                    <li><a href="#">Hair Spa</a></li>
-                    <li><a href="#">Glamour Services</a></li>
-                    <li><a href="#">Nails Services</a></li>
-                    <li><a href="#">Makeup</a></li>
-                    <li><a href="#">Manicure</a></li>
-                    <li><a href="#">Pedicure</a></li>
-                </ul>
+            <Grid item container justifyContent={"space-evenly"} padding={2} alignItems={"center"}>
+                <Grid item>Our Premium Brands</Grid>
+                <Grid item><img src={davins} width='150px' /></Grid>
+                <Grid item><img src={voesh} width='200px'/></Grid>
+            <Grid item textAlign={"right"} >
+                Designed & Developed with &hearts; by <a href="mailto: thriveni.aswi@gmail.com" title="thriveni.aswi@gmail.com" className="developer">3Veni</a>
             </Grid>
-            <Grid item>
-                <Typography variant="h4" marginBottom={1}>Business Hours</Typography>
-                <ul>
-                    <li>Monday : 11.00 - 08.00</li>
-                    <li>Tuesday : 11.00 - 08.00</li>
-                    <li>Wednesday : 11.00 - 08.00</li>
-                    <li>Thursday : 11.00 - 08.00</li>
-                    <li>Friday : 11.00 - 08.00</li>
-                    <li>Saturday : 11.00 - 08.00</li>
-                    <li>Sunday : 11.00 - 08.00</li>
-                    <li>Working all days for you.</li>
-                </ul>
             </Grid>
         </Grid>
+    </>
     )
 }

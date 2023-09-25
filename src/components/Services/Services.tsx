@@ -7,7 +7,7 @@ import { Banner } from "../Banner/Banner";
 
 export const Services = () => {
   return ( <>
-  <Banner title="Services"/>
+  <Banner title="Indulge in ultimate pampering with our extensive range of salon services"/>
     <Grid container justifyContent={"space-evenly"} alignItems={"baseline"} flexDirection={"row"}>
       {ServicesList.map((item: any) => {
         return <IconText text={item.title} Icon={item.img} isNails={item.nailsEnhancement}>

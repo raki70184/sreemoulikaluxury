@@ -4,3 +4,8 @@
 ul {
     list-style-type: none;
 }
+
+.developer{
+    text-decoration: none;
+    font-family: cursive;
+}
