@@ -46,7 +46,7 @@ const [error, setError] = useState(false);
   const sendEmail = (e: any) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_bsjgv6k', 'template_mxgbvcc', form.current, 'VOI1D-ttB1t_yiDow')
+    emailjs.sendForm('service_48bfb47', 'template_afb5knb', form.current, 'Of0o3Tv0RGAVN3Snd')
       .then((result) => {
           setSubmitted(true);
       }, (error) => {
