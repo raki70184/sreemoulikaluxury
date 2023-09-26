@@ -1,4 +1,3 @@
-export const Gallery = () => {
-  return ( <>Gallery</>
-  )
-};
+import { Banner } from "../Banner"
+
+export const Gallery = () => ( <Banner title="Coming Soon"></Banner>);
