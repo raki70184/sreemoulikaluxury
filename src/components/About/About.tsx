@@ -1,4 +1,4 @@
-import {  Grid, useTheme, useMediaQuery, Typography } from "@mui/material";
+import { Grid, useTheme, useMediaQuery, Typography } from "@mui/material";
 import React from "react";
 
 import { SelfIntroduction } from "../Home";
@@ -7,14 +7,15 @@ import { CardPanel } from "../CardPanel";
 export const About: React.FC = () => {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
-  
+
   return <>
-    <Grid container paddingLeft={sm?0:2} paddingRight={2} textAlign={"center"}>
+    <Grid container paddingLeft={sm ? 0 : 5}
+      paddingRight={sm ? 2 : 5} textAlign={"center"}>
       <SelfIntroduction />
       <CardPanel title="Meet Us At The Salon">
         <Grid item xs>
-        <Typography variant="body1">
-          At SM, we are dedicated to bringing indulgence, comfort, and luxury right to your fingertips. From our contemporary ambiance to our extensive range of services, products, and color options, take a seat, and you might just find yourself wanting to stay all day.
+          <Typography variant="body1">
+            At SM, we are dedicated to bringing indulgence, comfort, and luxury right to your fingertips. From our contemporary ambiance to our extensive range of services, products, and color options, take a seat, and you might just find yourself wanting to stay all day.
           </Typography>
         </Grid>
       </CardPanel>

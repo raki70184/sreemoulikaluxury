@@ -12,7 +12,7 @@ export const Banner: React.FC<BannerProps> = ({title}) => {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    <Grid className='banner' container justifyContent={"space-evenly"} alignItems={"center"} marginBottom={2}>
+    <Grid className='banner' container justifyContent={"space-evenly"} alignItems={"center"} marginBottom={2} padding={sm?2:5}>
       <Grid item sm={12} md={7} className='bannerText'>
         <Typography variant={sm?"h6":"h4"} color="white" textAlign={"center"}>{title}</Typography>
       </Grid>

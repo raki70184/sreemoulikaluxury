@@ -45,7 +45,7 @@ export const Navigation: React.FC<NavigationProps> = (props: any) => {
         elevation={0}
       >
         <BottomNavigation
-          showLabels
+          showLabels={true}
           value={value}
           className='navigation-wrapper'
           onChange={(event, newValue) => {

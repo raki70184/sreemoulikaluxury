@@ -12,6 +12,8 @@ import { ReactComponent as HairCut } from "../images/hair-cut.svg";
 import { ReactComponent as manicureIcon } from "../images/MANICURE-icon.svg";
 import { ReactComponent as nailIcon } from "../images/NAILS-icon.svg";
 import { ReactComponent as makeupIcon } from "../images/FACIALS-icon.svg";
+
+export const PostDetailsUrl = "https://script.google.com/macros/s/AKfycbwshP2oMrzbEEyWZc8Cgx3e_teIo_ntSqjm3--J9lpRUf2rKL1S1xyTfCtWb4qjcXIB/exec";
 export const staticData = {
     buttonText: {
         bookAppointment: 'Book Appointment',
