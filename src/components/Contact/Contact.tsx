@@ -14,12 +14,12 @@ export const Contact = () => {
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
   return (<>
     <Banner title="Feel like having a chat or setting up an appointment? We're all ears and here to make it happen with a warm welcome!" />
-    <Grid container flexDirection={"row"} alignItems="space-between" paddingLeft={sm ? 2 : 5}
-      paddingRight={sm ? 2 : 5}>
+    <Grid container flexDirection={"row"} alignItems="space-between" paddingLeft={sm ? 3 : 10}
+      paddingRight={sm ? 3 : 10}>
       <Grid item sm={12} md={6}>
         <ContactForm />
       </Grid>
-      <Grid item container flexDirection={"column"} sm={12} md={6} spacing={3} paddingLeft={sm ? 1 : 3} textAlign={sm ? "center" : "left"}>
+      <Grid item container flexDirection={"column"} sm={12} md={6} spacing={3} paddingLeft={sm ? 1 : 5} textAlign={sm ? "center" : "left"}>
         <Grid item>
           <Typography variant="h5">CONTACT INFO</Typography>
         </Grid>

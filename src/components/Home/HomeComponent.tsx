@@ -26,8 +26,8 @@ export const HomeComponent = () => {
         sx={{ flexGrow: 1, marginTop: '10px' }}
         spacing={2}
         alignItems='center'
-        paddingLeft={5}
-        paddingRight={sm?2:5}
+        paddingLeft={10}
+        paddingRight={sm?3:10}
       >
         <Grid item xs container sm={6} spacing={2} marginTop={8} padding={sm ? 0 : 8} textAlign={sm?"center":"left"}>
           <Typography variant={sm?'h5':'h3'} marginBottom={'20px'}>{home.tagLine}</Typography>
@@ -43,7 +43,7 @@ export const HomeComponent = () => {
           </Grid>
         </Hidden>
       </Grid>
-      <Grid container direction="column" marginTop={8} paddingLeft={sm?0:2} paddingRight={sm?0:2}>
+      <Grid container direction="column" marginTop={8} paddingLeft={sm?0:3} paddingRight={sm?0:3}>
         <Grid item>
           <Typography variant={sm?'h5':'h3'} marginBottom={sm?1:8} align='center'>{home.ourServices}</Typography>
         </Grid>
