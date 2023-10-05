@@ -5,7 +5,6 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 
 import ContactForm from "../ContactForm/ContactForm";
-import { Banner } from "../Banner/Banner";
 
 import "./Contactstyles.css";
 
@@ -13,38 +12,38 @@ export const Contact = () => {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
   return (<>
-    <Banner title="Feel like having a chat or setting up an appointment? We're all ears and here to make it happen with a warm welcome!" />
-    <Grid container flexDirection={"row"} alignItems="space-between" paddingLeft={sm ? 3 : 10}
-      paddingRight={sm ? 3 : 10}>
+    {/* <Banner title="Feel like having a chat or setting up an appointment? We're all ears and here to make it happen with a warm welcome!" /> */}
+    <Grid container flexDirection={"row"} alignItems="space-between" paddingLeft={sm ? 3 : 5}
+      paddingRight={sm ? 3 : 5}>
       <Grid item sm={12} md={6}>
         <ContactForm />
       </Grid>
-      <Grid item container flexDirection={"column"} sm={12} md={6} spacing={3} paddingLeft={sm ? 1 : 5} textAlign={sm ? "center" : "left"}>
+      <Grid item container flexDirection={"column"} sm={12} md={6} spacing={3} paddingLeft={sm ? 1 : 5} textAlign={sm ? "center" : "left"} marginTop={0.75}>
         <Grid item>
-          <Typography variant="h5">CONTACT INFO</Typography>
+          <Typography variant="h4" fontWeight={"bold"}>CONTACT INFO</Typography>
         </Grid>
         <Grid item>
-          <Typography variant="body1" paddingBottom={1}>WORKING HOURS:: </Typography>
-          <Typography variant="body1">
+          <Typography variant="h6" paddingBottom={1}>WORKING HOURS:: </Typography>
+          <Typography variant="h6">
             <AccessTimeOutlinedIcon className="icon" />
             Monday to Friday: 11:00 AM - 08:00 PM
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="h6">
             <AccessTimeOutlinedIcon className="icon" />
             Saturday & Sunday: 10:00 AM - 8:30 PM
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="body1">PHONE: </Typography>
-          <Typography variant="body1"><PhoneOutlinedIcon className="icon" />+91 6304400431 </Typography>
+          <Typography variant="h6">PHONE: </Typography>
+          <Typography variant="h6"><PhoneOutlinedIcon className="icon" />+91 6304400431 </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="body1">EMAIL: </Typography>
-          <Typography variant="body1"><EmailOutlinedIcon className="icon" />glamteam.sreemoulika@gmail.com</Typography>
+          <Typography variant="h6">EMAIL: </Typography>
+          <Typography variant="h6"><EmailOutlinedIcon className="icon" />glamteam.sreemoulika@gmail.com</Typography>
         </Grid>
         <Grid item>
-          <Typography variant="body1">ADDRESS: </Typography>
-          <Typography variant="body1">
+          <Typography variant="h6">ADDRESS: </Typography>
+          <Typography variant="h6">
             <PlaceIcon className="icon" />
             <>304, Jain Balaji BigTown Mall, Safilguda, <br />
               Malkajgiri, Hyderabad - 500047 (T.S.) </>

@@ -38,7 +38,7 @@ export const Banner: React.FC<BannerProps> = ({ title }) => {
       </Grid>
       <Grid item sm={12} md={5} className="bannerButton">
         <Button
-          color="warning"
+          color="info"
           variant="contained"
           size="medium"
           fullWidth={sm}

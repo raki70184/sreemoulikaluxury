@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import {
   AppBar,
@@ -13,6 +13,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 import { Navigation } from "../navigation";
+import { Banner } from "../Banner";
+
 import logo from "../images/Logo.png";
 import "./AppBarComponent.css";
 
@@ -32,81 +34,89 @@ function AppBarComponent() {
     setAnchorElNav(null);
   };
   const navigate = useNavigate();
-
+  const location = useLocation();
   return (
-    <AppBar
-      position="static"
-      sx={{
-        background: "#efefef",
-      }}
-      elevation={0}
-    >
-      <Grid
-        container
-        alignItems={"center"}
-        paddingTop="30px"
-        paddingBottom={sm ? 1 : "50px"}
-        paddingLeft={2}
-        paddingRight={2}   //spacing for left and right
-        justifyContent={sm ? "space-between" : "center"}
+    <>
+      <AppBar
+        position="static"
+        sx={{
+          background: "#efefef",
+        }}
+        elevation={0}
       >
-        <Hidden smDown>
-          <Grid item>
-            <Navigation>
-              {" "}
+        <Grid
+          container
+          alignItems={"center"}
+          paddingTop="30px"
+          paddingBottom={sm ? 1 : "50px"}
+          paddingLeft={2}
+          paddingRight={2} //spacing for left and right
+          justifyContent={sm ? "space-between" : "center"}
+        >
+          <Hidden smDown>
+            <Grid item>
+              <Navigation>
+                {" "}
+                <img
+                  src={logo}
+                  width="100px"
+                  onClick={() => navigate("/")}
+                  className="logo"
+                />
+              </Navigation>
+            </Grid>
+          </Hidden>
+          <Hidden smUp>
+            <Grid item>
               <img
                 src={logo}
                 width="100px"
                 onClick={() => navigate("/")}
                 className="logo"
               />
-            </Navigation>
-          </Grid>
-        </Hidden>
-        <Hidden smUp>
-          <Grid item>
-            <img
-              src={logo}
-              width="100px"
-              onClick={() => navigate("/")}
-              className="logo"
-            />
-          </Grid>
-          <Grid item>
-            <IconButton
-              size="large"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-              className="menuIcon"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              <Navigation onClose={handleCloseNavMenu} />
-            </Menu>
-          </Grid>
-        </Hidden>
-      </Grid>
-    </AppBar>
+            </Grid>
+            <Grid item>
+              <IconButton
+                size="large"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+                className="menuIcon"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                <Navigation onClose={handleCloseNavMenu} />
+              </Menu>
+            </Grid>
+          </Hidden>
+        </Grid>
+      </AppBar>
+      {location.pathname === '/contact' &&
+      <Banner title="Feel like having a chat or setting up an appointment? We're all ears and here to make it happen with a warm welcome!" /> }
+      {location.pathname === '/services' &&
+      <Banner title="Indulge in ultimate pampering with our extensive range of salon services" /> }
+      {location.pathname === '/gallery' &&
+      <Banner title="Coming Soon"></Banner>}
+    </>
   );
 }
 export default AppBarComponent;

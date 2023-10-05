@@ -10,7 +10,7 @@ export const CardPanel: React.FC<CardPanelProps> = (props) => {
   return (
     <Grid container marginTop={2} flexDirection={"column"} marginBottom={2}>
       <Grid item xs >
-        <Typography variant="h3" textAlign={"center"} marginBottom={2}>
+        <Typography variant="h3" textAlign={"center"} marginBottom={3} >
           {title}
         </Typography>
       </Grid>

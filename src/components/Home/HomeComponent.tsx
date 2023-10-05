@@ -26,8 +26,8 @@ export const HomeComponent = () => {
         sx={{ flexGrow: 1, marginTop: "10px" }}
         spacing={2}
         alignItems="center"
-        paddingLeft={10}
-        paddingRight={sm ? 3 : 10}
+        paddingLeft={sm ? 3 : 10}
+        paddingRight={sm ? 0 : 10}
       >
         <Grid
           item
@@ -42,18 +42,23 @@ export const HomeComponent = () => {
           <Typography variant={sm ? "h5" : "h3"} marginBottom={"20px"}>
             {home.tagLine}
           </Typography>
-          <Typography variant="body1" marginBottom={"20px"}>
+          <Typography
+            variant="h6"
+            align="justify"
+            marginBottom={"20px"}
+            letterSpacing={0}
+          >
             {home.description}
           </Typography>
-          <Typography variant="body1" marginBottom={"50px"}>
+          <Typography
+            variant="h6"
+            align="justify"
+            letterSpacing={0}
+            marginBottom={"50px"}
+          >
             {home.subDescription}
           </Typography>
-          <Button
-            color="warning"
-            variant="contained"
-            size="medium"
-            fullWidth={sm}
-          >
+          <Button color="info" variant="contained" size="medium" fullWidth={sm}>
             <a href="tel:+916304400431" className="appointment">
               {buttonText.bookAppointment}
             </a>
@@ -89,7 +94,7 @@ export const HomeComponent = () => {
         <Grid item>
           <Typography
             variant={sm ? "h5" : "h3"}
-            marginBottom={sm ? 1 : 8}
+            marginBottom={sm ? 1 : 2.5}
             align="center"
           >
             About Me

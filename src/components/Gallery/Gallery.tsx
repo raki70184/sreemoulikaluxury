@@ -1,3 +1,3 @@
-import { Banner } from "../Banner"
+import { Typography } from "@mui/material";
 
-export const Gallery = () => ( <Banner title="Coming Soon"></Banner>);
+export const Gallery = () => ( <Typography padding={2}></Typography>);

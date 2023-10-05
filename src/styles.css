@@ -15,8 +15,12 @@ body,
   margin: 0 auto;
 }
 
+.mainBody{
+  padding: 0px 10%;
+}
+
 .MuiTypography-root {
-  font-family: ivymode !important;
+  font-family: Raleway !important;
   font-weight: 400;
   font-style: normal;
   font-size: 40px;
@@ -40,14 +44,18 @@ body,
 }
 
 h3,
-h5 {
+h5,
+h4 {
   color: #4b5742;
   font-style: italic;
 }
 
 ul li {
-  font-family: "EB Garamond", Sans-serif;
+  font-family: Raleway;
   text-transform: capitalize;
+}
+ul{
+  background-color: #efefef;
 }
 
 .svgIcon svg {
@@ -58,4 +66,11 @@ ul li {
 .borderSpacing {
   margin: 2rem auto;
   width: 50%;
+}
+
+/* Mobile stylings */
+@media only screen and (max-width: 780px) {
+  .mainBody{
+    padding: 0px 16px;
+  }
 }
