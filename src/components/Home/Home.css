@@ -1,31 +1,32 @@
 .header {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50%;
-    color: pink;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  color: pink;
+  display: none;
 }
 
-.carousal-wrapper img{
-    object-fit: cover;
-    max-width: fit-content;
-    height: 500px;
+.carousal-wrapper img {
+  object-fit: cover;
+  max-width: fit-content;
+  height: 500px;
 }
 
-.appointment{
-    text-decoration: none;
-    color: #fff;
+.appointment {
+  text-decoration: none;
+  color: #fff;
 }
 
 .self-image {
-    text-align: center;
-    border-radius: 7px;
+  text-align: center;
+  border-radius: 7px;
 }
 
-.self-image  img {
-    border-radius: 10px;
+.self-image img {
+  border-radius: 10px;
 }
 
-.serviceImage{
-    cursor: pointer;
+.serviceImage {
+  cursor: pointer;
 }

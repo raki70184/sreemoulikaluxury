@@ -1,22 +1,28 @@
 
 .navigation-wrapper {
     height: auto !important;
+    background: #efefef !important;
 }
 .navigation-wrapper button span{
     font-size: 1rem !important;
+    font-family: Raleway; /* font size and family change for home bar*/
 }
 .navigation-wrapper button{
-    background: #fff;
+    background: #efefef;
     align-items: center;
     text-transform: uppercase;
-    color: #eed26e !important;
-    font-weight: 600;
-    letter-spacing: 1px;
+    color: #4b5742 !important;
     margin-bottom: 11px;
     width: 200px;
     text-align: center;
+    font-family: Raleway;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: .15em;
    
 }
-.navigation-wrapper button:hover{
-    border-bottom: 1px solid #eed26e;
+.navigation-wrapper button span:hover{
+    color: red;
+    
 }

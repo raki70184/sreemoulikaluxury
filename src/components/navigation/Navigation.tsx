@@ -41,7 +41,7 @@ export const Navigation: React.FC<NavigationProps> = (props: any) => {
     <Box ref={ref}>
       <CssBaseline />
       <Paper
-        sx={{  bgcolor: '#fff'}}
+        sx={{  bgcolor: '#efefef'}}
         elevation={0}
       >
         <BottomNavigation

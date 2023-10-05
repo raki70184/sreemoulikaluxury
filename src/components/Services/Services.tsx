@@ -14,7 +14,7 @@ export const Services = () => {
             {item.list.map((itemList: string) => (<li>{itemList}</li>))}
           </ul>
 
-          {item.nailsEnhancement?.length > 0 && <><hr className="borderSpacing " />
+          {item.nailsEnhancement?.length > 0 && <><hr className="borderSpacing" />
             <Grid container justifyContent={"space-evenly"} alignItems={"baseline"} flexDirection={"row"}>
               {item.nailsEnhancement.map((nails: any) => {
                 return <IconText text={nails.name}>

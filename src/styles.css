@@ -3,36 +3,47 @@
   margin: 0;
 }
 
-body, .app-bar-background {
-  background-color: #fff !important;
-  font-family: "EB Garamond", Sans-serif;
+body,
+.app-bar-background {
+  background-color: #efefef !important;
+  font-family: Raleway;
   font-size: 12px;
 }
 
 .App {
-  font-family: "EB Garamond", Sans-serif;
+  font-family: Raleway;
   margin: 0 auto;
 }
 
-.MuiTypography-root{
-  font-family: "Cormorant Garamond", sans-serif !important;
-    font-size: 20px;
-    font-stretch: condensed;
-    font-style: italic;
+.MuiTypography-root {
+  font-family: ivymode !important;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  letter-spacing: 0.05em;
+  line-height: 1.3em;
+  text-transform: none;
 }
+
 .footer {
-  font-family: "EB Garamond", Sans-serif;
   margin: 0 auto;
-  background-color: #f3ede8;
+  background-color: #bbc1b9;
   margin-top: 16px;
-  font-size: 12px;
+  font-family: Raleway;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 0.035em;
+  line-height: 1.7em;
+  text-transform: none;
+  color: #4a5742;
 }
 
-h3, h5 {
-  color: #eed26e;
+h3,
+h5 {
+  color: #4b5742;
   font-style: italic;
 }
-
 
 ul li {
   font-family: "EB Garamond", Sans-serif;
@@ -46,5 +57,5 @@ ul li {
 
 .borderSpacing {
   margin: 2rem auto;
-    width: 50%;
+  width: 50%;
 }
