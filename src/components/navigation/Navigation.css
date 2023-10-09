@@ -29,8 +29,9 @@
 .callMe span:first-child{
     border: 1px solid #ddd;
     background-color: #bbc1b9;
-    color: #4b5742 !important;
+    color: #fff;
     padding: 8px;
     border-radius: 8px;
     font-size: 11px !important;
+    text-decoration: underline;
 }

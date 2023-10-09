@@ -58,8 +58,8 @@ export const HomeComponent = () => {
           >
             {home.subDescription}
           </Typography>
-          <Button variant="contained" size="medium" fullWidth={sm} className="bookAppointment">
-            <a href="tel:+916304400431">
+          <Button variant="contained" size="large" fullWidth={sm} className="bookAppointment">
+            <a href="tel:+916304400431" >
               {buttonText.bookAppointment}
             </a>
           </Button>

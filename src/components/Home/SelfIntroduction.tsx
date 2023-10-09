@@ -1,11 +1,11 @@
-import { Grid, Hidden, Typography } from "@mui/material";
 import React from "react";
+
+import { Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import ShowMoreText from "react-show-more-text";
-import { useNavigate } from "react-router-dom";
 
 import Self from "../images/Self.jpg";
+
 interface SelfIntroductionProps {}
 export const SelfIntroduction: React.FC<SelfIntroductionProps> = () => {
   const theme = useTheme();

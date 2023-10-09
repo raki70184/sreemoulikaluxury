@@ -29,11 +29,15 @@
 
 .bookAppointment {
   background-color: #fff !important;
-  color: #4b5742 !important;
+  border-radius: 0.5rem !important;
+}
+
+.bookAppointment:hover {
+  background-color: #bbc1b9 !important;
   text-decoration: none ;
 }
 
-.bookAppointment button:hover {
-  background-color: #bbc1b9 !important;
+.bookAppointment a {
+  color: #4b5742;
   text-decoration: none ;
 }

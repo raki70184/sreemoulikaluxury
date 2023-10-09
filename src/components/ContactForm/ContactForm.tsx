@@ -13,9 +13,11 @@ import {
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LoadingButton } from "@mui/lab";
+
+import { PostDetailsUrl } from "../utils/constants";
 
 import "./ContactForm.css"; // Import the CSS file for styles
-import { PostDetailsUrl } from "../utils/constants";
 
 interface FormData {
   name: string;
@@ -39,12 +41,14 @@ const ContactForm: React.FC = () => {
   ) as React.MutableRefObject<HTMLFormElement>;
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialFormData);
 
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down("sm"));
   const submitHanlder = (e: any) => {
     e.preventDefault();
+    setIsLoading(true);
     fetch(form.current.action, {
       method: form.current.method,
       body: new FormData(form.current),
@@ -52,8 +56,12 @@ const ContactForm: React.FC = () => {
       .then((response) => {
         setSubmitted(response.ok);
         setFormData(initialFormData);
+        setIsLoading(false);
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        setError(error.message) 
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -197,8 +205,8 @@ const ContactForm: React.FC = () => {
                   id="outlined-multiline-flexible"
                   label="Comment"
                   multiline
-                  maxRows={4}
                   name="message"
+                  rows={3}
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
@@ -207,14 +215,17 @@ const ContactForm: React.FC = () => {
                 />
               </Grid>
               <Grid item marginTop={2} className="appointment">
-                <Button
+                <LoadingButton
                   type="submit"
                   variant="contained"
                   sx={{ borderRadius: "10px" }}
                   fullWidth={sm}
+                  loading={isLoading}
+                  loadingIndicator="Submitting..."
+                  size="large"
                 >
-                  <a className="appointment">Schedule Your Visit</a>
-                </Button>
+                  Schedule Your Visit
+                </LoadingButton>
               </Grid>
             </Grid>
           </form>
