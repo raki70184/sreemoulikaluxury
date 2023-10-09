@@ -13,10 +13,6 @@
   height: 500px;
 }
 
-.appointment {
-  text-decoration: none;
-  color: #fff;
-}
 
 .self-image {
   text-align: center;
@@ -29,4 +25,15 @@
 
 .serviceImage {
   cursor: pointer;
+}
+
+.bookAppointment {
+  background-color: #fff !important;
+  color: #4b5742 !important;
+  text-decoration: none ;
+}
+
+.bookAppointment button:hover {
+  background-color: #bbc1b9 !important;
+  text-decoration: none ;
 }

@@ -58,8 +58,8 @@ export const HomeComponent = () => {
           >
             {home.subDescription}
           </Typography>
-          <Button color="info" variant="contained" size="medium" fullWidth={sm}>
-            <a href="tel:+916304400431" className="appointment">
+          <Button variant="contained" size="medium" fullWidth={sm} className="bookAppointment">
+            <a href="tel:+916304400431">
               {buttonText.bookAppointment}
             </a>
           </Button>
@@ -97,7 +97,7 @@ export const HomeComponent = () => {
             marginBottom={sm ? 1 : 2.5}
             align="center"
           >
-            About Me
+            About US
           </Typography>
         </Grid>
         <Grid item>

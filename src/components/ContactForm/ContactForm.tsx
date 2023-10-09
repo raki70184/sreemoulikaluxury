@@ -77,9 +77,9 @@ const ContactForm: React.FC = () => {
             <a
               target="blank"
               className="instagram"
-              href="https://instagram.com/sm.luxe.hyderabad?igshid=OGQ5ZDc2ODk2ZA=="
+              href="https://instagram.com/sm.luxe_?igshid=MzRlODBiNWFlZA=="
             >
-              @Smluxehyderabad
+              @Smluxe
             </a>{" "}
             for any other queries !!
           </Grid>
@@ -182,7 +182,7 @@ const ContactForm: React.FC = () => {
                           },
                         },
                       }}
-                      label="Scheduled Date"
+                      label="Appointment Date"
                       value={formData.schedule}
                       sx={{ width: "100%" }}
                       onChange={(e) =>
@@ -206,12 +206,10 @@ const ContactForm: React.FC = () => {
                   fullWidth
                 />
               </Grid>
-              <Grid item marginTop={2}>
+              <Grid item marginTop={2} className="appointment">
                 <Button
                   type="submit"
-                  color="warning"
                   variant="contained"
-                  size="medium"
                   sx={{ borderRadius: "10px" }}
                   fullWidth={sm}
                 >

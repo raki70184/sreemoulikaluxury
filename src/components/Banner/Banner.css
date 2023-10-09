@@ -1,27 +1,27 @@
-
-.banner{
-    background: #bbc1b9;
-    height: 300px;
-    text-align: center;
-  }
-.bannerButton button{
-    height: 4rem;
-    border-radius: 4rem;
-    font-weight: 600;
-    background-color: #0288d1;
+.banner {
+  background: #bbc1b9;
+  height: 300px;
+  text-align: center;
+}
+.bannerButton button {
+  height: 4rem;
+  border-radius: 4rem;
+  font-weight: 600;
+  background-color: #fff;
 }
 
-.bannerButton button:hover{
-    background-color: #8c5030;
+.bannerButton button:hover {
+  background-color: #bbc1b9;
 }
 
-a.bannerAppointment{
-    text-decoration: none;
-    color: #eed26e;
-font-weight: 600;
+a.bannerAppointment {
+  text-decoration: none;
+  color: #4b5742;
+  font-weight: 600;
 }
 
 .bannerText h4 {
-    font-stretch: condensed;
-    font-style: italic;
+  font-stretch: condensed;
+  font-style: italic;
+  margin-left: 10rem;
 }
