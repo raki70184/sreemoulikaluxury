@@ -17,7 +17,7 @@ export const SelfIntroduction: React.FC<SelfIntroductionProps> = () => {
       sx={{ flexGrow: 1, marginTop: "10px" }}
       spacing={2}
       alignItems={sm ? "center" : "flex-start"}
-      paddingLeft={2}
+      paddingLeft={sm?0:2}
       paddingRight={2}
       paddingBottom={2}
     >
@@ -26,7 +26,7 @@ export const SelfIntroduction: React.FC<SelfIntroductionProps> = () => {
           src={Self}
           className="image"
           alt="SMBeauty parlour"
-          width="300"
+          width={sm?"280":"300"}
           height="auto"
         />
       </Grid>

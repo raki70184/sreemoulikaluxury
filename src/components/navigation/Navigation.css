@@ -35,3 +35,12 @@
     font-size: 11px !important;
     text-decoration: underline;
 }
+
+/* Mobile stylings */
+@media only screen and (max-width: 780px) {
+    .callMe span:first-child{
+        font-size: 1rem !important;
+        text-decoration: none;
+    }
+  }
+  

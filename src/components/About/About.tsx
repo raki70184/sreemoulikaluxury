@@ -9,8 +9,7 @@ export const About: React.FC = () => {
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
   return <>
-    <Grid container paddingLeft={sm?0:2}
-      paddingRight={sm ? 2 : 0} textAlign={"center"}>
+    <Grid container paddingLeft={sm?0:2} textAlign={"center"}>
       <SelfIntroduction />
       <CardPanel title="Meet Us At The Salon">
         <Grid item xs paddingLeft={2}>
