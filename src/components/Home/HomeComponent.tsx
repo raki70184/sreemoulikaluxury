@@ -97,7 +97,7 @@ export const HomeComponent = () => {
             marginBottom={sm ? 1 : 2.5}
             align="center"
           >
-            About US
+            Meet Us At The Salon
           </Typography>
         </Grid>
         <Grid item>

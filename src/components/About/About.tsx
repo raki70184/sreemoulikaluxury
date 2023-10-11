@@ -10,14 +10,14 @@ export const About: React.FC = () => {
 
   return <>
     <Grid container paddingLeft={sm?0:2} textAlign={"center"}>
-      <SelfIntroduction />
-      <CardPanel title="Meet Us At The Salon">
+      <SelfIntroduction isAbout/>
+      {/* <CardPanel title="Meet Us At The Salon">
         <Grid item xs paddingLeft={2}>
           <Typography variant="h6" align="justify" letterSpacing={0}>
             At SM, we are dedicated to bringing indulgence, comfort, and luxury right to your fingertips. From our contemporary ambiance to our extensive range of services, products, and color options, take a seat, and you might just find yourself wanting to stay all day.
           </Typography>
         </Grid>
-      </CardPanel>
+      </CardPanel> */}
       <CardPanel title="Our Values" >
         <Grid container flexDirection={sm ? "column" : "row"} marginBottom={2}>
           <Grid item xs md={4} padding={2}  >
