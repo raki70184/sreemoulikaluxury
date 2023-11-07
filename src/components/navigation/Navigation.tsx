@@ -48,6 +48,7 @@ export const Navigation: React.FC<NavigationProps> = (props: any) => {
             props.onClose && props.onClose();
           }}
         >
+          {props.children}
           <BottomNavigationAction
             label="Home"
             value={value}
@@ -63,7 +64,6 @@ export const Navigation: React.FC<NavigationProps> = (props: any) => {
             value={value}
             onClick={() => navigate("/services")}
           />
-          {props.children}
           <BottomNavigationAction
             label="Gallery"
             value={value}

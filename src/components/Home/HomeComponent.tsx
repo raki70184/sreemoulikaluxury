@@ -11,6 +11,7 @@ export const HomeComponent = () => {
   const { home, buttonText } = staticData;
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down("md"));
+  const xs = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
@@ -21,7 +22,7 @@ export const HomeComponent = () => {
       </Grid>
       <Grid
         container
-        direction="row"
+       className="title-description"
         justifyContent="space-between"
         sx={{ flexGrow: 1, marginTop: "10px" }}
         spacing={2}
@@ -33,7 +34,8 @@ export const HomeComponent = () => {
           item
           xs
           container
-          sm={6}
+          lg={7}
+          md={12}
           spacing={2}
           marginTop={8}
           padding={sm ? 0 : 8}
@@ -58,15 +60,15 @@ export const HomeComponent = () => {
           >
             {home.subDescription}
           </Typography>
-          <Button variant="contained" size="large" fullWidth={sm} className="bookAppointment">
+          <Button variant="contained" size="large" fullWidth={xs} className="bookAppointment">
             <a href="tel:+916304400431" >
               {buttonText.bookAppointment}
             </a>
           </Button>
         </Grid>
-        <Hidden smDown>
-          <Grid item xs sm={6} className="self-image">
-            <img src={SMHome} className="image" alt="SMBeauty parlour" />
+        <Hidden mdDown>
+          <Grid item xs lg={5} md={12} className="self-image">
+            <img src={SMHome} className="image" alt="SMBeauty parlour"/>
           </Grid>
         </Hidden>
       </Grid>

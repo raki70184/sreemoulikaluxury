@@ -21,6 +21,8 @@
 
 .self-image img {
   border-radius: 10px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .serviceImage {
@@ -29,7 +31,9 @@
 
 .bookAppointment {
   background-color: #fff !important;
-  border-radius: 0.5rem !important;
+  height: 4rem;
+    border-radius: 4rem !important;
+    font-weight: 600;
 }
 
 .bookAppointment:hover {
@@ -40,4 +44,9 @@
 .bookAppointment a {
   color: #4b5742;
   text-decoration: none ;
+}
+@media only screen and (min-width: 780px) and (max-width: 1024px) {
+  .title-description{
+flex-direction: "column-reverse";
+  }
 }

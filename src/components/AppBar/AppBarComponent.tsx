@@ -22,6 +22,7 @@ import "./AppBarComponent.css";
 function AppBarComponent() {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down("sm"));
+  const md = useMediaQuery(theme.breakpoints.down("lg"));
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -48,22 +49,25 @@ function AppBarComponent() {
         <Grid
           container
           alignItems={"center"}
-          paddingTop="30px"
-          paddingBottom={sm ? 1 : "50px"}
-          paddingLeft={2}
-          paddingRight={2} //spacing for left and right
-          justifyContent={sm ? "space-between" : "center"}
+          className="appBarStyle"
         >
           <Hidden smDown>
             <Grid item>
+              <img
+                src={SMlogo}
+                onClick={() => navigate("/")}
+                className="logo"
+              />
+            </Grid>
+            <Grid item>
               <Navigation>
                 {" "}
-                <img
+                {/* <img
                   src={SMlogo}
-                  width="100px"
+                  width="200px"
                   onClick={() => navigate("/")}
                   className="logo"
-                />
+                /> */}
               </Navigation>
             </Grid>
           </Hidden>
@@ -111,12 +115,15 @@ function AppBarComponent() {
           </Hidden>
         </Grid>
       </AppBar>
-      {location.pathname === '/contact' &&
-      <Banner title="Feel like having a chat or setting up an appointment? We're all ears and here to make it happen with a warm welcome!" /> }
-      {location.pathname === '/services' &&
-      <Banner title="Indulge in ultimate pampering with our extensive range of salon services" /> }
-      {location.pathname === '/gallery' &&
-      <Banner title="Coming Soon"></Banner>}
+      {location.pathname === "/contact" && (
+        <Banner title="Feel like having a chat or setting up an appointment? We're all ears and here to make it happen with a warm welcome!" />
+      )}
+      {location.pathname === "/services" && (
+        <Banner title="Indulge in ultimate pampering with our extensive range of salon services" />
+      )}
+      {location.pathname === "/gallery" && (
+        <Banner title="Coming Soon"></Banner>
+      )}
     </>
   );
 }

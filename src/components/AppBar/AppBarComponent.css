@@ -20,4 +20,42 @@ a.telephone-number:hover{
 
 .logo{
     cursor: pointer;
+    width: 300px;
 }
+.appBarStyle{
+    flex-direction: row;
+    padding: 30px 10%;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;
+    
+}
+
+@media only screen and (max-width: 1024px) {
+    .logo{
+      width: 200px;
+    }
+    .appBarStyle{
+        padding-left: 0px;
+    }
+  }
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    
+    .appBarStyle{
+       flex-direction: column;
+       flex-wrap: wrap !important;
+       justify-content: center;
+    }
+  }
+@media only screen and (max-width: 425px) {
+    
+    .appBarStyle{
+       flex-direction: column;
+       flex-wrap: wrap !important;
+       justify-content: space-between;
+       padding: 0%;
+    }
+    .logo{
+        width: 100px;
+    }
+  }
+  
