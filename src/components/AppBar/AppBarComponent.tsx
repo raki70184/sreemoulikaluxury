@@ -16,6 +16,7 @@ import { Navigation } from "../navigation";
 import { Banner } from "../Banner";
 
 import logo from "../images/Logo.png";
+import SMlogo from "../images/SMlogo.png";
 import "./AppBarComponent.css";
 
 function AppBarComponent() {
@@ -58,7 +59,7 @@ function AppBarComponent() {
               <Navigation>
                 {" "}
                 <img
-                  src={logo}
+                  src={SMlogo}
                   width="100px"
                   onClick={() => navigate("/")}
                   className="logo"
@@ -69,7 +70,7 @@ function AppBarComponent() {
           <Hidden smUp>
             <Grid item>
               <img
-                src={logo}
+                src={SMlogo}
                 width="100px"
                 onClick={() => navigate("/")}
                 className="logo"
