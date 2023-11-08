@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { About, Contact, HomeComponent, Services, Footer } from "./components";
+import { About, Contact, HomeComponent, Services, Footer, Instagram } from "./components";
 import AppBarComponent from "./components/AppBar/AppBarComponent";
 import "./styles.css";
 import { Gallery } from "./components/Gallery";
@@ -19,6 +19,7 @@ export default function App() {
           </Routes>
         </div>
       </div>
+      <Instagram />
       <div className="footer">
         <Footer />
       </div>

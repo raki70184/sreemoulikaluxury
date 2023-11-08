@@ -24,8 +24,8 @@ a.telephone-number:hover{
 }
 .appBarStyle{
     flex-direction: row;
-    padding: 30px 10%;
-    justify-content: space-between;
+    padding: 30px 0% 30px 0%;
+    justify-content: space-evenly;
     flex-wrap: nowrap !important;
     
 }
@@ -33,9 +33,6 @@ a.telephone-number:hover{
 @media only screen and (max-width: 1024px) {
     .logo{
       width: 200px;
-    }
-    .appBarStyle{
-        padding-left: 0px;
     }
   }
 @media only screen and (min-width: 426px) and (max-width: 768px) {

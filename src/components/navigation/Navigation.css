@@ -13,15 +13,17 @@
     text-transform: uppercase;
     color: #4b5742 !important;
     margin-bottom: 11px;
-    width: 150px;
+    min-width: inherit;
+    max-width: inherit;
     text-align: center;
     font-family: Raleway;
     font-weight: 600;
     font-style: normal;
     font-size: 13px;
     letter-spacing: .15em;
+    margin-right: 25px;
     @media only screen and (max-width: 1024px) { 
-        width: 100px;
+        margin-right: 0px;
     }
    
 }
@@ -37,9 +39,6 @@
     border-radius: 8px;
     font-size: 11px !important;
     text-decoration: underline;
-    @media only screen and (min-width:768px) and (max-width: 1024px) { 
-       margin-left: 74px;
-    }
 }
 
 /* Mobile stylings */

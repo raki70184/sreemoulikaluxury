@@ -32,26 +32,40 @@ export const Footer = () => {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Hidden smDown>
-            <Grid item marginLeft={2}>
-              Our Premium Brands
+          <Grid
+            item
+            container
+            flexDirection={md ? "column" : "row"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            sm={9}
+          >
+            <Hidden smDown>
+              <Grid item marginLeft={2} marginBottom={md ? 2 : 0}>
+                Our Premium Brands
+              </Grid>
+            </Hidden>
+            <Grid item marginLeft={sm ? 0 : 4}>
+              <img src={davins} width="150px" />
             </Grid>
-          </Hidden>
-          <Grid item marginLeft={sm ? 0 : 4}>
-            <img src={davins} width="150px" />
+            <Grid item marginLeft={sm ? 2 : 4}>
+              <img src={voesh} width="200px" />
+            </Grid>
           </Grid>
-          <Grid item marginLeft={sm ? 2 : 4}>
-            <img src={voesh} width="200px" />
-          </Grid>
-          <Grid item textAlign={sm?"center":"right"} marginLeft={sm ? 0 : 4}>
-            Designed & Developed with &hearts; by
+          <Grid
+            item
+            textAlign={sm ? "center" : "right"}
+            marginLeft={sm ? 0 : 4}
+          >
+            By
             <a
-              href="mailto: thriveni.aswi@gmail.com"
+              href="tel: +91-9632267759"
               title="thriveni.aswi@gmail.com"
               className="developer"
             >
               3Veni
             </a>
+            - A Passion Developer
           </Grid>
         </Grid>
       </Grid>

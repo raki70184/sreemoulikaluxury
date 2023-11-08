@@ -5,3 +5,4 @@ export * from "./Home";
 export * from "./Services/Services";
 export * from "./AppBar";
 export * from "./Footer";
+export * from "./Instagram";
