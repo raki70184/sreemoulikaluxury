@@ -14,7 +14,7 @@ import { ReactComponent as nailIcon } from "../images/NAILS-icon.svg";
 import { ReactComponent as makeupIcon } from "../images/FACIALS-icon.svg";
 
 export const PostDetailsUrl =
-  "https://script.google.com/macros/s/AKfycbwshP2oMrzbEEyWZc8Cgx3e_teIo_ntSqjm3--J9lpRUf2rKL1S1xyTfCtWb4qjcXIB/exec";
+  "https://script.google.com/macros/s/AKfycbwMSPa8M4nAcsJiYEI_TguIDAcvGZfMulBH01E-1FEBZo9i47ziV8p5R69uqUM_2_j7/exec";
 export const staticData = {
   buttonText: {
     bookAppointment: "Book Appointment",
