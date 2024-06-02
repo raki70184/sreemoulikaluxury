@@ -4,7 +4,7 @@ import { SelfIntroduction, ServicesImageList } from ".";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import SMHome from "../images/home.jpeg";
+import tailoredForYou from "../images/tailoredForYou.jpeg";
 import { HomeSlider } from "./HomeSlider";
 import "./Home.css";
 export const HomeComponent = () => {
@@ -22,7 +22,7 @@ export const HomeComponent = () => {
       </Grid>
       <Grid
         container
-       className="title-description"
+        className="title-description"
         justifyContent="space-between"
         sx={{ flexGrow: 1, marginTop: "10px" }}
         spacing={2}
@@ -61,14 +61,14 @@ export const HomeComponent = () => {
             {home.subDescription}
           </Typography>
           <Button variant="contained" size="large" fullWidth={xs} className="bookAppointment">
-            <a href="tel:+916304400431" >
+            <a href="tel: +91 9347238248" >
               {buttonText.bookAppointment}
             </a>
           </Button>
         </Grid>
         <Hidden mdDown>
-          <Grid item xs lg={5} md={12} className="self-image">
-            <img src={SMHome} className="image" alt="SMBeauty parlour"/>
+          <Grid item xs lg={5} md={12} className="tailoredForYou-image">
+            <img src={tailoredForYou} className="image" alt="SMBeauty parlour"/>
           </Grid>
         </Hidden>
       </Grid>

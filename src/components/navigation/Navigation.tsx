@@ -75,10 +75,10 @@ export const Navigation: React.FC<NavigationProps> = (props: any) => {
             onClick={() => navigate("/contact")}
           />
           <BottomNavigationAction
-            label={sm ? "Book" : "call:916304400431"}
+            label={sm ? "Book" : "call:9347238248"}
             value={value}
             className="callMe"
-            onClick={() => window.open("tel:916304400431")}
+            onClick={() => window.open("tel:+91 9347238248")}
           />
         </BottomNavigation>
       </Paper>

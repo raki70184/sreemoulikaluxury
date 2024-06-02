@@ -13,6 +13,15 @@
   height: 500px;
 }
 
+.tailoredForYou-image {
+  text-align: center;
+  border-radius: 7px;
+}
+
+.tailoredForYou-image img {
+  border-radius: 10px;
+  max-width: 100%;
+}
 
 .self-image {
   text-align: center;
@@ -22,7 +31,21 @@
 .self-image img {
   border-radius: 10px;
   max-width: 100%;
-  max-height: 100%;
+}
+
+.technician-image {
+  text-align: center;
+  border-radius: 7px;
+}
+
+.technician-image img {
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.family-image img {
+  border-radius: 10px;
+  max-width: 100%;
 }
 
 .serviceImage {
@@ -32,21 +55,35 @@
 .bookAppointment {
   background-color: #fff !important;
   height: 4rem;
-    border-radius: 4rem !important;
-    font-weight: 600;
+  border-radius: 4rem !important;
+  font-weight: 600;
 }
 
 .bookAppointment:hover {
   background-color: #bbc1b9 !important;
-  text-decoration: none ;
+  text-decoration: none;
 }
 
 .bookAppointment a {
   color: #4b5742;
-  text-decoration: none ;
+  text-decoration: none;
 }
 @media only screen and (min-width: 780px) and (max-width: 1024px) {
-  .title-description{
-flex-direction: "column-reverse";
+  .title-description {
+    flex-direction: "column-reverse";
   }
 }
+
+@media only screen and (min-width: 1445px) and (max-width: 2560px) {
+  .tailoredForYou-image img {
+    height: 500px;
+    margin-top: 140px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .family-image img {
+    margin-left: 100px;
+  }
+}
+

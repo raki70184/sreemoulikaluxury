@@ -15,7 +15,7 @@ export const Instagram: React.FC<InstagramProps> = () => (
         target="blank"
         href="https://instagram.com/sm.luxe_?igshid=MzRlODBiNWFlZA=="
       >
-        Instagram 
+      Instagram 
       </a>{" "}
       <InstagramIcon className="insta-icon" />
     </Typography>

@@ -44,6 +44,15 @@ const ContactForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialFormData);
 
+  const handlePhoneChange = (e:any) => {
+    // Remove non-digit characters from the input
+    const sanitizedInput = e.target.value.replace(/\D/g, '');
+
+    // Check if the input is a number and has a length of 10
+    if (/^\d{0,10}$/.test(sanitizedInput)) {
+      setFormData({ ...formData, phone: sanitizedInput });
+    }
+  };
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down("sm"));
   const submitHanlder = (e: any) => {
@@ -87,7 +96,7 @@ const ContactForm: React.FC = () => {
               className="instagram"
               href="https://instagram.com/sm.luxe_?igshid=MzRlODBiNWFlZA=="
             >
-              @Smluxe
+              @sm.luxe_
             </a>{" "}
             for any other queries !!
           </Grid>
@@ -152,9 +161,7 @@ const ContactForm: React.FC = () => {
                     label="Phone Number"
                     name="phone"
                     value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    onChange={handlePhoneChange}
                     type="tel"
                   />
                 </Grid>

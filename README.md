@@ -17,3 +17,7 @@ https://dessangeindia.com/
 ## Desktop View and Mobile view
 
 1. Things to displayed
+
+--Here is one online website for displaying pictures full and text over it
+
+https://onlinealcohol.in/

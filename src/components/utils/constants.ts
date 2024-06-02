@@ -1,11 +1,27 @@
-import hairTreatment from "../images/HairTreatment.jpeg";
-import hairSpa from "../images/HairSpa.jpeg";
-import hairServices from "../images/HairServices.jpeg";
 import glamour from "../images/glamourServices.jpg";
 import makeup from "../images/Makeup.jpeg";
 import manicure from "../images/manicure.jpeg";
 import pedicure from "../images/pedicure.jpg";
 import nails from "../images/NailServices.jpeg";
+import S1 from "../images/DesktopImages/S1.jpeg";
+import S2 from "../images/DesktopImages/S2.jpeg";
+import S3 from "../images/DesktopImages/S3.jpeg";
+import S4 from "../images/DesktopImages/S4.jpeg";
+import S5 from "../images/DesktopImages/S5.jpeg";
+import S6 from "../images/DesktopImages/S6.jpeg";
+import S7 from "../images/DesktopImages/S7.jpeg";
+
+import M1 from "../images/MobileImages/M1.jpg";
+import M2 from "../images/MobileImages/M2.jpg";
+import M3 from "../images/MobileImages/M3.jpg";
+import M4 from "../images/MobileImages/M4.jpg";
+import M5 from "../images/MobileImages/M5.jpg";
+import M6 from "../images/MobileImages/M6.jpg";
+
+import hairTreatment_service from "../images/HairTreatment_service.jpeg";
+import hairSpa_service from "../images/HairSpa_service.jpeg";
+import hairServices from "../images/HairServices.jpeg";
+import beauty_service from "../images/BeautyServices.jpg";
 
 import { ReactComponent as HairIcon } from "../images/hair-style.svg";
 import { ReactComponent as HairCut } from "../images/hair-cut.svg";
@@ -30,9 +46,71 @@ export const staticData = {
   },
 };
 
+export const homeImagesList = [
+  {
+    img: S1,
+    title: "Hair Treatment",
+  },
+  {
+    img: S2,
+    title: "Hair Services",
+  },
+  {
+    img: S3,
+    title: "Hair Spa",
+  },
+  {
+    img: S4,
+    title: "Glamour Services",
+  },
+  {
+    img: S5,
+    title: "Nails Services",
+  },
+  {
+    img: S6,
+    title: "Makeup",
+  },
+  {
+    img: S7,
+    title: "Manicure",
+  },
+  {
+    img: pedicure,
+    title: "Pedicure",
+  },
+];
+
+
+export const mobileImagesList = [
+  {
+    img: M1,
+    title: "Glamour Services",
+  },
+  {
+    img: M2,
+    title: "Makeup",
+  },
+  {
+    img: M3,
+    title: "Makeup",
+  },
+  {
+    img: M4,
+    title: "Makeup",
+  },
+  {
+    img: M5,
+    title: "Makeup",
+  },
+  {
+    img: M6,
+    title: "Makeup",
+  },
+];
 export const ImageServiceList = [
   {
-    img: hairTreatment,
+    img: hairTreatment_service,
     title: "Hair Treatment",
   },
   {
@@ -40,12 +118,12 @@ export const ImageServiceList = [
     title: "Hair Services",
   },
   {
-    img: hairSpa,
+    img: hairSpa_service,
     title: "Hair Spa",
   },
   {
-    img: glamour,
-    title: "Glamour Services",
+    img: beauty_service,
+    title: "Beauty Services",
   },
   {
     img: nails,

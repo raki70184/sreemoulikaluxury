@@ -42,7 +42,7 @@ export const Banner: React.FC<BannerProps> = ({ title }) => {
           size="medium"
           fullWidth={sm}
         >
-          <a href="tel:+916304400431" className="bannerAppointment">
+          <a href="tel:9347238248" className="bannerAppointment">
             Book Appointment
           </a>
         </Button>
