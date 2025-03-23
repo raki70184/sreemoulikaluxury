@@ -19,7 +19,7 @@ export const Footer = () => {
         justifyContent={"center"}
       >
         <Grid item marginLeft={2} textAlign="center">
-          &copy; 2023 SM - The Luxe Salon <Hidden smDown> | </Hidden>
+          &copy; 2025 SM - The Luxe Salon <Hidden smDown> | </Hidden>
           <Hidden smUp>
             <br />
           </Hidden>

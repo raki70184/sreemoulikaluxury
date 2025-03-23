@@ -1,0 +1,41 @@
+.galleryContainer {
+  @apply container mx-auto px-4 pb-16;
+}
+
+.galleryHeader {
+  @apply text-center mb-16;
+}
+
+.galleryTitle {
+  @apply text-4xl font-bold text-gray-800 mb-4;
+}
+
+.galleryDescription {
+  @apply text-gray-600 max-w-2xl mx-auto;
+}
+
+.categorySection {
+  @apply mb-24 last:mb-0;
+}
+
+.categoryHeader {
+  @apply text-3xl font-bold text-gray-800 mb-8 text-center;
+}
+
+.categoryGrid {
+  @apply grid gap-8;
+}
+
+.pairContainer {
+  @apply grid md:grid-cols-2 gap-8 items-center;
+}
+
+@screen lg {
+  .categoryGrid {
+    @apply gap-12;
+  }
+
+  .pairContainer {
+    @apply gap-12;
+  }
+}

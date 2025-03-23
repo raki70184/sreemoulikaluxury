@@ -1,4 +1,3 @@
-import glamour from "../images/glamourServices.jpg";
 import makeup from "../images/Makeup.jpeg";
 import manicure from "../images/manicure.jpeg";
 import pedicure from "../images/pedicure.jpg";
@@ -23,11 +22,11 @@ import hairSpa_service from "../images/HairSpa_service.jpeg";
 import hairServices from "../images/HairServices.jpeg";
 import beauty_service from "../images/BeautyServices.jpg";
 
-import { ReactComponent as HairIcon } from "../images/hair-style.svg";
-import { ReactComponent as HairCut } from "../images/hair-cut.svg";
-import { ReactComponent as manicureIcon } from "../images/MANICURE-icon.svg";
-import { ReactComponent as nailIcon } from "../images/NAILS-icon.svg";
-import { ReactComponent as makeupIcon } from "../images/FACIALS-icon.svg";
+import HairIcon from "../images/hair-style.svg?react";
+import HairCut from "../images/hair-cut.svg?react";
+import manicureIcon from "../images/MANICURE-icon.svg?react";
+import nailIcon from "../images/NAILS-icon.svg?react";
+import makeupIcon from "../images/FACIALS-icon.svg?react";
 
 export const PostDetailsUrl =
   "https://script.google.com/macros/s/AKfycbwMSPa8M4nAcsJiYEI_TguIDAcvGZfMulBH01E-1FEBZo9i47ziV8p5R69uqUM_2_j7/exec";
@@ -80,7 +79,6 @@ export const homeImagesList = [
     title: "Pedicure",
   },
 ];
-
 
 export const mobileImagesList = [
   {
