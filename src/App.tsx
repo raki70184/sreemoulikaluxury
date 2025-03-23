@@ -1,8 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import { About, Contact, HomeComponent, Services, Footer, Instagram } from "./components";
+import {
+  About,
+  Contact,
+  HomeComponent,
+  Services,
+  Footer,
+  Instagram,
+} from "./components";
 import AppBarComponent from "./components/AppBar/AppBarComponent";
 import "./styles.css";
-import { Gallery } from "./components/Gallery";
+import Gallery from "./components/Gallery/Gallery";
 
 export default function App() {
   return (

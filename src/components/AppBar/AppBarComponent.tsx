@@ -121,9 +121,9 @@ function AppBarComponent() {
       {location.pathname === "/services" && (
         <Banner title="Indulge in ultimate pampering with our extensive range of salon services" />
       )}
-      {location.pathname === "/gallery" && (
-        <Banner title="Coming Soon"></Banner>
-      )}
+      {/* {location.pathname === "/gallery" && (
+        // <Banner title="Coming Soon"></Banner>
+      )} */}
     </>
   );
 }

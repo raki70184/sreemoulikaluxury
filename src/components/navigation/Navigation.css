@@ -28,12 +28,12 @@
    
 }
 .navigation-wrapper button span:hover{
-    color: #75856f;
+    color: greenyellow;
 }
 
 .callMe span:first-child{
     border: 1px solid #ddd;
-    background-color: #bbc1b9;
+    background-color: lightslategray;
     color: #fff;
     padding: 12px;
     border-radius: 8px;
