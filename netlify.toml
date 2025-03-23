@@ -1,4 +1,8 @@
+[build]
+  command = "npm run build"  # This runs the build command to generate the dist folder
+  publish = "dist"  # This tells Netlify where the output of the build command will be located
+
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+  from = "/*"
+  to = "/index.html"
+  status = 200
