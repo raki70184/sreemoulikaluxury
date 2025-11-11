@@ -1,32 +1,15 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import {
-  AppBar,
-  IconButton,
-  Menu,
-  Grid,
-  Hidden,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
+import { AppBar, IconButton, Menu, MenuItem, Grid, Hidden, Button, Box } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import { Navigation } from "../navigation";
-import { Banner } from "../Banner";
-
-import logo from "../images/Logo.png";
 import SMlogo from "../images/SMlogo.png";
 import "./AppBarComponent.css";
 
 function AppBarComponent() {
-  const theme = useTheme();
-  const sm = useMediaQuery(theme.breakpoints.down("sm"));
-  const md = useMediaQuery(theme.breakpoints.down("lg"));
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -36,14 +19,22 @@ function AppBarComponent() {
     setAnchorElNav(null);
   };
   const navigate = useNavigate();
-  const location = useLocation();
+
+  const leftLinks = [
+    { label: "ABOUT", to: "/about" },
+    { label: "SERVICES", to: "/services" },
+    { label: "GALLERY", to: "/gallery" },
+  ];
+  const rightLinks = [
+    { label: "CAFE", to: "/cafe" },
+    { label: "CONTACT", to: "/contact" },
+  ];
+
   return (
     <>
       <AppBar
-        position="static"
-        sx={{
-          background: "#efefef",
-        }}
+        position="absolute"
+        className="topAppBar"
         elevation={0}
       >
         <Grid
@@ -52,35 +43,55 @@ function AppBarComponent() {
           className="appBarStyle"
         >
           <Hidden smDown>
-            <Grid item>
+            <Grid item xs={5}>
+              <Box className="navGroup leftGroup">
+                {leftLinks.map((l) => (
+                  <Button
+                    key={l.to}
+                    color="inherit"
+                    className="navLink"
+                    onClick={() => navigate(l.to)}
+                  >
+                    {l.label}
+                  </Button>
+                ))}
+              </Box>
+            </Grid>
+            <Grid item xs={2} textAlign="center">
               <img
                 src={SMlogo}
                 onClick={() => navigate("/")}
-                className="logo"
+                className="logo centerLogo"
+                alt="Sree Moulika"
               />
             </Grid>
-            <Grid item>
-              <Navigation>
-                {" "}
-                {/* <img
-                  src={SMlogo}
-                  width="200px"
-                  onClick={() => navigate("/")}
-                  className="logo"
-                /> */}
-              </Navigation>
+            <Grid item xs={5}>
+              <Box className="navGroup rightGroup" textAlign="right">
+                {rightLinks.map((l) => (
+                  <Button
+                    key={l.to}
+                    color="inherit"
+                    className="navLink"
+                    onClick={() => navigate(l.to)}
+                  >
+                    {l.label}
+                  </Button>
+                ))}
+              </Box>
             </Grid>
           </Hidden>
+
           <Hidden smUp>
-            <Grid item>
+            <Grid item xs={6}>
               <img
                 src={SMlogo}
                 width="100px"
                 onClick={() => navigate("/")}
                 className="logo"
+                alt="Sree Moulika"
               />
             </Grid>
-            <Grid item>
+            <Grid item xs={6} textAlign="right">
               <IconButton
                 size="large"
                 aria-controls="menu-appbar"
@@ -109,21 +120,26 @@ function AppBarComponent() {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <Navigation onClose={handleCloseNavMenu} />
+                {[
+                  { label: "HOME", to: "/" },
+                  ...leftLinks,
+                  ...rightLinks,
+                ].map((l) => (
+                  <MenuItem
+                    key={l.to}
+                    onClick={() => {
+                      navigate(l.to);
+                      handleCloseNavMenu();
+                    }}
+                  >
+                    {l.label}
+                  </MenuItem>
+                ))}
               </Menu>
             </Grid>
           </Hidden>
         </Grid>
       </AppBar>
-      {location.pathname === "/contact" && (
-        <Banner title="Feel like having a chat or setting up an appointment? We're all ears and here to make it happen with a warm welcome!" />
-      )}
-      {location.pathname === "/services" && (
-        <Banner title="Indulge in ultimate pampering with our extensive range of salon services" />
-      )}
-      {/* {location.pathname === "/gallery" && (
-        // <Banner title="Coming Soon"></Banner>
-      )} */}
     </>
   );
 }

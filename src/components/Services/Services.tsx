@@ -1,11 +1,15 @@
 import { Grid } from "@mui/material";
 import { IconText } from "../IconText";
 import { ServicesList } from "../utils";
+import servicesHero from "../images/HairServices.jpeg";
 
 export const Services = () => {
   return (
     <>
-      {/* <Banner title="Indulge in ultimate pampering with our extensive range of salon services" /> */}
+      {/* Featured large image */}
+      <div className="pageFeatured">
+        <img src={servicesHero} alt="Our services" className="pageFeaturedMedia" />
+      </div>
       <Grid
         className="servicesList"
         container

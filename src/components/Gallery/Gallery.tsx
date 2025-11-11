@@ -6,6 +6,7 @@ import styles from "./Gallery.module.css";
 
 const Gallery = () => {
   const allMedia = [...galleryImages, ...galleryVideos];
+  const featured = allMedia[0];
 
   // Group media by category
   const mediaByCategory = allMedia.reduce<Record<string, GalleryItem[]>>(
@@ -37,6 +38,32 @@ const Gallery = () => {
           team.
         </p>
       </div>
+
+      {featured && (
+        <section className={styles.featuredSection}>
+          <div className={styles.featuredWrapper}>
+            {featured.type === "video" ? (
+              <video
+                className={styles.featuredMedia}
+                controls
+                poster={"poster" in featured ? featured.poster : undefined}
+              >
+                <source src={featured.src} type="video/mp4" />
+              </video>
+            ) : (
+              <img
+                className={styles.featuredMedia}
+                src={featured.src}
+                alt={(featured as any).alt}
+              />
+            )}
+            <div className={styles.featuredCaption}>
+              <h3>{featured.title}</h3>
+              <p>{featured.description}</p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {categoryGroups.map((group) => (
         <section key={group.title} className={styles.categorySection}>

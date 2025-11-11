@@ -6,3 +6,6 @@ export * from "./Services/Services";
 export * from "./AppBar";
 export * from "./Footer";
 export * from "./Instagram";
+export * from "./Cafe/Cafe";
+export * from "./FloatingCall";
+export * from "./FooterCarousel";

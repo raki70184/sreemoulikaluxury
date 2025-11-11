@@ -5,17 +5,22 @@ import {
   HomeComponent,
   Services,
   Footer,
-  Instagram,
+  Cafe,
+  FloatingCall,
+  FooterCarousel,
 } from "./components";
 import AppBarComponent from "./components/AppBar/AppBarComponent";
 import "./styles.css";
 import Gallery from "./components/Gallery/Gallery";
+import PageHero from "./components/Hero/PageHero";
 
 export default function App() {
   return (
     <>
       <div className="App">
         <AppBarComponent />
+        {/* Consistent top hero with fullscreen background video */}
+        <PageHero />
         <div className="mainBody">
           <Routes>
             <Route path="/" element={<HomeComponent />} />
@@ -23,13 +28,18 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/cafe" element={<Cafe />} />
           </Routes>
         </div>
       </div>
-      <Instagram />
+      {/* Bottom media strip above footer */}
+      <FooterCarousel />
       <div className="footer">
         <Footer />
       </div>
+      {/* Global floating call button with ringing animation + modal */}
+      <FloatingCall />
     </>
   );
 }
+

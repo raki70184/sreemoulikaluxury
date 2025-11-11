@@ -1,0 +1,164 @@
+:root {
+  --fc-accent: #b8aa92; /* warm beige like the reference */
+  --fc-shadow: rgba(0, 0, 0, 0.4);
+}
+
+.fabWrapper {
+  position: fixed;
+  left: 16px;
+  bottom: 63px;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+
+/* Pulsing concentric rings */
+.pulseRing,
+.pulseRing::before,
+.pulseRing::after {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+  animation: pulse 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.pulseRing::before {
+  animation-delay: 0.4s;
+}
+
+.pulseRing::after {
+  animation-delay: 0.8s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  70% { transform: scale(1.4); opacity: 0.05; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.fabButton {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  border: none;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: radial-gradient(120% 120% at 30% 30%, #2c2c2c 0%, #111 70%);
+  box-shadow: 0 10px 30px var(--fc-shadow), inset 0 0 0 2px rgba(255,255,255,0.04);
+  cursor: pointer;
+  /* Apply filter to match screenshot look */
+  filter: brightness(125%) contrast(100%) saturate(0%) blur(0px) hue-rotate(0deg);
+}
+
+.fabButton:active {
+  transform: translateY(1px);
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+}
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  z-index: 9998;
+}
+
+/* Modal card styled like the reference */
+.modalCard {
+  position: fixed;
+  left: 20%;
+  top: 73%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 465px);
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  padding: 28px 28px 32px 28px;
+  z-index: 10000;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: var(--fc-accent);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.brand {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 7vw, 56px);
+  color: #111;
+  margin: 10px 0 6px 0;
+  text-align: center;
+}
+
+.desc {
+  margin: 10px auto 14px auto;
+  max-width: 40ch;
+  color: var(--fc-accent);
+  text-align: center;
+  font-size: clamp(14px, 2.6vw, 17px);
+  line-height: 1.6;
+}
+
+.number {
+  text-align: center;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, 6vw, 32px);
+  color: #111;
+  letter-spacing: 0.08em;
+}
+
+.number a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Small helper CTA row */
+.actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.actionBtn {
+  border-radius: 999px;
+  padding: 10px 16px;
+  border: 1px solid var(--fc-accent);
+  color: #111;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .fabWrapper { left: 12px; bottom: 12px; }
+  .fabButton { width: 54px; height: 54px; }
+  .icon { width: 24px; height: 24px; }
+  .fabWrapper {
+    position: fixed;
+    left: 16px;
+    bottom: 130px;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+  }
+  
+}

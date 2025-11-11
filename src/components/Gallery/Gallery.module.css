@@ -39,3 +39,21 @@
     @apply gap-12;
   }
 }
+
+/* New featured section */
+.featuredSection {
+  @apply mb-20;
+}
+
+.featuredWrapper {
+  @apply relative w-full overflow-hidden rounded-2xl shadow-2xl;
+}
+
+.featuredMedia {
+  @apply w-full h-full object-cover;
+  max-height: 560px;
+}
+
+.featuredCaption {
+  @apply absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white;
+}

@@ -5,7 +5,6 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import tailoredForYou from "../images/tailoredForYou.jpeg";
-import { HomeSlider } from "./HomeSlider";
 import "./Home.css";
 export const HomeComponent = () => {
   const { home, buttonText } = staticData;
@@ -15,11 +14,6 @@ export const HomeComponent = () => {
 
   return (
     <>
-      <Grid container>
-        <Grid item sx={{ width: "100%", height: "500px", textAlign: "center" }}>
-          <HomeSlider />
-        </Grid>
-      </Grid>
       <Grid
         container
         className="title-description"
