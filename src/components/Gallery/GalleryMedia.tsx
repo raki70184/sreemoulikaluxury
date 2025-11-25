@@ -29,7 +29,7 @@ const GalleryMedia: React.FC<GalleryMediaProps> = ({ item }) => {
   
   // Get the appropriate video source based on screen size
   const getVideoSource = (item: VideoItem): string => {
-    return (isMobile && item.mobileSrc) ? item.mobileSrc : item.src;
+    return (isMobile && item.mobileSrc) ? item.mobileSrc : item.src as any;
   };
 
   useEffect(() => {
@@ -40,8 +40,31 @@ const GalleryMedia: React.FC<GalleryMediaProps> = ({ item }) => {
     }
   }, [isMobile, item]);
 
+  // Add CSS to prevent zooming and ensure proper scaling
+  useEffect(() => {
+    const preventZoom = (e: TouchEvent) => {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    };
+    
+    document.addEventListener('touchmove', preventZoom, { passive: false });
+    return () => {
+      document.removeEventListener('touchmove', preventZoom);
+    };
+  }, []);
+
   return (
-    <div className={styles.mediaContainer}>
+    <div className={styles.mediaContainer} style={{
+      WebkitTransform: 'scale(1)',
+      transform: 'scale(1)',
+      WebkitTransformOrigin: 'center center',
+      transformOrigin: 'center center',
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden',
+      touchAction: 'pan-y'
+    }}>
       {item.type === "video" ? (
         <div className={`${styles.videoWrapper} ${styles.noHover}`}>
           <video

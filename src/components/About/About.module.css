@@ -63,8 +63,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-              url('../images/Makeup.jpeg') center/cover;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('../images/Makeup.jpeg') center/cover;
   color: white;
   text-align: center;
   overflow: hidden;
@@ -125,22 +125,22 @@ body {
       "left right"
       "center center";
   }
-  
+
   .threeColumnLayout .imageContainer:first-child {
     grid-area: left;
     margin: 0;
   }
-  
+
   .threeColumnLayout .contentContainer {
     grid-area: center;
     padding: 40px 0;
   }
-  
+
   .threeColumnLayout .imageContainer:last-child {
     grid-area: right;
     margin: 0;
   }
-  
+
   .threeColumnLayout .imageContainer {
     height: 400px;
   }
@@ -156,7 +156,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 570px; /* Adjust this value as needed */
+  height: 570px;
+  /* Adjust this value as needed */
   overflow: hidden;
 }
 
@@ -210,7 +211,7 @@ body {
   direction: rtl;
 }
 
-.twoColumnLayoutReversed > * {
+.twoColumnLayoutReversed>* {
   direction: ltr;
 }
 
@@ -362,7 +363,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   color: white;
   padding: 25px 20px;
   text-align: center;
@@ -405,29 +406,29 @@ body {
     margin-bottom: 3rem;
     padding: 0 40px;
   }
-  
+
   .galleryTitle {
     font-size: 2.2rem;
   }
-  
+
   .gallerySubtitle {
     font-size: 1rem;
   }
-  
+
   .galleryContainer {
     max-width: 95%;
   }
-  
+
   .itemSmall {
     width: 28%;
     height: 300px;
   }
-  
+
   .itemMedium {
     width: 32%;
     height: 380px;
   }
-  
+
   .itemLarge {
     width: 35%;
     height: 450px;
@@ -445,37 +446,37 @@ body {
     max-width: 1200px;
     margin: 0 auto;
   }
-  
+
   .galleryItem {
     width: 100%;
     height: 100%;
     margin: 0 !important;
   }
-  
+
   .itemSmall {
     grid-area: top;
     height: 400px !important;
     width: 100% !important;
   }
-  
+
   .itemLarge {
     grid-area: left;
     height: 350px !important;
     width: 100% !important;
   }
-  
+
   .itemMedium {
     grid-area: right;
     height: 350px !important;
     width: 100% !important;
   }
-  
+
   .aboutStory {
     padding: 6rem 1rem;
     flex-direction: column;
     min-height: auto;
   }
-  
+
   .sideImage {
     position: relative;
     width: 80%;
@@ -486,7 +487,7 @@ body {
     right: auto;
     top: auto !important;
   }
-  
+
   .storyContent {
     max-width: 100%;
     width: 100%;
@@ -498,31 +499,31 @@ body {
   .aboutStory {
     padding: 4rem 1rem;
   }
-  
+
   .storyContent {
     padding: 2rem 1.5rem;
   }
-  
+
   .storyTitle {
     font-size: 2rem;
   }
-  
+
   .storyLine {
     font-size: 1.1rem;
   }
-  
+
   .sideImage {
     height: 250px;
   }
-  
+
   .imageOverlay {
     padding: 1.5rem 1rem;
   }
-  
+
   .imageOverlay h4 {
     font-size: 1.2rem;
   }
-  
+
   .imageOverlay p {
     font-size: 1rem;
   }
@@ -599,7 +600,8 @@ body {
   }
 
   .threeColumnLayout .contentContainer {
-    order: -1; /* Text comes first on mobile/tablet */
+    order: -1;
+    /* Text comes first on mobile/tablet */
   }
 
   .imageGrid {
@@ -711,7 +713,8 @@ body {
   }
 
   .headerNav {
-    display: none; /* Hide navigation on very small screens */
+    display: none;
+    /* Hide navigation on very small screens */
   }
 
   .threeColumnLayout .imageContainer {
