@@ -5,7 +5,7 @@ import SalonTreatment1 from "../images/WebsiteImages/NailTechnician.jpg"; // Pla
 import momAndDaughter from "../images/WebsiteImages/momAndDaughterImage.jpeg"; // Placeholder
 import SalonAmbiance from "../images/WebsiteImages/Glamour.jpeg"; // Placeholder
 import SalonTreatmentClose from "../images/WebsiteImages/HairSpa.jpeg"; // Placeholder
-import modelParty from "../images/AboutSectionImages/modelParty.jpeg"; // Placeholder
+import modelParty from "../images/AboutSectionImages/modelparty.jpeg"; // Placeholder
 import aparnaHighFashion from "../images/AboutSectionImages/aparnaHighFashion.jpeg"; // Placeholder
 import jabiliparty from "../images/AboutSectionImages/jabiliParty.jpeg"; // Placeholder
 import lashCertificate from "../images/AboutSectionImages/lashCertificate.jpeg"; // Placeholder
