@@ -4,8 +4,8 @@ import { Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import nailTechnician from "../images/NailTechnician.jpg";
-import familyImage from "../images/FamilyImage.jpg";
+import nailTechnician from "../images/WebsiteImages/NailTechnician.jpg";
+import familyImage from "../images/WebsiteImages/FamilyImage.jpg";
 
 interface SelfIntroductionProps {
   isAbout?: boolean;
@@ -51,7 +51,7 @@ export const SelfIntroduction: React.FC<SelfIntroductionProps> = ({
               letterSpacing={0}
               marginBottom={1}
             >
-              Welcome to Sree Moulika Beauty Salon, a vision of beauty realized
+              Welcome to SM Luxury Salon, a vision of beauty realized
               through passion and experience. Our story began with a deep-rooted
               love for the art of beauty and a commitment to providing
               exceptional services that transcend the ordinary since 2000.

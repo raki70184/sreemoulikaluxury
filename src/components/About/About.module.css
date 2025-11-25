@@ -1,0 +1,736 @@
+/* About Page Styling - SM Salon + Cafe */
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.aboutPage {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9f7f4;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+}
+
+/* Color Palette */
+:root {
+  --primary-dark: #2a2a2a;
+  --primary-text: #4a4a4a;
+  --secondary-text: #666666;
+  --accent-gold: #c9a876;
+  --light-bg: #f9f7f4;
+  --white: #ffffff;
+  --border-radius: 8px;
+}
+
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0px 40px;
+}
+
+/* Image Containers */
+.imageContainer {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #e8dfd5;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content Containers */
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Header Section */
+.aboutHeader {
+  height: 70vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+              url('../images/Makeup.jpeg') center/cover;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.headerNav {
+  position: absolute;
+  top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  z-index: 10;
+}
+
+.headerNav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: opacity 0.3s ease;
+}
+
+.headerNav a:hover {
+  opacity: 0.7;
+}
+
+.headerContent h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.headerContent p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* Section 1: Three-Column Layout (PRIMARY PATTERN) */
+/* .section1 {
+  margin-bottom: 120px;
+} */
+
+.threeColumnLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+  /* margin-bottom: 120px; */
+}
+
+@media (max-width: 1024px) {
+  .threeColumnLayout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "left right"
+      "center center";
+  }
+  
+  .threeColumnLayout .imageContainer:first-child {
+    grid-area: left;
+    margin: 0;
+  }
+  
+  .threeColumnLayout .contentContainer {
+    grid-area: center;
+    padding: 40px 0;
+  }
+  
+  .threeColumnLayout .imageContainer:last-child {
+    grid-area: right;
+    margin: 0;
+  }
+  
+  .threeColumnLayout .imageContainer {
+    height: 400px;
+  }
+}
+
+.threeColumnLayout .imageContainer {
+  /* height: 450px; */
+  margin: 20px 0px 20px 0px;
+}
+
+/* Certificate container styles */
+.threeColumnLayout .certificateContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 570px; /* Adjust this value as needed */
+  overflow: hidden;
+}
+
+.threeColumnLayout .certificateImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.threeColumnLayout .contentContainer {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.threeColumnLayout h2 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: #4a4a4a;
+  line-height: 1.3;
+}
+
+.threeColumnLayout p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Section 2 & 3: Two-Column Alternating Layouts */
+/* .section2,
+.section3 {
+  margin-bottom: 120px;
+} */
+
+.twoColumnLayout,
+.twoColumnLayoutReversed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  /* margin-bottom: 120px; */
+  padding: 60px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.twoColumnLayoutReversed {
+  direction: rtl;
+}
+
+.twoColumnLayoutReversed > * {
+  direction: ltr;
+}
+
+.twoColumnLayout .imageContainer,
+.twoColumnLayoutReversed .imageContainer {
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.twoColumnLayout h3,
+.twoColumnLayoutReversed h3 {
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: #4a4a4a;
+  line-height: 1.3;
+}
+
+.twoColumnLayout p,
+.twoColumnLayoutReversed p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.accentLine {
+  width: 60px;
+  height: 2px;
+  background-color: #c9a876;
+  margin-bottom: 30px;
+}
+
+/* Image Gallery Section */
+.imageGallery {
+  padding: 0rem 0 4rem;
+  background-color: #f8f8f8;
+  overflow: hidden;
+  /* margin-top: -75px; */
+}
+
+.galleryHeader {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding: 0 20px;
+  padding-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.galleryTitle {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #4a4a4a;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.galleryTitle:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: #c9a876;
+}
+
+.gallerySubtitle {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+  margin: 0 auto;
+  max-width: 700px;
+  font-style: italic;
+}
+
+.galleryContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.galleryItem {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galleryItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.galleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.galleryItem:hover img {
+  transform: scale(1.05);
+}
+
+/* Different image sizes */
+.itemSmall {
+  width: 60%;
+  margin-top: 80px;
+  height: 350px;
+}
+
+.itemMedium {
+  width: 30%;
+  height: 420px;
+  margin-top: 40px;
+}
+
+.itemLarge {
+  width: 35%;
+  height: 500px;
+}
+
+/* Caption styles */
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  padding: 25px 20px;
+  text-align: center;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.galleryItem:hover .caption {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.caption h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.3s ease 0.1s;
+}
+
+.caption p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease 0.2s;
+}
+
+.galleryItem:hover .caption h4,
+.galleryItem:hover .caption p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .galleryHeader {
+    margin-bottom: 3rem;
+    padding: 0 40px;
+  }
+  
+  .galleryTitle {
+    font-size: 2.2rem;
+  }
+  
+  .gallerySubtitle {
+    font-size: 1rem;
+  }
+  
+  .galleryContainer {
+    max-width: 95%;
+  }
+  
+  .itemSmall {
+    width: 28%;
+    height: 300px;
+  }
+  
+  .itemMedium {
+    width: 32%;
+    height: 380px;
+  }
+  
+  .itemLarge {
+    width: 35%;
+    height: 450px;
+  }
+}
+
+@media (max-width: 992px) {
+  .galleryContainer {
+    display: grid;
+    grid-template-areas:
+      "top top"
+      "left right";
+    gap: 20px;
+    padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .galleryItem {
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+  }
+  
+  .itemSmall {
+    grid-area: top;
+    height: 400px !important;
+    width: 100% !important;
+  }
+  
+  .itemLarge {
+    grid-area: left;
+    height: 350px !important;
+    width: 100% !important;
+  }
+  
+  .itemMedium {
+    grid-area: right;
+    height: 350px !important;
+    width: 100% !important;
+  }
+  
+  .aboutStory {
+    padding: 6rem 1rem;
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .sideImage {
+    position: relative;
+    width: 80%;
+    max-width: 100%;
+    height: 300px;
+    margin: 1rem auto;
+    left: auto;
+    right: auto;
+    top: auto !important;
+  }
+  
+  .storyContent {
+    max-width: 100%;
+    width: 100%;
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .aboutStory {
+    padding: 4rem 1rem;
+  }
+  
+  .storyContent {
+    padding: 2rem 1.5rem;
+  }
+  
+  .storyTitle {
+    font-size: 2rem;
+  }
+  
+  .storyLine {
+    font-size: 1.1rem;
+  }
+  
+  .sideImage {
+    height: 250px;
+  }
+  
+  .imageOverlay {
+    padding: 1.5rem 1rem;
+  }
+  
+  .imageOverlay h4 {
+    font-size: 1.2rem;
+  }
+  
+  .imageOverlay p {
+    font-size: 1rem;
+  }
+}
+
+/* CTA Section */
+.ctaSection {
+  text-align: center;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #4a4a4a, #5a5a5a);
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 120px;
+}
+
+.ctaSection h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.ctaSection p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Button Styles */
+.btnPrimary {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #c9a876;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  background-color: #b8975f;
+}
+
+/* Footer */
+.aboutFooter {
+  background-color: #2a2a2a;
+  color: white;
+  padding: 40px;
+  margin-top: 80px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.footerContent p {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design Breakpoints */
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 60px 30px;
+  }
+
+  .threeColumnLayout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .threeColumnLayout .contentContainer {
+    order: -1; /* Text comes first on mobile/tablet */
+  }
+
+  .imageGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gridItemLarge {
+    grid-row: span 1;
+    min-height: 350px;
+  }
+
+  .twoColumnLayout,
+  .twoColumnLayoutReversed {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 40px;
+  }
+
+  .headerContent h1 {
+    font-size: 2.8rem;
+  }
+
+  .headerNav {
+    gap: 25px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 20px;
+  }
+
+  .aboutHeader {
+    height: 60vh;
+  }
+
+  .headerContent h1 {
+    font-size: 2rem;
+  }
+
+  .headerContent p {
+    font-size: 1.1rem;
+  }
+
+  .headerNav {
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    top: 20px;
+  }
+
+  .threeColumnLayout {
+    margin-bottom: 80px;
+  }
+
+  .threeColumnLayout .contentContainer h2,
+  .twoColumnLayout h3,
+  .twoColumnLayoutReversed h3,
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .threeColumnLayout .imageContainer {
+    height: 300px;
+  }
+
+  .twoColumnLayout .imageContainer,
+  .twoColumnLayoutReversed .imageContainer {
+    height: 350px;
+  }
+
+  .twoColumnLayout,
+  .twoColumnLayoutReversed {
+    padding: 30px 20px;
+    margin-bottom: 80px;
+  }
+
+  .imageGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ctaSection {
+    padding: 60px 20px;
+    margin-bottom: 80px;
+  }
+
+  .ctaSection h2 {
+    font-size: 2rem;
+  }
+
+  .aboutFooter {
+    padding: 30px 20px;
+    margin-top: 40px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .headerContent h1 {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
+
+  .headerContent p {
+    font-size: 1rem;
+  }
+
+  .headerNav {
+    display: none; /* Hide navigation on very small screens */
+  }
+
+  .threeColumnLayout .imageContainer {
+    height: 250px;
+  }
+
+  .twoColumnLayout .imageContainer,
+  .twoColumnLayoutReversed .imageContainer {
+    height: 280px;
+  }
+
+  .threeColumnLayout .contentContainer h2,
+  .twoColumnLayout h3,
+  .twoColumnLayoutReversed h3,
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaSection h2 {
+    font-size: 1.8rem;
+  }
+}

@@ -1,7 +1,7 @@
-import makeup from "../images/Makeup.jpeg";
-import manicure from "../images/manicure.jpeg";
-import pedicure from "../images/pedicure.jpg";
-import nails from "../images/NailServices.jpeg";
+import makeup from "../images/WebsiteImages/Makeup.jpeg";
+import manicure from "../images/WebsiteImages/manicure.jpeg";
+import pedicure from "../images/WebsiteImages/pedicure.jpg";
+import nails from "../images/WebsiteImages/NailServices.jpeg";
 import S1 from "../images/DesktopImages/S1.jpeg";
 import S2 from "../images/DesktopImages/S2.jpeg";
 import S3 from "../images/DesktopImages/S3.jpeg";
@@ -17,16 +17,16 @@ import M4 from "../images/MobileImages/M4.jpg";
 import M5 from "../images/MobileImages/M5.jpg";
 import M6 from "../images/MobileImages/M6.jpg";
 
-import hairTreatment_service from "../images/HairTreatment_service.jpeg";
-import hairSpa_service from "../images/HairSpa_service.jpeg";
-import hairServices from "../images/HairServices.jpeg";
-import beauty_service from "../images/BeautyServices.jpg";
+import hairTreatment_service from "../images/WebsiteImages/HairTreatment_service.jpeg";
+import hairSpa_service from "../images/WebsiteImages/HairSpa_service.jpeg";
+import hairServices from "../images/WebsiteImages/HairServices.jpeg";
+import beauty_service from "../images/WebsiteImages/BeautyServices.jpg";
 
-import HairIcon from "../images/hair-style.svg?react";
-import HairCut from "../images/hair-cut.svg?react";
-import manicureIcon from "../images/MANICURE-icon.svg?react";
-import nailIcon from "../images/NAILS-icon.svg?react";
-import makeupIcon from "../images/FACIALS-icon.svg?react";
+import HairIcon from "../images/WebsiteImages/hair-style.svg?react";
+import HairCut from "../images/WebsiteImages/hair-cut.svg?react";
+import manicureIcon from "../images/WebsiteImages/MANICURE-icon.svg?react";
+import nailIcon from "../images/WebsiteImages/NAILS-icon.svg?react";
+import makeupIcon from "../images/WebsiteImages/FACIALS-icon.svg?react";
 
 export const PostDetailsUrl =
   "https://script.google.com/macros/s/AKfycbwMSPa8M4nAcsJiYEI_TguIDAcvGZfMulBH01E-1FEBZo9i47ziV8p5R69uqUM_2_j7/exec";
@@ -38,7 +38,7 @@ export const staticData = {
     heading: "",
     tagLine: "Exquisite Beauty, Tailored for You",
     description:
-      "As you Join us at Sree Moulika Salon, where luxury meets personalization, and beauty takes on a whole new meaning. We believe that beauty is an expression of individuality, and every client has a unique story waiting to be unveiled. With this principle at our core, our talented team of professionals is dedicated to tailoring our services to enhance your inherent beauty and embrace your distinct essence.",
+      "As you Join us at SM Salon, where luxury meets personalization, and beauty takes on a whole new meaning. We believe that beauty is an expression of individuality, and every client has a unique story waiting to be unveiled. With this principle at our core, our talented team of professionals is dedicated to tailoring our services to enhance your inherent beauty and embrace your distinct essence.",
     subDescription:
       "Let's create a beauty story together, one that will be cherished for a lifetime. Welcome to our exquisite world of beauty and care",
     ourServices: "Our Services",

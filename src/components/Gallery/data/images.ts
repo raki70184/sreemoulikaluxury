@@ -1,7 +1,7 @@
 import { ImageItem } from '../types';
 import S2 from "../../images/DesktopImages/S2.jpeg";
 import S1 from "../../images/DesktopImages/S2.jpeg";
-import Makeup from "../../images/Makeup.jpeg";
+import Makeup from "../../images/WebsiteImages/Makeup.jpeg";
 
 export const galleryImages: ImageItem[] = [
   {

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AppBar, IconButton, Menu, MenuItem, Grid, Hidden, Button, Box } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import SMlogo from "../images/SMlogo.png";
+import SMlogo from "../images/WebsiteImages/SMlogo.png";
 import "./AppBarComponent.css";
 
 function AppBarComponent() {

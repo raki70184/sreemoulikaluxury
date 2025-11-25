@@ -43,8 +43,8 @@
 
 .title {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-weight: 600;
-  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 500;
+  font-size: 45px;
   line-height: 1.1;
   margin: 0 0 16px;
   text-transform: uppercase;
@@ -54,13 +54,15 @@
 .description {
   max-width: 720px;
   opacity: 0.9;
-  font-size: clamp(14px, 2.1vw, 18px);
+  font-size: 14px;
+  font-weight: 300;
+  color: #FFFFFF;
   margin-bottom: 24px;
 }
 
 .cta {
   background: transparent;
-  border: 1px solid #ffffff;
+  border: none;
   color: #ffffff;
   padding: 10px 22px;
   border-radius: 999px;
@@ -68,10 +70,17 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
+  position: relative;
+}
+
+.cta::after {
+  content: "▾";
+  margin-left: 8px;
+  font-size: 20px;
+  opacity: 0.8;
 }
 
 .cta:hover {
   background: #eed26e;
   color: #111111;
-  border-color: #eed26e;
 }

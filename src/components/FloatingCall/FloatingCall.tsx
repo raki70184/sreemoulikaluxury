@@ -24,7 +24,7 @@ const usePageContent = (pathname: string): Content => {
       phone: baseNumber,
     },
     "/about": {
-      brand: "About Sree Moulika",
+      brand: "About SM",
       description: "Personalized care, crafted around you.",
       phone: baseNumber,
     },

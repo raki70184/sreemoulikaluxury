@@ -1,10 +1,13 @@
 import { Button, Grid, Hidden, Typography } from "@mui/material";
 import { staticData } from "../utils/constants";
-import { SelfIntroduction, ServicesImageList } from ".";
+import { SelfIntroduction } from ".";
+import ServicesSection from "./ServicesSection";
+import GoogleReviews from "./GoogleReviews";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Box from "@mui/material/Box";
 
-import tailoredForYou from "../images/tailoredForYou.jpeg";
+import tailoredForYou from "../images/WebsiteImages/tailoredForYou.jpeg";
 import "./Home.css";
 export const HomeComponent = () => {
   const { home, buttonText } = staticData;
@@ -76,17 +79,28 @@ export const HomeComponent = () => {
         <Grid item>
           <Typography
             variant={sm ? "h5" : "h3"}
-            marginBottom={sm ? 1 : 8}
+            marginBottom={sm ? 1 : 0}
             align="center"
           >
             {home.ourServices}
           </Typography>
         </Grid>
-        <Grid item flexGrow={1}>
-          <ServicesImageList />
+        <Grid item flexGrow={1} sx={{ width: '100%' }}>
+          <Box sx={{ 
+            width: '100%', 
+            maxWidth: '100vw',
+            overflow: 'hidden',
+            padding: { xs: '0', sm: '0 16px', md: '0 32px' }
+          }}>
+            <ServicesSection />
+          </Box>
         </Grid>
       </Grid>
-      <Grid container direction="column" marginTop={8} paddingBottom={2}>
+      {/* Google Reviews Section */}
+      <GoogleReviews />
+      
+      {/* Meet Us At The Salon Section */}
+      {/* <Grid container direction="column" marginTop={8} paddingBottom={2}>
         <Grid item>
           <Typography
             variant={sm ? "h5" : "h3"}
@@ -99,7 +113,7 @@ export const HomeComponent = () => {
         <Grid item>
           <SelfIntroduction />
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   );
 };

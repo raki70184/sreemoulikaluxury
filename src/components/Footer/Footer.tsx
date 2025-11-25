@@ -3,8 +3,8 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import "./Footer.css";
 import { Instagram as InstagramIcon } from "@mui/icons-material";
-import davins from "../images/Davins.png";
-import voesh from "../images/voesh.png";
+import davins from "../images/WebsiteImages/Davins.png";
+import voesh from "../images/WebsiteImages/voesh.png";
 
 export const Footer = () => {
   const theme = useTheme();
@@ -40,7 +40,15 @@ export const Footer = () => {
 
           {/* Developer credit */}
           <Typography className="devCredit">
-            By <a href="tel: +91-8688537165" title="smluxesalon@gmail.com" className="developer">loving husband</a> - A Passion Developer
+            Website Design by{' '}
+            <a 
+              href="https://oneklickai.net/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="developer"
+            >
+              OneKlick AI
+            </a>
           </Typography>
 
           {/* Instagram follow */}

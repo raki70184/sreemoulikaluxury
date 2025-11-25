@@ -1,28 +1,95 @@
 .mediaContainer {
-  @apply h-full flex flex-col;
+  @apply h-full w-full;
 }
 
 .mediaWrapper {
-  @apply relative w-full overflow-hidden rounded-lg shadow-xl;
+  @apply relative w-full h-full overflow-hidden rounded-lg shadow-lg;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.mediaWrapper:hover {
+  @apply shadow-xl;
+  transform: translateY(-5px);
+}
+
+/* Video specific styles */
+.videoWrapper {
+  @apply relative w-full h-full rounded-lg overflow-hidden;
+}
+
+.videoWrapper.noHover {
+  transform: none !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.videoWrapper .video {
+  @apply w-full h-full object-cover;
+  transform: none !important;
+}
+
+/* Image specific styles */
 .imageContainer {
-  @apply aspect-[4/3];
+  @apply relative w-full h-full overflow-hidden;
 }
 
 .image {
-  @apply w-full h-full object-cover transition-transform duration-300 hover:scale-105;
+  @apply w-full h-full object-cover transition-transform duration-500 ease-out;
 }
 
+.mediaWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+/* Caption Styles */
+.caption {
+  @apply absolute bottom-0 left-0 right-0 p-6 text-center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.mediaWrapper:hover .caption {
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+
+.caption h4 {
+  @apply text-lg font-medium mb-1 uppercase tracking-wider;
+  transform: translateY(10px);
+  transition: all 0.3s ease 0.1s;
+  opacity: 0;
+}
+
+.caption p {
+  @apply text-sm text-gray-200;
+  transform: translateY(10px);
+  transition: all 0.3s ease 0.2s;
+  opacity: 0;
+}
+
+.mediaWrapper:hover .caption h4,
+.mediaWrapper:hover .caption p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Video Specific Styles */
 .videoContainer {
-  @apply aspect-video relative;
+  @apply aspect-video;
 }
 
 .video {
-  @apply w-full h-full object-cover;
+  @apply object-cover;
 }
 
 .video::-webkit-media-controls {
+  @apply opacity-0;
+  transition: opacity 0.3s ease;
+}
+
+.videoContainer:hover .video::-webkit-media-controls {
   @apply opacity-100;
 }
 
@@ -30,36 +97,17 @@
   @apply bg-opacity-50 backdrop-blur-sm;
 }
 
-.video::-webkit-media-controls-play-button {
-  @apply opacity-100;
-}
-
-.overlay {
-  @apply absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition-opacity duration-300 cursor-pointer;
-}
-
-.imageOverlay {
-  @apply opacity-0 hover:opacity-100;
-}
-
-.contentWrapper {
-  @apply mt-4 text-center;
-}
-
-.title {
-  @apply text-xl font-bold text-gray-800 mb-2;
-}
-
-.description {
-  @apply text-gray-600 mb-3 text-sm;
-}
-
-.category {
-  @apply inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs;
-}
-
-@screen md {
-  .contentWrapper {
-    @apply text-left;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .caption {
+    @apply p-4;
+  }
+  
+  .caption h4 {
+    @apply text-base;
+  }
+  
+  .caption p {
+    @apply text-xs;
   }
 }

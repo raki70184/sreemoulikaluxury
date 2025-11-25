@@ -1,12 +1,17 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import HeroSection from "./HeroSection";
-import AboutHeroImg from "../images/Makeup.jpeg";
-import ServicesHeroImg from "../images/BeautyServices.jpg";
-import GalleryHeroImg from "../images/Glamour.jpeg";
-import ContactHeroImg from "../images/NailTechnician.jpg";
-import CafeHeroImg from "../images/HairSpa.jpeg";
-
+import AboutHeroImg from "../images/WebsiteImages/Makeup.jpeg";
+import ServicesHeroImg from "../images/DesktopImages/S2.jpeg";
+import GalleryHeroImg from "../images/WebsiteImages/Glamour.jpeg";
+// import ContactHeroImg from "../images/WebsiteImages/NailTechnician.jpg";
+import ContactHeroImg from "../images/DesktopImages/NailandPedicureView.jpeg";
+import CafeHeroImg from "../images/WebsiteImages/HairSpa.jpeg";
+import awardImage from "../images/DesktopImages/S7.jpeg";
+import cafeImage from "../images/CafeImages/FinalCafeView.jpeg";
+import mobileCafeImage from "../images/CafeImages/MobileCafeView.jpeg";
+import DivMakeupContact from "../images/MobileImages/DivMakeupContact.jpeg";
+import InaraHairColor from "../images/MobileImages/InaraHairColor.jpeg";
 const PageHero: React.FC = () => {
   const { pathname } = useLocation();
 
@@ -24,11 +29,15 @@ const PageHero: React.FC = () => {
     return (
       <HeroSection
         {...common}
-        title="Our Signature Services"
-        description="Indulge in our curated treatments crafted to elevate your natural beauty."
+        title={<>
+          Our Signature Services
+        </>}
+        description={<>Indulge in our curated treatments<br />crafted to elevate your natural beauty.</>}
         useVideo={false}
         imageSrc={ServicesHeroImg}
+        mobileImageSrc={InaraHairColor}
         className="centerHero"
+        heightVH={92}
       />
     );
   }
@@ -37,11 +46,14 @@ const PageHero: React.FC = () => {
     return (
       <HeroSection
         {...common}
-        title="The Art Of Beauty"
-        description="Explore our portfolio of transformations in photo and motion."
+        title={<>
+          The Art Of Beauty
+        </>}
+        description={<>Explore our portfolio of transformations<br />in photo and motion.</>}
         useVideo={false}
         imageSrc={GalleryHeroImg}
         className="centerHero"
+        heightVH={92}
       />
     );
   }
@@ -50,11 +62,15 @@ const PageHero: React.FC = () => {
     return (
       <HeroSection
         {...common}
-        title="Let's Connect"
-        description="Feel like having a chat or setting up an appointment? We’re here and happy to help."
+        title={<>
+          Let's Connect
+        </>}
+        description={<>Feel like having a chat or setting up an appointment?<br />We're here and happy to help.</>}
         useVideo={false}
         imageSrc={ContactHeroImg}
+        mobileImageSrc={DivMakeupContact}
         className="centerHero"
+        heightVH={92}
       />
     );
   }
@@ -63,11 +79,14 @@ const PageHero: React.FC = () => {
     return (
       <HeroSection
         {...common}
-        title="About Sree Moulika"
-        description="Where luxury meets personalization in every detail."
+        title={<>
+          Luxury Crafted Around You
+        </>}
+        description={<>Where luxury meets personalization<br />in every detail.</>}
         useVideo={false}
-        imageSrc={AboutHeroImg}
+        imageSrc={awardImage}
         className="centerHero"
+        heightVH={92}
       />
     );
   }
@@ -76,11 +95,15 @@ const PageHero: React.FC = () => {
     return (
       <HeroSection
         {...common}
-        title="The Beauty Cafe"
-        description="Relax, sip, and glow—our cozy cafe experience inside the salon."
+        title={<>
+          The Beauty Cafe
+        </>}
+        description={<>Relax, sip, and glow—our cozy cafe<br />experience inside the salon.</>}
         useVideo={false}
-        imageSrc={CafeHeroImg}
+        imageSrc={cafeImage}
+        mobileImageSrc={mobileCafeImage}
         className="centerHero"
+        heightVH={92}
       />
     );
   }
@@ -89,8 +112,8 @@ const PageHero: React.FC = () => {
   return (
     <HeroSection
       {...common}
-      title="The Art Of Beauty Perfection"
-      description="Based in Hyderabad, Sree Moulika crafts natural-looking, flawless results through the art of beauty care."
+      title={<>The Art Of Beauty Perfection</>}
+      description={<>Based in Hyderabad, SM Luxury Salon crafts natural-looking, flawless<br />results through the art of beauty care.</>}
       heightVH={92}
       className="centerHero"
     />

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import {
   About,
   Contact,
@@ -14,7 +14,9 @@ import "./styles.css";
 import Gallery from "./components/Gallery/Gallery";
 import PageHero from "./components/Hero/PageHero";
 
-export default function App() {
+function AppContent() {
+  const location = useLocation();
+  const isCafeRoute = location.pathname === '/cafe';
   return (
     <>
       <div className="App">
@@ -33,13 +35,19 @@ export default function App() {
         </div>
       </div>
       {/* Bottom media strip above footer */}
-      <FooterCarousel />
+      <FooterCarousel activeTab={isCafeRoute ? 'cafe' : 'beauty'} />
       <div className="footer">
         <Footer />
       </div>
       {/* Global floating call button with ringing animation + modal */}
       <FloatingCall />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <AppContent />
   );
 }
 

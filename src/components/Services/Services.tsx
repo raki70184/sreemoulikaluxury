@@ -1,15 +1,15 @@
 import { Grid } from "@mui/material";
 import { IconText } from "../IconText";
 import { ServicesList } from "../utils";
-import servicesHero from "../images/HairServices.jpeg";
+import servicesHero from "../images/WebsiteImages/HairServices.jpeg";
 
 export const Services = () => {
   return (
     <>
-      {/* Featured large image */}
+      {/* Featured large image
       <div className="pageFeatured">
         <img src={servicesHero} alt="Our services" className="pageFeaturedMedia" />
-      </div>
+      </div> */}
       <Grid
         className="servicesList"
         container

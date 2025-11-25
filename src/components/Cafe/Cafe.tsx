@@ -1,199 +1,186 @@
-import React, { useMemo, useState } from "react";
-import "./Cafe.css";
+import React, { useRef, useEffect, useState, useMemo } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import './Cafe.css';
+import coffeemachineLeft from '../images/CafeImages/coffeemachineLeft.jpeg';
+import cafeCoffeeCupRight from '../images/CafeImages/cafeCoffeeCupRight.jpeg';
+import { smCafeMenuData } from "../utils/smCafeMenu";
 
-const categories = ["All", "Coffee", "Tea", "Refreshers", "Bites"] as const;
+const categories = ["All", ...smCafeMenuData.menu.map(item => item.header)] as const;
 type Category = (typeof categories)[number];
 
 type MenuItem = {
-  id: string;
-  name: string;
-  price: string;
-  desc: string;
-  tag?: string;
-  category: Category;
-  image: string;
-  new?: boolean;
+  item_title: string;
+  item_price: string;
+  item_description: string;
+  header?: string;
 };
 
-const MENU: MenuItem[] = [
-  // Coffee
-  {
-    id: "espresso",
-    name: "Signature Espresso",
-    price: "₹180",
-    desc: "Rich, velvety shot pulled to perfection.",
-    category: "Coffee",
-    image:
-      "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=60",
-    tag: "Double Roast",
-  },
-  {
-    id: "cappuccino",
-    name: "Classic Cappuccino",
-    price: "₹220",
-    desc: "Silky foam, bold heart.",
-    category: "Coffee",
-    image:
-      "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1200&q=60",
-    tag: "House Blend",
-  },
-  {
-    id: "latte",
-    name: "Vanilla Latte",
-    price: "₹240",
-    desc: "Creamy, mellow and lightly sweet.",
-    category: "Coffee",
-    image:
-      "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=60",
-  },
-  {
-    id: "iced-caramel",
-    name: "Iced Caramel Latte",
-    price: "₹260",
-    desc: "Chilled, caramel-kissed indulgence.",
-    category: "Coffee",
-    image:
-      "https://images.unsplash.com/photo-1529676468690-a3d5b96e1f81?auto=format&fit=crop&w=1200&q=60",
-    new: true,
-  },
-
-  // Tea
-  {
-    id: "masala-chai",
-    name: "Masala Chai",
-    price: "₹160",
-    desc: "Warming spices, slow-brewed.",
-    category: "Tea",
-    image:
-      "https://images.unsplash.com/photo-1615485925600-95c6a7c6cd86?auto=format&fit=crop&w=1200&q=60",
-    tag: "House Spice",
-  },
-  {
-    id: "jasmine-green",
-    name: "Jasmine Green Tea",
-    price: "₹180",
-    desc: "Fragrant and refreshing.",
-    category: "Tea",
-    image:
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=60",
-  },
-
-  // Refreshers
-  {
-    id: "berry-sparkler",
-    name: "Berry Sparkler",
-    price: "₹220",
-    desc: "Bubbly berries, mint finish.",
-    category: "Refreshers",
-    image:
-      "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=1200&q=60",
-    tag: "Low Sugar",
-  },
-  {
-    id: "citrus-cooler",
-    name: "Citrus Cooler",
-    price: "₹210",
-    desc: "Zesty, bright and super fresh.",
-    category: "Refreshers",
-    image:
-      "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1200&q=60",
-  },
-
-  // Bites
-  {
-    id: "croissant",
-    name: "Butter Croissant",
-    price: "₹140",
-    desc: "Flaky layers, baked daily.",
-    category: "Bites",
-    image:
-      "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=60",
-  },
-  {
-    id: "avocado-toast",
-    name: "Avocado Toast",
-    price: "₹260",
-    desc: "Rye, smashed avo, chili flakes.",
-    category: "Bites",
-    image:
-      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=60",
-    new: true,
-  },
-  {
-    id: "biscotti",
-    name: "Almond Biscotti",
-    price: "₹120",
-    desc: "Crunchy dunking bliss.",
-    category: "Bites",
-    image:
-      "https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1200&q=60",
-    tag: "Eggless",
-  },
-  {
-    id: "veggie-wrap",
-    name: "Veggie Wrap",
-    price: "₹240",
-    desc: "Garden-fresh crunch, tahini drizzle.",
-    category: "Bites",
-    image:
-      "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=60",
-  },
-];
-
 export const Cafe: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [scrollY, setScrollY] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const [activeCat, setActiveCat] = useState<Category>("All");
+  const allMenuItems = useMemo<MenuItem[]>(() => {
+    const items: MenuItem[] = [];
+    smCafeMenuData.menu.forEach(category => {
+      category.items.forEach(item => {
+        items.push({
+          ...item,
+          header: category.header
+        });
+      });
+    });
+    return items;
+  }, []);
 
-  const filtered = useMemo<MenuItem[]>(() => {
-    if (activeCat === "All") return MENU;
-    return MENU.filter((m: MenuItem) => m.category === activeCat);
-  }, [activeCat]);
+  const filteredItems = useMemo<{ header: string; items: MenuItem[] }[]>(() => {
+    if (activeCategory === "All") {
+      // Group items by header
+      const grouped: { [key: string]: MenuItem[] } = {};
+      allMenuItems.forEach(item => {
+        if (item.header) {
+          if (!grouped[item.header]) {
+            grouped[item.header] = [];
+          }
+          grouped[item.header].push(item);
+        }
+      });
+      return Object.entries(grouped).map(([header, items]) => ({
+        header,
+        items
+      }));
+    }
+
+    // Filter by active category
+    const category = smCafeMenuData.menu.find(cat => cat.header === activeCategory);
+    if (!category) return [];
+
+    return [{
+      header: category.header,
+      items: category.items.map(item => ({
+        ...item,
+        header: category.header
+      }))
+    }];
+  }, [activeCategory, allMenuItems]);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className="cafeSection">
-      <div className="cafeIntro">
-        <h2 className="sectionTitle">Beauty Cafe</h2>
-        <p className="tagline">
-          Relax with artisan beverages and light bites while you glow. Our in-salon cafe
-          brings cozy vibes to your beauty time.
-        </p>
-        <p className="comingSoonNote">More details coming soon.</p>
-      </div>
+    <div className="cafe-container">
+      {/* About Story Section with Side Images */}
+      <section className="about-story">
+        {/* Left Side Image */}
+        <div
+          className="side-image left-image"
+          style={{
+            transform: `translateY(${scrollY * 0.1}px)`
+          }}
+        >
+          <img
+            src={coffeemachineLeft}
+            alt="Coffee machine"
+            className="parallax-image"
+          />
+        </div>
 
-      <nav className="menuToolbar" aria-label="Cafe categories">
-        {categories.map((c) => (
+        {/* Center Content */}
+        <div className="story-content">
+          <div className="story-title">About Cafe</div>
+          <div className="story-text">
+            <p className="story-line">Pure ingredients, crafted with care.
+              Fuel your beauty journey with clean, comforting flavors.</p>
+          </div>
+        </div>
+
+        {/* Right Side Image */}
+        <div
+          className="side-image right-image"
+          style={{
+            transform: `translateY(${scrollY * 0.15}px)`
+          }}
+        >
+          <img
+            src={cafeCoffeeCupRight}
+            alt="Coffee cup"
+            className="parallax-image"
+          />
+        </div>
+      </section>
+
+      {/* Category Pills */}
+      <section className="category-section">
+        <div className="category-pills-container">
           <button
-            key={c}
-            type="button"
-            className={["chip", activeCat === c ? "active" : ""].join(" ")}
-            onClick={() => setActiveCat(c)}
-            aria-pressed={activeCat === c}
+            className="scroll-arrow scroll-arrow-left"
+            onClick={scrollLeft}
+            aria-label="Scroll categories left"
           >
-            {c}
+            <ArrowLeft />
           </button>
-        ))}
-      </nav>
+          <div className="category-pills" ref={scrollContainerRef}>
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={`category-pill ${activeCategory === category ? "active" : ""}`}
+                onClick={() => setActiveCategory(category)}
+                aria-pressed={activeCategory === category}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          <button
+            className="scroll-arrow scroll-arrow-right"
+            onClick={scrollRight}
+            aria-label="Scroll categories right"
+          >
+            <ArrowRight />
+          </button>
+        </div>
+      </section>
 
-      <section className="menuGrid" aria-live="polite">
-        {filtered.map((item: MenuItem) => (
-          <article key={item.id} className="menuCard">
-            <div className="menuImageWrap">
-              <img
-                src={item.image}
-                alt={`${item.name} - ${item.category}`}
-                loading="lazy"
-              />
-              {item.new ? <span className="badgeNew">NEW</span> : null}
+      {/* Menu Grid */}
+      <section className="menu-section">
+        {filteredItems.map((categoryGroup) => (
+          <div key={categoryGroup.header} className="menu-category-group">
+            {activeCategory === "All" && categoryGroup.header && (
+              <h3 className="category-header">{categoryGroup.header}</h3>
+            )}
+            <div className="menu-grid">
+              {categoryGroup.items.map((item, index) => (
+                <article key={`${categoryGroup.header}-${item.item_title}-${index}`} className="menu-card">
+                  <div className="card-content">
+                    <div className="card-header">
+                      <h3 className="card-title">{item.item_title}</h3>
+                      <span className="card-price">₹{item.item_price}</span>
+                    </div>
+                    <p className="card-description">{item.item_description}</p>
+                  </div>
+                </article>
+              ))}
             </div>
-            <div className="menuContent">
-              <div className="menuHeader">
-                <h4 className="menuName">{item.name}</h4>
-                <span className="menuPrice">{item.price}</span>
-              </div>
-              <p className="menuDesc">{item.desc}</p>
-              {item.tag ? <span className="menuTag">{item.tag}</span> : null}
-            </div>
-          </article>
+          </div>
         ))}
       </section>
     </div>

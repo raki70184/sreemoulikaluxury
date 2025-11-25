@@ -1,11 +1,13 @@
 import { VideoItem } from "../types";
 import HighMakeupTrimmed from "../../images/Videos/HighMakeupTrimmed.mp4";
+import DashaFacial from "../../images/Videos/DashaFacial.mp4";
 
 export const galleryVideos: VideoItem[] = [
   {
     id: 1,
     type: "video",
     src: HighMakeupTrimmed,
+    mobileSrc: DashaFacial,
     poster:
       "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=1200",
     title: "Color Transformation",

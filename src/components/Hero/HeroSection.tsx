@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./HeroSection.module.css";
 import defaultVideo from "../images/Videos/HighMakeupTrimmed.mp4";
+import mobileVideo from "../images/Videos/DashaFacial.mp4";
+
+// Custom hook to check if screen is mobile (≤ 768px) for responsive images
+const useIsMobile = (): boolean => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+};
 
 interface HeroSectionProps {
-  title?: string;
+  title?: string | React.ReactNode;
   subtitle?: string;
-  description?: string;
+  description?: string | React.ReactNode;
   ctaLabel?: string;
   onCtaClick?: () => void;
   useVideo?: boolean;
   videoSrc?: string;
+  mobileVideoSrc?: string;
+  mobileImageSrc?: string;
   imageSrc?: string;
   heightVH?: number; // allow custom height if needed
   className?: string;
@@ -23,10 +42,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   onCtaClick,
   useVideo = true,
   videoSrc,
+  mobileVideoSrc = mobileVideo,
   imageSrc,
+  mobileImageSrc,
   heightVH = 90,
   className,
 }) => {
+  const isMobile = useIsMobile();
+  const [currentVideo, setCurrentVideo] = useState<string>(
+    videoSrc || (defaultVideo as unknown as string)
+  );
+
+  useEffect(() => {
+    if (isMobile && mobileVideoSrc) {
+      setCurrentVideo(mobileVideoSrc);
+    } else {
+      setCurrentVideo(videoSrc || (defaultVideo as unknown as string));
+    }
+  }, [isMobile, mobileVideoSrc, videoSrc]);
   return (
     <section
       className={`${styles.hero} ${className || ""}`}
@@ -34,15 +67,23 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     >
       {useVideo ? (
         <video
+          key={isMobile ? 'mobile' : 'desktop'}
           className={styles.media}
           autoPlay
           muted
           loop
           playsInline
-          src={videoSrc || (defaultVideo as unknown as string)}
+          src={currentVideo}
         />
       ) : (
-        imageSrc && <img className={styles.media} src={imageSrc} alt="Hero" />
+        imageSrc && (
+          <img 
+            className={styles.media} 
+            src={isMobile && mobileImageSrc ? mobileImageSrc : imageSrc} 
+            alt="Hero" 
+            key={isMobile ? 'mobile-img' : 'desktop-img'}
+          />
+        )
       )}
       <div className={styles.overlay} />
       <div className={styles.content}>
