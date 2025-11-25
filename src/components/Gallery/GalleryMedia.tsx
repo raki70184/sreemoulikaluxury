@@ -43,14 +43,33 @@ const GalleryMedia: React.FC<GalleryMediaProps> = ({ item }) => {
   // Add CSS to prevent zooming and ensure proper scaling
   useEffect(() => {
     const preventZoom = (e: TouchEvent) => {
+      // Prevent zooming on multi-touch
       if (e.touches.length > 1) {
         e.preventDefault();
       }
     };
+
+    // iOS specific fixes
+    const handleTouchMove = (e: TouchEvent) => {
+      // Prevent elastic scrolling
+      if (e.target === videoRef.current || e.target === document.documentElement) {
+        e.preventDefault();
+      }
+    };
+
+    // Disable double-tap zoom
+    document.documentElement.style.touchAction = 'manipulation';
+    document.documentElement.style.webkitTextSizeAdjust = '100%';
     
+    // Add event listeners
     document.addEventListener('touchmove', preventZoom, { passive: false });
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    
     return () => {
       document.removeEventListener('touchmove', preventZoom);
+      document.removeEventListener('touchmove', handleTouchMove);
+      document.documentElement.style.touchAction = '';
+      document.documentElement.style.webkitTextSizeAdjust = '';
     };
   }, []);
 
