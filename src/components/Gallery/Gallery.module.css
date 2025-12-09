@@ -43,8 +43,8 @@
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  touch-action: pan-y;
-  
+  touch-action: auto;
+
   /* Hide scrollbar by default - will show only on mobile */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -108,7 +108,12 @@
   right: -20px;
 }
 
-/* Desktop styles - show arrows, hide scrollbar but allow scrolling */
+/* Show arrows and scrolling on all screen widths */
+.navButton {
+  display: flex; /* Show arrows on all devices */
+}
+
+/* Desktop styles - hide scrollbar but allow scrolling */
 @media (min-width: 769px) {
   .rowContainer {
     overflow-x: auto; /* Enable scrolling */
@@ -117,32 +122,24 @@
     padding: 1rem 0;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   .rowContainer::-webkit-scrollbar {
     display: none; /* Hide scrollbar but keep scrolling */
   }
-  
-  .navButton {
-    display: flex; /* Show arrows on desktop */
-  }
-  
+
   /* Ensure content can be scrolled via touch/mouse drag */
   .rowContainer {
     -webkit-overflow-scrolling: touch;
     cursor: grab;
   }
-  
+
   .rowContainer:active {
     cursor: grabbing;
   }
 }
 
-/* Mobile styles - show scrollbar, hide arrows */
+/* Mobile styles - show scrollbar and arrows */
 @media (max-width: 768px) {
-  .navButton {
-    display: none; /* Hide arrows on mobile */
-  }
-  
   .rowContainer {
     scrollbar-width: thin; /* Show scrollbar on mobile */
     scrollbar-color: #c9a876 #f0f0f0;
@@ -150,23 +147,23 @@
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: none;
   }
-  
+
   .rowContainer::-webkit-scrollbar {
     display: block;
     height: 6px;
   }
-  
+
   .rowContainer::-webkit-scrollbar-track {
     background: #f0f4f8;
     border-radius: 4px;
     margin: 0 10px;
   }
-  
+
   .rowContainer::-webkit-scrollbar-thumb {
     background-color: #c9a876;
     border-radius: 4px;
   }
-  
+
   .rowContainer::-webkit-scrollbar-thumb:hover {
     background-color: #b8985e;
   }

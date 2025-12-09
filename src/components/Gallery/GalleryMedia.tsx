@@ -82,7 +82,7 @@ const GalleryMedia: React.FC<GalleryMediaProps> = ({ item }) => {
       width: '100%',
       height: '100%',
       overflow: 'hidden',
-      touchAction: 'pan-y'
+      touchAction: 'auto'
     }}>
       {item.type === "video" ? (
         <div className={`${styles.videoWrapper} ${styles.noHover}`}>

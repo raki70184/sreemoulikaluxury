@@ -13,12 +13,14 @@ import AppBarComponent from "./components/AppBar/AppBarComponent";
 import "./styles.css";
 import Gallery from "./components/Gallery/Gallery";
 import PageHero from "./components/Hero/PageHero";
+import ChatWidget from "./components/ChatWidget/ChatWidget";
 
 function AppContent() {
   const location = useLocation();
-  const isCafeRoute = location.pathname === '/cafe';
+  const isCafeRoute = location.pathname === "/cafe";
   return (
     <>
+      <ChatWidget />
       <div className="App">
         <AppBarComponent />
         {/* Consistent top hero with fullscreen background video */}
@@ -35,7 +37,7 @@ function AppContent() {
         </div>
       </div>
       {/* Bottom media strip above footer */}
-      <FooterCarousel activeTab={isCafeRoute ? 'cafe' : 'beauty'} />
+      <FooterCarousel activeTab={isCafeRoute ? "cafe" : "beauty"} />
       <div className="footer">
         <Footer />
       </div>
@@ -46,8 +48,5 @@ function AppContent() {
 }
 
 export default function App() {
-  return (
-    <AppContent />
-  );
+  return <AppContent />;
 }
-

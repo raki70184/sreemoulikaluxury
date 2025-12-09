@@ -82,10 +82,8 @@ const SECTION_HEIGHTS = {
 
 // Helper function to get height values for a section
 const getSectionHeights = (sectionId: string) => {
-  console.log('sectionId', sectionId);
   const sectionKey = sectionId.toUpperCase().replace(/-/g, '_');
   const heights = SECTION_HEIGHTS[sectionKey as keyof typeof SECTION_HEIGHTS] || DEFAULT_HEIGHTS;
-  console.log('heights', heights);
   return {
     SMALL: heights.SMALL,
     MEDIUM: heights.MEDIUM,

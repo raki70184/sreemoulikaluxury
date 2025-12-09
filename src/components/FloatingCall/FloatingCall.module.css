@@ -6,7 +6,7 @@
 .fabWrapper {
   position: fixed;
   left: 16px;
-  bottom: 63px;
+  bottom: 24px;
   z-index: 9999;
   display: grid;
   place-items: center;
@@ -76,8 +76,8 @@
 /* Modal card styled like the reference */
 .modalCard {
   position: fixed;
-  left: 20%;
-  top: 73%;
+  left: 21%;
+  top: 68%;
   transform: translate(-50%, -50%);
   width: min(92vw, 465px);
   background: #ffffff;
@@ -155,10 +155,51 @@
   .fabWrapper {
     position: fixed;
     left: 16px;
-    bottom: 130px;
+    bottom: 19px;
     z-index: 9999;
     display: grid;
     place-items: center;
   }
-  
+  .modalCard {
+    position: fixed;
+    left: 53%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    width: min(92vw, 465px);
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    padding: 28px 28px 32px 28px;
+    z-index: 10000;
+  }
+}
+
+@media (min-width: 521px) and (max-width: 768px) {
+  .modalCard {
+    position: fixed;
+    left: 40%;
+    top: 62%;
+    transform: translate(-50%, -50%);
+    width: min(92vw, 465px);
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    padding: 28px 28px 32px 28px;
+    z-index: 10000;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .modalCard {
+    position: fixed;
+    left: 30%;
+    top: 62%;
+    transform: translate(-50%, -50%);
+    width: min(92vw, 465px);
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    padding: 28px 28px 32px 28px;
+    z-index: 10000;
+  }
 }

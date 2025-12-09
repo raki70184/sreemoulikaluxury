@@ -5,7 +5,7 @@
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  touch-action: pan-y;
+  touch-action: auto;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -46,8 +46,6 @@
   -ms-user-select: none;
   user-select: none;
   touch-action: manipulation;
-  max-width: 100%;
-  height: auto;
   display: block;
 }
 
