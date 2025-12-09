@@ -40,36 +40,17 @@ const GalleryMedia: React.FC<GalleryMediaProps> = ({ item }) => {
     }
   }, [isMobile, item]);
 
-  // Add CSS to prevent zooming and ensure proper scaling
+  // iOS specific fixes to prevent zoom
   useEffect(() => {
-    const preventZoom = (e: TouchEvent) => {
-      // Prevent zooming on multi-touch
-      if (e.touches.length > 1) {
-        e.preventDefault();
-      }
-    };
-
-    // iOS specific fixes
-    const handleTouchMove = (e: TouchEvent) => {
-      // Prevent elastic scrolling
-      if (e.target === videoRef.current || e.target === document.documentElement) {
-        e.preventDefault();
-      }
-    };
-
-    // Disable double-tap zoom
-    document.documentElement.style.touchAction = 'manipulation';
+    // Set viewport-level zoom prevention
     document.documentElement.style.webkitTextSizeAdjust = '100%';
-    
-    // Add event listeners
-    document.addEventListener('touchmove', preventZoom, { passive: false });
-    document.addEventListener('touchmove', handleTouchMove, { passive: false });
-    
+    document.documentElement.style.webkitUserSelectAll = 'none';
+    document.body.style.webkitTouchCallout = 'none';
+
     return () => {
-      document.removeEventListener('touchmove', preventZoom);
-      document.removeEventListener('touchmove', handleTouchMove);
-      document.documentElement.style.touchAction = '';
       document.documentElement.style.webkitTextSizeAdjust = '';
+      document.documentElement.style.webkitUserSelectAll = '';
+      document.body.style.webkitTouchCallout = '';
     };
   }, []);
 
@@ -82,7 +63,7 @@ const GalleryMedia: React.FC<GalleryMediaProps> = ({ item }) => {
       width: '100%',
       height: '100%',
       overflow: 'hidden',
-      touchAction: 'auto'
+      touchAction: 'manipulation'
     }}>
       {item.type === "video" ? (
         <div className={`${styles.videoWrapper} ${styles.noHover}`}>

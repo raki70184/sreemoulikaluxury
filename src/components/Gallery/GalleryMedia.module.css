@@ -5,7 +5,7 @@
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  touch-action: auto;
+  touch-action: manipulation;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -16,6 +16,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-user-drag: none;
+  -webkit-perspective: 1000;
+  perspective: 1000;
 }
 
 .mediaWrapper {
@@ -26,6 +29,12 @@
   border-radius: 8px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  touch-action: manipulation;
 }
 
 .mediaWrapper.image {
@@ -113,6 +122,12 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  touch-action: manipulation;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
 }
 
 .image {
@@ -121,6 +136,12 @@
   object-fit: cover;
   transition: transform 0.5s ease-out;
   display: block;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  -webkit-transform: translateZ(0);
+  -webkit-perspective: 1000;
 }
 
 .mediaWrapper:hover .image {
