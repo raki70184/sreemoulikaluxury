@@ -39,32 +39,44 @@ const previewProcess = spawn("npx", ["vite", "preview", "--port", String(PORT), 
   stdio: ["ignore", "pipe", "pipe"],
   env: { ...process.env },
 });
-let previewReady = false;
+// Collect output for diagnostics. We don't parse it for the ready signal —
+// Vite sometimes writes the "Local:" banner to stderr in CI, so log parsing
+// is unreliable. Instead, we poll the port below.
 const previewLog = [];
-previewProcess.stdout.on("data", (chunk) => {
-  const s = chunk.toString();
-  previewLog.push(s);
-  if (s.includes("Local:") || s.includes(`http://localhost:${PORT}`)) previewReady = true;
-});
+previewProcess.stdout.on("data", (chunk) => previewLog.push(chunk.toString()));
 previewProcess.stderr.on("data", (chunk) => previewLog.push(chunk.toString()));
+let previewExitedEarly = false;
 previewProcess.on("exit", (code) => {
-  if (code && code !== 0 && !previewReady) {
-    console.error("preview exited early:\n" + previewLog.join(""));
-  }
+  if (code !== 0) previewExitedEarly = true;
 });
 
-// Wait until preview is reachable
+// Poll the actual port until it responds with anything (even a redirect).
 const baseUrl = `http://localhost:${PORT}`;
 const startedAt = Date.now();
-while (!previewReady) {
-  if (Date.now() - startedAt > 20000) {
-    previewProcess.kill();
-    throw new Error("Vite preview did not start within 20s:\n" + previewLog.join(""));
+const READY_TIMEOUT_MS = 60000;
+async function isUp() {
+  try {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 1500);
+    const res = await fetch(baseUrl + "/", { signal: ctrl.signal });
+    clearTimeout(t);
+    return res.status < 500;
+  } catch {
+    return false;
   }
-  await new Promise((r) => setTimeout(r, 250));
 }
-// Give the server a tick to actually bind the socket.
-await new Promise((r) => setTimeout(r, 500));
+while (!(await isUp())) {
+  if (previewExitedEarly) {
+    throw new Error("Vite preview exited before becoming ready:\n" + previewLog.join(""));
+  }
+  if (Date.now() - startedAt > READY_TIMEOUT_MS) {
+    previewProcess.kill();
+    throw new Error(
+      `Vite preview did not respond on ${baseUrl} within ${READY_TIMEOUT_MS / 1000}s:\n` + previewLog.join("")
+    );
+  }
+  await new Promise((r) => setTimeout(r, 400));
+}
 console.log("vite preview ready.");
 
 console.log("Launching Puppeteer…");
