@@ -9,6 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { ImageServiceList } from "../utils";
+import { CldImage } from "../CldImage";
 
 export const ServicesImageList = () => {
   const theme = useTheme();
@@ -25,13 +26,13 @@ export const ServicesImageList = () => {
           className="serviceImage"
           onClick={clickHandler}
         >
-          <img
-            src={item.img}
-            srcSet={item.img}
+          <CldImage
+            publicId={item.img}
             alt={item.title}
-            loading="lazy"
-            width="100"
-            height="100"
+            widths={[160, 240, 360, 480]}
+            sizes="(max-width: 600px) 100vw, 25vw"
+            width={100}
+            height={100}
           />
           <ImageListItemBar
             title={item.title}

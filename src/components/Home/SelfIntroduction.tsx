@@ -4,8 +4,8 @@ import { Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import nailTechnician from "../images/WebsiteImages/NailTechnician.jpg";
-import familyImage from "../images/WebsiteImages/FamilyImage.jpg";
+import { nailTechnician, familyImage } from "../images/WebsiteImages";
+import { CldImage } from "../CldImage";
 
 interface SelfIntroductionProps {
   isAbout?: boolean;
@@ -30,12 +30,13 @@ export const SelfIntroduction: React.FC<SelfIntroductionProps> = ({
       {isAbout ? (
         <>
           <Grid item md={5} xs={12} className="technician-image">
-            <img
-              src={nailTechnician}
+            <CldImage
+              publicId={nailTechnician}
               className="image"
-              alt="SMBeauty parlour"
-              width={sm ? "280" : "400"}
-              height="auto"
+              alt="SM Luxe Salon — nail care by certified technician"
+              widths={[320, 480, 640, 800]}
+              sizes="(max-width: 600px) 280px, 400px"
+              width={sm ? 280 : 400}
             />
           </Grid>
           <Grid
@@ -79,13 +80,13 @@ export const SelfIntroduction: React.FC<SelfIntroductionProps> = ({
       ) : (
         <>
           <Grid item md={5} xs={12} className="family-image" paddingLeft={2}>
-            <img
-              src={familyImage}
+            <CldImage
+              publicId={familyImage}
               className="image"
-              alt="SMBeauty parlour"
-              width={sm ? "400" : md? "500" : "500"}
-              height="auto"
-              
+              alt="SM Luxe Salon family-friendly experience"
+              widths={[320, 480, 640, 800, 1000]}
+              sizes="(max-width: 600px) 400px, 500px"
+              width={sm ? 400 : 500}
             />
           </Grid>
           <Grid item xs>

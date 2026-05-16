@@ -5,6 +5,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 
 import ContactForm from "../ContactForm/ContactForm";
+import { LazyMap } from "./LazyMap";
 
 import "./Contactstyles.css";
 
@@ -79,15 +80,7 @@ export const Contact = () => {
           </Grid>
         </Grid>
         <Grid item xs={12} marginTop={10} marginBottom={10}>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.99724007655!2d78.53380847526489!3d17.459846200713518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9bdfc8647bbb%3A0x631bc3accc77af0e!2sSM%20LUXURY%20SALON!5e0!3m2!1sen!2sus!4v1702131032378!5m2!1sen!2sus"
-            width={"100%"}
-            height="400"
-            style={{
-              border: 0,
-            }}
-            loading="lazy"
-          />
+          <LazyMap />
         </Grid>
       </Grid>
     </>

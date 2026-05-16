@@ -1,21 +1,18 @@
 import React, { useRef, useEffect, useState } from "react";
 import { GalleryItem, VideoItem } from "./types";
 import styles from "./GalleryMedia.module.css";
+import { CldImage } from "../CldImage";
+import { cldVideoUrl, cldVideoPosterUrl } from "../../lib/cld";
 
-// Custom hook to check if screen is mobile (425px or less)
+// SSR-safe mobile detector — assumes desktop during prerender, re-measures on mount.
 const useIsMobile = (): boolean => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 425);
-  
-
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 425);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const compute = () => setIsMobile(window.innerWidth <= 425);
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
   }, []);
-
   return isMobile;
 };
 
@@ -26,84 +23,78 @@ interface GalleryMediaProps {
 const GalleryMedia: React.FC<GalleryMediaProps> = ({ item }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const isMobile = useIsMobile();
-  
-  // Get the appropriate video source based on screen size
-  const getVideoSource = (item: VideoItem): string => {
-    return (isMobile && item.mobileSrc) ? item.mobileSrc : item.src as any;
-  };
+
+  const getVideoPublicId = (v: VideoItem): string =>
+    isMobile && v.mobileSrc ? v.mobileSrc : (v.src as string);
 
   useEffect(() => {
     if (videoRef.current) {
-      // Enable controls and ensure video is loaded
       videoRef.current.controls = true;
       videoRef.current.load();
     }
   }, [isMobile, item]);
 
-  // iOS specific fixes to prevent zoom
+  // iOS-safe touch handling: prevent pinch-zoom inside the gallery, but keep vertical scroll.
   useEffect(() => {
-    // Set viewport-level zoom prevention
-    document.documentElement.style.webkitTextSizeAdjust = '100%';
-    document.documentElement.style.webkitUserSelectAll = 'none';
-    document.body.style.webkitTouchCallout = 'none';
-
+    const blockMultiTouch = (e: TouchEvent) => {
+      if (e.touches.length > 1) e.preventDefault();
+    };
+    document.documentElement.style.touchAction = "manipulation";
+    document.addEventListener("touchmove", blockMultiTouch, { passive: false });
     return () => {
-      document.documentElement.style.webkitTextSizeAdjust = '';
-      document.documentElement.style.webkitUserSelectAll = '';
-      document.body.style.webkitTouchCallout = '';
+      document.removeEventListener("touchmove", blockMultiTouch);
+      document.documentElement.style.touchAction = "";
     };
   }, []);
 
-  return (
-    <div className={styles.mediaContainer} style={{
-      WebkitTransform: 'scale(1)',
-      transform: 'scale(1)',
-      WebkitTransformOrigin: 'center center',
-      transformOrigin: 'center center',
-      width: '100%',
-      height: '100%',
-      overflow: 'hidden',
-      touchAction: 'manipulation'
-    }}>
-      {item.type === "video" ? (
+  if (item.type === "video") {
+    const videoItem = item as VideoItem;
+    const videoId = getVideoPublicId(videoItem);
+    const posterId = (videoItem.poster as string) || videoId;
+    return (
+      <div className={styles.mediaContainer} style={{ width: "100%", height: "100%", overflow: "hidden", touchAction: "pan-y" }}>
         <div className={`${styles.videoWrapper} ${styles.noHover}`}>
           <video
             ref={videoRef}
             className={styles.video}
-            poster={item.poster}
+            poster={cldVideoPosterUrl(posterId, { w: isMobile ? 720 : 1280 })}
             playsInline
             controls
             controlsList="nodownload"
-            // These attributes ensure controls are always visible
-            onMouseOver={e => e.currentTarget.controls = true}
-            onMouseOut={e => e.currentTarget.controls = true}
-            onFocus={() => {}}
+            preload="metadata"
             autoPlay
             muted
             loop
           >
-            <source src={getVideoSource(item as VideoItem)} type="video/mp4" />
+            <source src={cldVideoUrl(videoId, { w: isMobile ? 720 : 1280 })} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
-      ) : (
-        <div className={styles.mediaWrapper}>
-          <div className={styles.imageContainer}>
-            <img
-              src={item.src}
-              alt={item.alt || ''}
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.mediaContainer} style={{ width: "100%", height: "100%", overflow: "hidden", touchAction: "pan-y" }}>
+      <div className={styles.mediaWrapper}>
+        <div className={styles.imageContainer}>
+          {item.src && (
+            <CldImage
+              publicId={item.src}
+              alt={item.alt || ""}
               className={styles.image}
-              loading="lazy"
+              widths={[320, 480, 640, 960, 1280]}
+              sizes="(max-width: 768px) 80vw, 33vw"
             />
-            {(item.title || item.description) && (
-              <div className={styles.caption}>
-                {item.title && <h4>{item.title}</h4>}
-                {item.description && <p>{item.description}</p>}
-              </div>
-            )}
-          </div>
+          )}
+          {(item.title || item.description) && (
+            <div className={styles.caption}>
+              {item.title && <h4>{item.title}</h4>}
+              {item.description && <p>{item.description}</p>}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };

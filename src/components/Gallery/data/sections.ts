@@ -1,43 +1,35 @@
 import { GalleryItem } from '../types';
 
-// Import all images and videos
-// Salon Interior
-import salon1 from '../../images/GallerySectionImages/SalonInterior/view1.jpeg';
-import salon2 from '../../images/GallerySectionImages/SalonInterior/view2.jpeg';
-import salon3 from '../../images/GallerySectionImages/SalonInterior/view3.jpeg';
-import salon4 from '../../images/GallerySectionImages/SalonInterior/view4.jpeg';
-
-// Bridal
-import bridal1 from '../../images/GallerySectionImages/Bridal/bridal1.jpeg';
-import bridal2 from '../../images/GallerySectionImages/Bridal/bridal2.jpeg';
-import bridal3 from '../../images/GallerySectionImages/Bridal/bridal3.jpeg';
-import bridal4 from '../../images/GallerySectionImages/Bridal/bridal4.jpg';
-
-// Facial
-import facial1 from '../../images/GallerySectionImages/Facial/facial1.mp4';
-import facial2 from '../../images/GallerySectionImages/Facial/facial2.mp4';
-import facial1Coverimage from '../../images/GallerySectionImages/Facial/facial1Coverimage.jpeg';
-import facial2Coverimage from '../../images/GallerySectionImages/Facial/facial2Coverimage.jpeg';
-
-// Fashion
-import fashion1 from '../../images/GallerySectionImages/Fashion/fashion1.jpeg';
-import fashion2 from '../../images/GallerySectionImages/Fashion/fashion2.jpeg';
-import fashion3 from '../../images/GallerySectionImages/Fashion/fashion3.jpeg';
-import fashion4 from '../../images/GallerySectionImages/Fashion/fashion4.jpeg';
-import fashionVideo from '../../images/GallerySectionImages/Fashion/makeupAparna.mp4';
-
-// Hair Color
-import hairColor1 from '../../images/GallerySectionImages/HairColor/haircolor1.jpeg';
-import hairColor2 from '../../images/GallerySectionImages/HairColor/haircolor2.jpeg';
-import hairColor3 from '../../images/GallerySectionImages/HairColor/haircolor3.jpeg';
-import hairColor4 from '../../images/GallerySectionImages/HairColor/haircolor4.jpeg';
-import hairVideo from '../../images/GallerySectionImages/HairColor/hairCut.mp4';
-
-// Nails
-import nail1 from '../../images/GallerySectionImages/Nail/nail1.jpeg';
-import nail2 from '../../images/GallerySectionImages/Nail/nail2.jpeg';
-import nail3 from '../../images/GallerySectionImages/Nail/nail3.jpeg';
-import nailVideo from '../../images/GallerySectionImages/Nail/nailtransform.mp4';
+// All gallery media is delivered from Cloudinary. The publicIds live in the
+// generated barrel src/components/images/GallerySectionImages/index.ts.
+import {
+  view1 as salon1,
+  view2 as salon2,
+  view3 as salon3,
+  view4 as salon4,
+  bridal1,
+  bridal2,
+  bridal3,
+  bridal4,
+  facial1,
+  facial2,
+  facial1Coverimage,
+  facial2Coverimage,
+  fashion1,
+  fashion2,
+  fashion3,
+  fashion4,
+  makeupAparna as fashionVideo,
+  haircolor1 as hairColor1,
+  haircolor2 as hairColor2,
+  haircolor3 as hairColor3,
+  haircolor4 as hairColor4,
+  hairCut as hairVideo,
+  nail1,
+  nail2,
+  nail3,
+  nailtransform as nailVideo,
+} from '../../images/GallerySectionImages';
 
 export interface GallerySection {
   id: string;

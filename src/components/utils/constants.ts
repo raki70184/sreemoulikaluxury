@@ -1,26 +1,15 @@
-import makeup from "../images/WebsiteImages/Makeup.jpeg";
-import manicure from "../images/WebsiteImages/manicure.jpeg";
-import pedicure from "../images/WebsiteImages/pedicure.jpg";
-import nails from "../images/WebsiteImages/NailServices.jpeg";
-import S1 from "../images/DesktopImages/S1.jpeg";
-import S2 from "../images/DesktopImages/S2.jpeg";
-import S3 from "../images/DesktopImages/S3.jpeg";
-import S4 from "../images/DesktopImages/S4.jpeg";
-import S5 from "../images/DesktopImages/S5.jpeg";
-import S6 from "../images/DesktopImages/S6.jpeg";
-import S7 from "../images/DesktopImages/S7.jpeg";
-
-import M1 from "../images/MobileImages/M1.jpg";
-import M2 from "../images/MobileImages/M2.jpg";
-import M3 from "../images/MobileImages/M3.jpg";
-import M4 from "../images/MobileImages/M4.jpg";
-import M5 from "../images/MobileImages/M5.jpg";
-import M6 from "../images/MobileImages/M6.jpg";
-
-import hairTreatment_service from "../images/WebsiteImages/HairTreatment_service.jpeg";
-import hairSpa_service from "../images/WebsiteImages/HairSpa_service.jpeg";
-import hairServices from "../images/WebsiteImages/HairServices.jpeg";
-import beauty_service from "../images/WebsiteImages/BeautyServices.jpg";
+import {
+  makeup,
+  manicure,
+  pedicure,
+  nailServices as nails,
+  hairTreatmentService as hairTreatment_service,
+  hairSpaService as hairSpa_service,
+  hairServices,
+  beautyServices as beauty_service,
+} from "../images/WebsiteImages";
+import { s1 as S1, s2 as S2, s3 as S3, s4 as S4, s5 as S5, s6 as S6, s7 as S7 } from "../images/DesktopImages";
+import { m1 as M1, m2 as M2, m3 as M3, m4 as M4, m5 as M5, m6 as M6 } from "../images/MobileImages";
 
 import HairIcon from "../images/WebsiteImages/hair-style.svg?react";
 import HairCut from "../images/WebsiteImages/hair-cut.svg?react";

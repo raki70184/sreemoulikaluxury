@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './ServicesSection.module.css';
+import { cldUrl } from '../../lib/cld';
 
-// Import existing service images
-import hairTreatmentImg from '../images/OurServicesImages/FamilyImage.jpeg';
-import hairServicesImg from '../images/OurServicesImages/HairService.jpeg';
-// import hairSpaImg from '../images/OurServicesImages/Beauty1.jpeg';
-import beautyServicesImg from '../images/OurServicesImages/Beauty1.jpeg';
-import nailsImg from '../images/OurServicesImages/Nail.jpg';
-import makeupImg from '../images/OurServicesImages/makeup.jpeg';
+// Import Cloudinary publicIds from generated barrel
+import {
+  familyImage as hairTreatmentImg,
+  hairService as hairServicesImg,
+  beauty1 as beautyServicesImg,
+  nail as nailsImg,
+  makeup as makeupImg,
+} from '../images/OurServicesImages';
 
 interface ServiceItem {
   id: string;
@@ -74,7 +76,7 @@ const ServicesSection: React.FC = () => {
               activeService === service.id ? styles.active : ''
             }`}
             style={{
-              backgroundImage: `url(${service.image})`,
+              backgroundImage: `url(${cldUrl(service.image, { w: 800, ar: '4:3', c: 'fill', g: 'auto' })})`,
             }}
             onMouseEnter={() => setActiveService(service.id)}
             onMouseLeave={() => setActiveService(null)}

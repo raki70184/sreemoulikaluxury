@@ -3,8 +3,8 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import "./Footer.css";
 import { Instagram as InstagramIcon } from "@mui/icons-material";
-import davins from "../images/WebsiteImages/Davins.png";
-import voesh from "../images/WebsiteImages/voesh.png";
+import { davins, voesh } from "../images/WebsiteImages";
+import { CldImage } from "../CldImage";
 
 export const Footer = () => {
   const theme = useTheme();
@@ -33,8 +33,8 @@ export const Footer = () => {
           <div className="premiumBrandsSection">
             <Typography className="footerTitle">Our Premium Brands</Typography>
             <div className="brandLogos">
-              <img src={davins} alt="Davines" width="140" />
-              <img src={voesh} alt="Voesh" width="180" />
+              <CldImage publicId={davins} alt="Davines" width={140} widths={[140, 280]} sizes="140px" />
+              <CldImage publicId={voesh} alt="Voesh" width={180} widths={[180, 360]} sizes="180px" />
             </div>
           </div>
 

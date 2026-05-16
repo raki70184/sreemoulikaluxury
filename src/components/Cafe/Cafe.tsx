@@ -1,86 +1,66 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import './Cafe.css';
-import coffeemachineLeft from '../images/CafeImages/coffeemachineLeft.jpeg';
-import cafeCoffeeCupRight from '../images/CafeImages/cafeCoffeeCupRight.jpeg';
-import { smCafeMenuData } from "../utils/smCafeMenu";
+import { coffeemachineLeft, cafeCoffeeCupRight } from '../images/CafeImages';
+import { CldImage } from '../CldImage';
+import { loadCafeMenu, type CafeMenuData, type CafeMenuItem } from '../utils/smCafeMenu';
 
-const categories = ["All", ...smCafeMenuData.menu.map(item => item.header)] as const;
-type Category = (typeof categories)[number];
-
-type MenuItem = {
-  item_title: string;
-  item_price: string;
-  item_description: string;
-  header?: string;
-};
+type MenuItemWithHeader = CafeMenuItem & { header?: string };
 
 export const Cafe: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [menu, setMenu] = useState<CafeMenuData>({ menu: [] });
+  const [activeCategory, setActiveCategory] = useState<string>('All');
   const [scrollY, setScrollY] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const allMenuItems = useMemo<MenuItem[]>(() => {
-    const items: MenuItem[] = [];
-    smCafeMenuData.menu.forEach(category => {
-      category.items.forEach(item => {
-        items.push({
-          ...item,
-          header: category.header
-        });
+  useEffect(() => {
+    let alive = true;
+    loadCafeMenu()
+      .then((data) => alive && setMenu(data))
+      .catch((e) => console.error('Cafe menu load failed:', e));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const categories = useMemo<string[]>(() => ['All', ...menu.menu.map((s) => s.header)], [menu]);
+
+  const allMenuItems = useMemo<MenuItemWithHeader[]>(() => {
+    const items: MenuItemWithHeader[] = [];
+    menu.menu.forEach((category) => {
+      category.items.forEach((item) => {
+        items.push({ ...item, header: category.header });
       });
     });
     return items;
-  }, []);
+  }, [menu]);
 
-  const filteredItems = useMemo<{ header: string; items: MenuItem[] }[]>(() => {
-    if (activeCategory === "All") {
-      // Group items by header
-      const grouped: { [key: string]: MenuItem[] } = {};
-      allMenuItems.forEach(item => {
+  const filteredItems = useMemo<{ header: string; items: MenuItemWithHeader[] }[]>(() => {
+    if (activeCategory === 'All') {
+      const grouped: Record<string, MenuItemWithHeader[]> = {};
+      allMenuItems.forEach((item) => {
         if (item.header) {
-          if (!grouped[item.header]) {
-            grouped[item.header] = [];
-          }
+          if (!grouped[item.header]) grouped[item.header] = [];
           grouped[item.header].push(item);
         }
       });
-      return Object.entries(grouped).map(([header, items]) => ({
-        header,
-        items
-      }));
+      return Object.entries(grouped).map(([header, items]) => ({ header, items }));
     }
-
-    // Filter by active category
-    const category = smCafeMenuData.menu.find(cat => cat.header === activeCategory);
+    const category = menu.menu.find((cat) => cat.header === activeCategory);
     if (!category) return [];
+    return [
+      {
+        header: category.header,
+        items: category.items.map((item) => ({ ...item, header: category.header })),
+      },
+    ];
+  }, [activeCategory, allMenuItems, menu]);
 
-    return [{
-      header: category.header,
-      items: category.items.map(item => ({
-        ...item,
-        header: category.header
-      }))
-    }];
-  }, [activeCategory, allMenuItems]);
-
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
-    }
-  };
+  const scrollLeft = () => scrollContainerRef.current?.scrollBy({ left: -200, behavior: 'smooth' });
+  const scrollRight = () => scrollContainerRef.current?.scrollBy({ left: 200, behavior: 'smooth' });
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -89,40 +69,32 @@ export const Cafe: React.FC = () => {
     <div className="cafe-container">
       {/* About Story Section with Side Images */}
       <section className="about-story">
-        {/* Left Side Image */}
-        <div
-          className="side-image left-image"
-          style={{
-            transform: `translateY(${scrollY * 0.1}px)`
-          }}
-        >
-          <img
-            src={coffeemachineLeft}
-            alt="Coffee machine"
+        <div className="side-image left-image" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+          <CldImage
+            publicId={coffeemachineLeft}
+            alt="Espresso machine at SM Luxe Cafe"
             className="parallax-image"
+            widths={[320, 480, 640]}
+            sizes="(max-width: 768px) 40vw, 25vw"
           />
         </div>
 
-        {/* Center Content */}
         <div className="story-content">
           <div className="story-title">About Cafe</div>
           <div className="story-text">
-            <p className="story-line">Pure ingredients, crafted with care.
-              Fuel your beauty journey with clean, comforting flavors.</p>
+            <p className="story-line">
+              Pure ingredients, crafted with care. Fuel your beauty journey with clean, comforting flavors.
+            </p>
           </div>
         </div>
 
-        {/* Right Side Image */}
-        <div
-          className="side-image right-image"
-          style={{
-            transform: `translateY(${scrollY * 0.15}px)`
-          }}
-        >
-          <img
-            src={cafeCoffeeCupRight}
-            alt="Coffee cup"
+        <div className="side-image right-image" style={{ transform: `translateY(${scrollY * 0.15}px)` }}>
+          <CldImage
+            publicId={cafeCoffeeCupRight}
+            alt="Coffee cup at SM Luxe Cafe"
             className="parallax-image"
+            widths={[320, 480, 640]}
+            sizes="(max-width: 768px) 40vw, 25vw"
           />
         </div>
       </section>
@@ -130,11 +102,7 @@ export const Cafe: React.FC = () => {
       {/* Category Pills */}
       <section className="category-section">
         <div className="category-pills-container">
-          <button
-            className="scroll-arrow scroll-arrow-left"
-            onClick={scrollLeft}
-            aria-label="Scroll categories left"
-          >
+          <button className="scroll-arrow scroll-arrow-left" onClick={scrollLeft} aria-label="Scroll categories left">
             <ArrowLeft />
           </button>
           <div className="category-pills" ref={scrollContainerRef}>
@@ -142,7 +110,7 @@ export const Cafe: React.FC = () => {
               <button
                 key={category}
                 type="button"
-                className={`category-pill ${activeCategory === category ? "active" : ""}`}
+                className={`category-pill ${activeCategory === category ? 'active' : ''}`}
                 onClick={() => setActiveCategory(category)}
                 aria-pressed={activeCategory === category}
               >
@@ -150,11 +118,7 @@ export const Cafe: React.FC = () => {
               </button>
             ))}
           </div>
-          <button
-            className="scroll-arrow scroll-arrow-right"
-            onClick={scrollRight}
-            aria-label="Scroll categories right"
-          >
+          <button className="scroll-arrow scroll-arrow-right" onClick={scrollRight} aria-label="Scroll categories right">
             <ArrowRight />
           </button>
         </div>
@@ -164,7 +128,7 @@ export const Cafe: React.FC = () => {
       <section className="menu-section">
         {filteredItems.map((categoryGroup) => (
           <div key={categoryGroup.header} className="menu-category-group">
-            {activeCategory === "All" && categoryGroup.header && (
+            {activeCategory === 'All' && categoryGroup.header && (
               <h3 className="category-header">{categoryGroup.header}</h3>
             )}
             <div className="menu-grid">

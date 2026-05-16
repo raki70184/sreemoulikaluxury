@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AppBar, IconButton, Menu, MenuItem, Grid, Hidden, Button, Box } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import SMlogo from "../images/WebsiteImages/SMlogo.png";
+import { sMlogo as SMlogo } from "../images/WebsiteImages";
+import { CldImage } from "../CldImage";
 import "./AppBarComponent.css";
 
 function AppBarComponent() {
@@ -58,11 +59,14 @@ function AppBarComponent() {
               </Box>
             </Grid>
             <Grid item xs={2} textAlign="center">
-              <img
-                src={SMlogo}
+              <CldImage
+                publicId={SMlogo}
                 onClick={() => navigate("/")}
                 className="logo centerLogo"
-                alt="Sree Moulika"
+                alt="SM Luxe Salon"
+                widths={[120, 240, 360]}
+                sizes="120px"
+                priority
               />
             </Grid>
             <Grid item xs={5}>
@@ -83,12 +87,15 @@ function AppBarComponent() {
 
           <Hidden smUp>
             <Grid item xs={6}>
-              <img
-                src={SMlogo}
-                width="100px"
+              <CldImage
+                publicId={SMlogo}
+                width={100}
                 onClick={() => navigate("/")}
                 className="logo"
-                alt="Sree Moulika"
+                alt="SM Luxe Salon"
+                widths={[100, 200, 300]}
+                sizes="100px"
+                priority
               />
             </Grid>
             <Grid item xs={6} textAlign="right">

@@ -7,7 +7,8 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 
-import tailoredForYou from "../images/WebsiteImages/tailoredForYou.jpeg";
+import { tailoredForYou } from "../images/WebsiteImages";
+import { CldImage } from "../CldImage";
 import "./Home.css";
 export const HomeComponent = () => {
   const { home, buttonText } = staticData;
@@ -65,7 +66,13 @@ export const HomeComponent = () => {
         </Grid>
         <Hidden mdDown>
           <Grid item xs lg={5} md={12} className="tailoredForYou-image">
-            <img src={tailoredForYou} className="image" alt="SMBeauty parlour"/>
+            <CldImage
+              publicId={tailoredForYou}
+              className="image"
+              alt="SM Luxe Salon — beauty tailored for you"
+              widths={[480, 640, 960, 1280]}
+              sizes="(min-width: 1200px) 600px, 100vw"
+            />
           </Grid>
         </Hidden>
       </Grid>

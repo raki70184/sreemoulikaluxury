@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { IconText } from "../IconText";
 import { ServicesList } from "../utils";
-import servicesHero from "../images/WebsiteImages/HairServices.jpeg";
+import { ServicesFaq } from "./Faq";
 
 export const Services = () => {
   return (
@@ -61,6 +61,7 @@ export const Services = () => {
           );
         })}
       </Grid>
+      <ServicesFaq />
     </>
   );
 };

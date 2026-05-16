@@ -2,13 +2,11 @@ import React from "react";
 import {
   Button,
   Grid,
-  SvgIcon,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 
-import { ReactComponent as manicureIcon } from "../images/MANICURE-icon.svg";
 import "./Banner.css";
 
 interface BannerProps {

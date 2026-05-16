@@ -1,6 +1,5 @@
 import { VideoItem } from "../types";
-import HighMakeupTrimmed from "../../images/Videos/HighMakeupTrimmed.mp4";
-import DashaFacial from "../../images/Videos/DashaFacial.mp4";
+import { highMakeupTrimmed as HighMakeupTrimmed, dashaFacial as DashaFacial } from "../../images/Videos";
 
 export const galleryVideos: VideoItem[] = [
   {

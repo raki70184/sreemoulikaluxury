@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 import styles from "./HeroSection.module.css";
-import defaultVideo from "../images/Videos/HighMakeupTrimmed.mp4";
-import mobileVideo from "../images/Videos/DashaFacial.mp4";
+import { CldImage } from "../CldImage";
+import { cldVideoUrl, cldVideoPosterUrl } from "../../lib/cld";
+import { highMakeupTrimmed, dashaFacial } from "../images/Videos";
 
-// Custom hook to check if screen is mobile (≤ 768px) for responsive images
+// SSR-safe mobile detector. During prerender there is no window, so we default
+// to desktop and let the client effect re-measure on mount.
 const useIsMobile = (): boolean => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const compute = () => setIsMobile(window.innerWidth <= 768);
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
   }, []);
-
   return isMobile;
 };
 
@@ -26,11 +24,16 @@ interface HeroSectionProps {
   ctaLabel?: string;
   onCtaClick?: () => void;
   useVideo?: boolean;
-  videoSrc?: string;
-  mobileVideoSrc?: string;
-  mobileImageSrc?: string;
-  imageSrc?: string;
-  heightVH?: number; // allow custom height if needed
+  /** Cloudinary publicId for the desktop hero video. */
+  videoPublicId?: string;
+  /** Cloudinary publicId for the mobile hero video. */
+  mobileVideoPublicId?: string;
+  /** Cloudinary publicId for the desktop hero image (when useVideo is false). */
+  imagePublicId?: string;
+  /** Cloudinary publicId for the mobile hero image (when useVideo is false). */
+  mobileImagePublicId?: string;
+  /** Min hero height in vh. */
+  heightVH?: number;
   className?: string;
 }
 
@@ -41,25 +44,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   ctaLabel,
   onCtaClick,
   useVideo = true,
-  videoSrc,
-  mobileVideoSrc = mobileVideo,
-  imageSrc,
-  mobileImageSrc,
+  videoPublicId,
+  mobileVideoPublicId,
+  imagePublicId,
+  mobileImagePublicId,
   heightVH = 90,
   className,
 }) => {
   const isMobile = useIsMobile();
-  const [currentVideo, setCurrentVideo] = useState<string>(
-    videoSrc || (defaultVideo as unknown as string)
-  );
+  const desktopVideo = videoPublicId ?? highMakeupTrimmed;
+  const mobileVideo = mobileVideoPublicId ?? dashaFacial;
+  const activeVideo = isMobile ? mobileVideo : desktopVideo;
+  const activeImage = isMobile && mobileImagePublicId ? mobileImagePublicId : imagePublicId;
 
-  useEffect(() => {
-    if (isMobile && mobileVideoSrc) {
-      setCurrentVideo(mobileVideoSrc);
-    } else {
-      setCurrentVideo(videoSrc || (defaultVideo as unknown as string));
-    }
-  }, [isMobile, mobileVideoSrc, videoSrc]);
   return (
     <section
       className={`${styles.hero} ${className || ""}`}
@@ -67,21 +64,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     >
       {useVideo ? (
         <video
-          key={isMobile ? 'mobile' : 'desktop'}
+          key={isMobile ? "mobile" : "desktop"}
           className={styles.media}
           autoPlay
           muted
           loop
           playsInline
-          src={currentVideo}
+          preload="metadata"
+          poster={cldVideoPosterUrl(activeVideo, { w: isMobile ? 720 : 1280 })}
+          src={cldVideoUrl(activeVideo, { w: isMobile ? 720 : 1280 })}
         />
       ) : (
-        imageSrc && (
-          <img 
-            className={styles.media} 
-            src={isMobile && mobileImageSrc ? mobileImageSrc : imageSrc} 
-            alt="Hero" 
-            key={isMobile ? 'mobile-img' : 'desktop-img'}
+        activeImage && (
+          <CldImage
+            publicId={activeImage}
+            alt="SM Luxe Salon — hero"
+            className={styles.media}
+            widths={[640, 960, 1280, 1600, 1920, 2400]}
+            sizes="100vw"
+            priority
+            key={isMobile ? "mobile-img" : "desktop-img"}
           />
         )
       )}
@@ -89,9 +91,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className={styles.content}>
         {subtitle && <p className={styles.kicker}>{subtitle}</p>}
         {title && <h1 className={styles.title}>{title}</h1>}
-        {description && (
-          <p className={styles.description}>{description}</p>
-        )}
+        {description && <p className={styles.description}>{description}</p>}
         {ctaLabel && (
           <button className={styles.cta} onClick={onCtaClick}>
             {ctaLabel}

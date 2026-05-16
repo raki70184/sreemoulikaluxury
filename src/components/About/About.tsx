@@ -1,17 +1,8 @@
 import React from "react";
 import styles from "./About.module.css";
-import SalonTreatment1 from "../images/WebsiteImages/NailTechnician.jpg"; // Placeholder
-// import SalonTreatment1 from "../images/WebsiteImages/Makeup.jpeg"; // Placeholder - should be actual salon images
-import momAndDaughter from "../images/WebsiteImages/momAndDaughterImage.jpeg"; // Placeholder
-import SalonAmbiance from "../images/WebsiteImages/Glamour.jpeg"; // Placeholder
-import SalonTreatmentClose from "../images/WebsiteImages/HairSpa.jpeg"; // Placeholder
-import modelParty from "../images/AboutSectionImages/modelparty.jpeg"; // Placeholder
-import aparnaHighFashion from "../images/AboutSectionImages/aparnaHighFashion.jpeg"; // Placeholder
-import jabiliparty from "../images/AboutSectionImages/jabiliParty.jpeg"; // Placeholder
-import lashCertificate from "../images/AboutSectionImages/lashCertificate.jpeg"; // Placeholder
-// import SalonService1 from "../images/WebsiteImages/Makeup.jpeg"; // Placeholder
-// import ProductShowcase from "../images/WebsiteImages/BeautyServices.jpg"; // Placeholder
-// import CafeMoment2 from "../images/WebsiteImages/Glamour.jpeg"; // Placeholder
+import { nailTechnician as SalonTreatment1 } from "../images/WebsiteImages";
+import { modelparty as modelParty, aparnaHighFashion, jabiliParty as jabiliparty, lashCertificate } from "../images/AboutSectionImages";
+import { CldImage } from "../CldImage";
 
 export const About: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -29,7 +20,7 @@ export const About: React.FC = () => {
         <div className={styles.container}>
           <div className={styles.threeColumnLayout}>
             <div className={styles.imageContainer}>
-              <img src={SalonTreatment1} alt="Beauty treatment moment" />
+              <CldImage publicId={SalonTreatment1} alt="SM Luxe Salon — certified beauty treatment" widths={[480, 640, 960]} sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
 
             <div className={styles.contentContainer}>
@@ -39,7 +30,7 @@ export const About: React.FC = () => {
             </div>
 
             <div className={`${styles.imageContainer} ${styles.certificateContainer}`}>
-              <img src={lashCertificate} alt="Lash certification" className={styles.certificateImage} />
+              <CldImage publicId={lashCertificate} alt="Lash extension certification" className={styles.certificateImage} widths={[320, 480, 640]} sizes="(max-width: 768px) 50vw, 25vw" />
             </div>
           </div>
         </div>
@@ -88,7 +79,7 @@ export const About: React.FC = () => {
         </div>
         <div className={styles.galleryContainer}>
           <div className={`${styles.galleryItem} ${styles.itemSmall}`}>
-            <img src={modelParty} alt="Model at a party" />
+            <CldImage publicId={modelParty} alt="Glamorous evening event styled by SM Luxe Salon" widths={[480, 640, 960]} sizes="(max-width: 768px) 100vw, 33vw" />
             <div className={styles.caption}>
               <h4>Elegant Evenings</h4>
               <p>Capturing glamour at exclusive events</p>
@@ -96,7 +87,7 @@ export const About: React.FC = () => {
           </div>
 
           <div className={`${styles.galleryItem} ${styles.itemLarge}`}>
-            <img src={jabiliparty} alt="Celebration moment" />
+            <CldImage publicId={jabiliparty} alt="Celebration moment styled by SM Luxe Salon" widths={[640, 960, 1280]} sizes="(max-width: 768px) 100vw, 50vw" />
             <div className={styles.caption}>
               <h4>Celebrations</h4>
               <p>Unforgettable moments from special occasions</p>
@@ -104,7 +95,7 @@ export const About: React.FC = () => {
           </div>
 
           <div className={`${styles.galleryItem} ${styles.itemMedium}`}>
-            <img src={aparnaHighFashion} alt="High fashion portrait" />
+            <CldImage publicId={aparnaHighFashion} alt="High fashion editorial look by SM Luxe Salon" widths={[480, 640, 960]} sizes="(max-width: 768px) 100vw, 33vw" />
             <div className={styles.caption}>
               <h4>High Fashion</h4>
               <p>Editorial looks that make a statement</p>

@@ -12,11 +12,23 @@ dist
 dist-ssr
 *.local
 
+# Env / secrets — never commit Cloudinary credentials
+.env
+.env.*
+!.env.example
+
+# Cloudinary upload report (generated when scripts/cld-upload.mjs runs)
+scripts/cld-upload-report.json
+
+# Local Claude Code preview config (contains absolute paths)
+.claude/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+**/.DS_Store
 *.suo
 *.ntvs*
 *.njsproj

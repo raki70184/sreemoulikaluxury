@@ -1,26 +1,31 @@
 import React, { useMemo, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./FooterCarousel.module.css";
+import { CldImage } from "../CldImage";
 
-// Beauty Services Images
-import img1 from "../images/WebsiteImages/haircut.jpeg";
-import img2 from "../images/WebsiteImages/nails1.jpeg";
-import img3 from "../images/WebsiteImages/HairSpa.jpeg";
-import img4 from "../images/WebsiteImages/Makeup.jpeg";
-import img5 from "../images/WebsiteImages/hair color.jpeg";
-import img6 from "../images/WebsiteImages/nails3.jpeg";
-import img7 from "../images/WebsiteImages/aparna.jpeg";
-import img8 from "../images/WebsiteImages/jabiliParty.jpeg";
+// Beauty Services Images (Cloudinary publicIds)
+import {
+  haircut as img1,
+  nails1 as img2,
+  hairSpa as img3,
+  makeup as img4,
+  hairColor as img5,
+  nails3 as img6,
+  aparna as img7,
+  jabiliParty as img8,
+} from "../images/WebsiteImages";
 
-// Cafe Images
-import cafe1 from "../images/CafeImages/BowlSSquare.jpeg";
-import cafe2 from "../images/CafeImages/BurgerSquare.jpeg";
-import cafe3 from "../images/CafeImages/cafefood.jpeg";
-import cafe4 from "../images/CafeImages/pasta.jpeg";
-import cafe5 from "../images/CafeImages/coffeeSquare.jpeg";
-import cafe6 from "../images/CafeImages/pancakes.jpeg";
-import cafe7 from "../images/CafeImages/riceBowl.jpeg";
-import cafe8 from "../images/CafeImages/sandwich.jpeg";
+// Cafe Images (Cloudinary publicIds)
+import {
+  bowlSSquare as cafe1,
+  burgerSquare as cafe2,
+  cafefood as cafe3,
+  pasta as cafe4,
+  coffeeSquare as cafe5,
+  pancakes as cafe6,
+  riceBowl as cafe7,
+  sandwich as cafe8,
+} from "../images/CafeImages";
 
 
 const beautySlides = [
@@ -69,7 +74,7 @@ const FooterCarousel: React.FC<FooterCarouselProps> = ({ activeTab = 'beauty' })
         <div className={styles.scroller} ref={scrollerRef}>
           {items.map((s, i) => (
             <div key={i} className={styles.slide}>
-              <img src={s.src} alt={s.alt} loading="lazy" />
+              <CldImage publicId={s.src} alt={s.alt} widths={[320, 480, 640]} sizes="(max-width: 768px) 50vw, 25vw" />
               <div className={styles.caption}>
                 <div className={styles.captionText}>{s.caption}</div>
               </div>

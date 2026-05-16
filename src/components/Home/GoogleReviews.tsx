@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Avatar, IconButton } from '@mui/material';
 import { ChevronLeft, ChevronRight, Star } from '@mui/icons-material';
 import styles from './GoogleReviews.module.css';
-import ReviewImage from '../images/OurServicesImages/ReviewImage.jpeg';
-import googleIcon from '../images/WebsiteImages/googleicon.jpeg';
+import { reviewImage as ReviewImage } from '../images/OurServicesImages';
+import { googleicon as googleIcon } from '../images/WebsiteImages';
+import { CldImage } from '../CldImage';
+import { cldUrl } from '../../lib/cld';
+import { GoogleRatingBadge } from './GoogleRatingBadge';
 
 // Mock data - replace with actual Google Reviews API data
 const reviews = [
@@ -87,10 +90,12 @@ const GoogleReviews = () => {
         <div className={styles.contentWrapper}>
           {/* Left Side: Image */}
           <div className={styles.imageSection}>
-            <img
-              src={ReviewImage}
-              alt="SM Luxury Salon"
+            <CldImage
+              publicId={ReviewImage}
+              alt="Happy SM Luxe Salon clients"
               className={styles.image}
+              widths={[480, 640, 960, 1280]}
+              sizes="(min-width: 900px) 50vw, 100vw"
             />
           </div>
 
@@ -100,6 +105,9 @@ const GoogleReviews = () => {
               <div className={styles.titleSection}>
                 <div className={styles.titleText}>
                   What Our Clients Love About Us
+                </div>
+                <div style={{ marginTop: '0.75rem' }}>
+                  <GoogleRatingBadge />
                 </div>
               </div>
               <div className={styles.reviewContent}>
@@ -157,14 +165,16 @@ const GoogleReviews = () => {
                         className={styles.googleReviewLink}
                       >
                         <img
-                          width="20"
+                          width={20}
                           aria-hidden="true"
                           focusable="false"
                           className={styles.googleIcon}
                           role="img"
-                          height="20"
-                          src={googleIcon}
+                          height={20}
+                          src={cldUrl(googleIcon, { w: 40 })}
                           alt="Google"
+                          loading="lazy"
+                          decoding="async"
                         />
                         Google review
                       </a>
