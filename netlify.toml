@@ -41,7 +41,11 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
-    Cross-Origin-Embedder-Policy = "credentialless"
+    # NOTE: Cross-Origin-Embedder-Policy is intentionally NOT set. COEP
+    # (require-corp / credentialless) forces every cross-origin embed to send a
+    # CORP header — the Google Maps embed iframe does not, so COEP blocks the
+    # map. This site uses no SharedArrayBuffer / cross-origin-isolated feature,
+    # so COEP buys nothing here. COOP below is safe (it does not affect iframes).
     Cross-Origin-Opener-Policy = "same-origin"
     X-DNS-Prefetch-Control = "on"
 

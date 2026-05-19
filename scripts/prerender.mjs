@@ -137,7 +137,12 @@ try {
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
-  let writtenAny = false;
+  // Capture every route into memory FIRST. We must not write into dist/
+  // while the preview server is running: the moment dist/index.html is
+  // overwritten with prerendered home markup, the preview server serves that
+  // as the SPA fallback for every later route — and Puppeteer would capture
+  // home content into /cafe/index.html, /about/index.html, etc.
+  const captured = [];
   for (const route of ROUTES) {
     const page = await browser.newPage();
     page.setDefaultNavigationTimeout(30000);
@@ -156,29 +161,34 @@ try {
       { timeout: 30000 }
     );
 
-    // Let Helmet flush meta tags and Suspense settle.
+    // Let Helmet flush <head> meta tags and the route content settle.
     await new Promise((r) => setTimeout(r, 600));
-    await page.evaluate(() => {
-      document.documentElement.setAttribute("data-prerendered", "true");
-    });
 
     const html = "<!DOCTYPE html>\n" + (await page.content());
-    const outDir = route === "/" ? DIST : join(DIST, route.replace(/^\//, ""));
-    await mkdir(outDir, { recursive: true });
-    await writeFile(join(outDir, "index.html"), html);
-    console.log(
-      `    wrote ${outDir.replace(DIST, "dist")}/index.html (${(html.length / 1024).toFixed(0)}KB)`
-    );
-    writtenAny = true;
+    captured.push({ route, html });
+    console.log(`    captured ${route} (${(html.length / 1024).toFixed(0)}KB)`);
     await page.close();
   }
 
-  if (!writtenAny) {
+  if (captured.length === 0) {
     console.error("Prerender produced no output.");
     await finish(1, browser);
   }
 
-  console.log("\nPrerender done. Routes:", ROUTES.length);
+  // Stop the browser and the preview server BEFORE touching dist/, so the
+  // server can never serve a half-written prerender to a later capture.
+  await browser.close();
+  browser = undefined;
+  killPreview();
+
+  for (const { route, html } of captured) {
+    const outDir = route === "/" ? DIST : join(DIST, route.replace(/^\//, ""));
+    await mkdir(outDir, { recursive: true });
+    await writeFile(join(outDir, "index.html"), html);
+    console.log(`  wrote ${outDir.replace(DIST, "dist")}/index.html`);
+  }
+
+  console.log("\nPrerender done. Routes:", captured.length);
   await finish(0, browser);
 } catch (err) {
   console.error("Prerender failed:", err);
