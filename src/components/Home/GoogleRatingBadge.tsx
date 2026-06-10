@@ -1,21 +1,23 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "../../data/googleRating.generated";
 
 /**
  * Visible Google rating badge + matching AggregateRating JSON-LD.
  *
- * Both the visible number and the schema come from the same env vars, so they
- * can never drift apart. Google enforces this — if the schema rating doesn't
- * match what's actually visible on the page, the rich result gets removed and
- * (worst case) you can get a manual action.
+ * Both the visible number and the schema come from the SAME source — the
+ * build-time-generated constants in src/data/googleRating.generated.ts — so they
+ * can never drift apart. Google enforces this: if the schema rating doesn't match
+ * what's actually visible on the page, the rich result gets removed and (worst
+ * case) you can get a manual action.
  *
- *   VITE_GOOGLE_RATING        e.g. "4.9"
- *   VITE_GOOGLE_REVIEW_COUNT  e.g. "127"  (leave blank to disable both badge
- *                                          count + schema until you know it)
+ * Those constants are refreshed automatically on every build by
+ * scripts/fetch-google-rating.mjs (Google Places API) — no env edits needed.
+ * A zero/empty value disables both the badge count and the schema.
  */
 
-const RATING = import.meta.env.VITE_GOOGLE_RATING as string | undefined;
-const COUNT = import.meta.env.VITE_GOOGLE_REVIEW_COUNT as string | undefined;
+const RATING: string | undefined = GOOGLE_RATING ? String(GOOGLE_RATING) : undefined;
+const COUNT: string | undefined = GOOGLE_REVIEW_COUNT ? String(GOOGLE_REVIEW_COUNT) : undefined;
 
 const PLACE_REVIEWS_URL =
   "https://search.google.com/local/reviews?placeid=ChIJu3tkyN-byzsRDq93zKzDG2M";
