@@ -6,6 +6,46 @@ Vite + React + TypeScript marketing site for SM Luxe Salon (Safilguda, Hyderabad
 
 ---
 
+## Git Push Workflow (MANDATORY)
+
+**Default: keep all changes local. Never push without an explicit "push" go-ahead from Rakesh.**
+
+When working on a task:
+- Make changes in the working directory.
+- Run the repo's verification chain (`npm run typecheck && npm run build && npm run prerender`).
+- **Do NOT** auto-stage, auto-commit, or auto-push. Leave the changes uncommitted so Rakesh can review with `git diff` / `git status` first.
+- Surface what changed in the response and stop.
+
+When (and only when) Rakesh explicitly says "push" / "go push" / similar, follow this exact chain — do not push directly to the current branch even if it's already a feature branch, and **never to `main`**:
+
+1. `git stash --include-untracked` — save the local changes.
+2. `git checkout develop && git pull --ff-only origin develop` (this repo's primary branch may be `main` — substitute accordingly, but **never push directly to it**).
+3. `git checkout -b <feature-branch>` — create a fresh feature branch off the now-current develop/main.
+4. `git stash pop` — apply the stashed changes onto the new branch (avoids merge conflicts from being on a stale branch).
+5. If `pop` produces conflicts, resolve them in the working tree before continuing.
+6. `git add <specific paths>` — never `git add .` or `git add -A`.
+7. Commit with a descriptive message.
+8. `git push -u origin <feature-branch>`.
+9. `gh pr create --base develop` (or `--base main` if no develop) — open the PR.
+
+**Hard rules — no exceptions:**
+- **Never push directly to `main` or `develop`** in any repo.
+- **Never push** to any branch without the explicit "push" go-ahead.
+- Never use `--no-verify`, `--force` (without explicit ask), or `git add .` / `git add -A` (avoid sweeping up unrelated WIP, `.env`, etc.).
+- If already on a stale feature branch with uncommitted changes when "push" is given, follow the same stash → fresh-branch-from-develop → pop → resolve dance. Do not push to the stale branch.
+
+## DB Schema Change Workflow (org policy)
+
+This site has no `database/` directory, but the org-wide rule applies if any DB schema change touches another repo:
+
+- **Only** create a new file at `database/migrations/YYYY-MM-DD_<short_topic>.sql` (today's actual date).
+- **Do NOT** edit `database/database_schema_all.sql`, `database/database_schema_changes.sql`, or any other existing SQL file.
+- One change per file. Idempotent SQL where possible.
+
+See `salon-backend-layer/CLAUDE.md` (the OneKlick platform backend) for the full backend-specific detail.
+
+---
+
 ## Architecture in 60 seconds
 
 ```
