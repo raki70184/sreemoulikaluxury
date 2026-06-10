@@ -8,14 +8,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "npm run fetch:rating && tsc --noEmit && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "cld:upload": "node scripts/cld-upload.mjs",
     "cld:upload:dry": "node scripts/cld-upload.mjs --dry",
     "favicons": "node scripts/gen-favicons.mjs",
-    "prerender": "node scripts/prerender.mjs"
+    "prerender": "node scripts/prerender.mjs",
+    "fetch:rating": "node scripts/fetch-google-rating.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
