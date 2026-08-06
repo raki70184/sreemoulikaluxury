@@ -14,7 +14,7 @@ export interface FaqEntry {
   answer: string;
 }
 
-export const FAQ_ITEMS: FaqEntry[] = [
+const FAQ_ITEMS: FaqEntry[] = [
   {
     question: "Where is SM Luxe Salon located?",
     answer:

@@ -12,7 +12,10 @@ type Content = {
 
 const formatTel = (num: string) => num.replace(/[^+\d]/g, "");
 
-const usePageContent = (pathname: string): Content => {
+// Plain lookup, NOT a hook — it calls nothing from React. It was named
+// `usePageContent`, which made eslint treat it as a hook and (correctly) flag
+// the call inside useMemo below as a rules-of-hooks violation.
+const getPageContent = (pathname: string): Content => {
   const baseNumber = "+91 93472 38248"; // Salon primary
   const tel = `tel:${formatTel(baseNumber)}`;
 
@@ -56,7 +59,7 @@ const usePageContent = (pathname: string): Content => {
 
 const FloatingCall: React.FC = () => {
   const { pathname } = useLocation();
-  const content = useMemo(() => usePageContent(pathname), [pathname]);
+  const content = useMemo(() => getPageContent(pathname), [pathname]);
   const [open, setOpen] = useState(false);
 
   return (

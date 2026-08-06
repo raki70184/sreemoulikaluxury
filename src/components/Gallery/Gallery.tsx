@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { gallerySections } from './data/sections';
 import GallerySection from './GallerySection';
 import styles from './Gallery.module.css';

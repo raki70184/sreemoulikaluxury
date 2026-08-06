@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run fetch:rating && tsc --noEmit && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings 0",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "cld:upload": "node scripts/cld-upload.mjs",

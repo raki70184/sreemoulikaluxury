@@ -1,6 +1,5 @@
 import { Button, Grid, Hidden, Typography } from "@mui/material";
 import { staticData } from "../utils/constants";
-import { SelfIntroduction } from ".";
 import ServicesSection from "./ServicesSection";
 import GoogleReviews from "./GoogleReviews";
 import { useTheme } from "@mui/material/styles";

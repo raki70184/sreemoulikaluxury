@@ -1,0 +1,52 @@
+name: CI
+
+# This repo had NO workflows at all until 2026-08-07: nothing ran on a PR, and
+# the only thing checking it was the daily Claude routine — which found 23 lint
+# errors that had been sitting on main. CI now runs the same three gates the
+# routine runs, so a regression is caught at PR time instead of the next morning.
+#
+# Node 20 matches netlify.toml's NODE_VERSION. Keep them in step — a build that
+# passes here on a different Node proves nothing about the deploy.
+#
+# `npm run prerender` is deliberately NOT here. It drives Puppeteer/Chromium over
+# all 6 routes and is the one step known to flake; Netlify runs it on every
+# deploy, so a genuine SSR-unsafe module still gets caught before it goes live.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-typecheck-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # `npm run lint` carries --max-warnings 0 so CI and the daily routine run
+      # the exact same command. There is no baselined debt in this repo and so
+      # no ratchet to keep. If a warning ever needs accepting, raise the number
+      # deliberately in package.json and say why — don't drop the flag.
+      - name: ESLint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # Runs `fetch:rating` first. That script is fail-safe by design: with no
+      # GOOGLE_PLACES_API_KEY it keeps the committed values and exits 0, so CI
+      # needs no secret.
+      - name: Production build
+        run: npm run build

@@ -24,7 +24,7 @@ interface NavigationProps {
   children?: React.ReactNode;
   onClose?: () => void;
 }
-export const Navigation: React.FC<NavigationProps> = (props: any) => {
+export const Navigation: React.FC<NavigationProps> = (props) => {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -45,7 +45,7 @@ export const Navigation: React.FC<NavigationProps> = (props: any) => {
           className="navigation-wrapper"
           onChange={(event, newValue) => {
             setValue(newValue);
-            props.onClose && props.onClose();
+            props.onClose?.();
           }}
         >
           {props.children}

@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
 import {
   Alert,
-  Button,
   Grid,
-  Snackbar,
   TextField,
   Typography,
   useMediaQuery,
@@ -39,11 +37,12 @@ const ContactForm: React.FC = () => {
     null
   ) as React.MutableRefObject<HTMLFormElement>;
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
+  // Holds the failure message so a rejected submit is visible instead of silent.
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialFormData);
 
-  const handlePhoneChange = (e:any) => {
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Remove non-digit characters from the input
     const sanitizedInput = e.target.value.replace(/\D/g, '');
 
@@ -54,9 +53,10 @@ const ContactForm: React.FC = () => {
   };
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down("sm"));
-  const submitHanlder = (e: any) => {
+  const submitHanlder = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setErrorMessage(null);
     fetch(form.current.action, {
       method: form.current.method,
       body: new FormData(form.current),
@@ -66,8 +66,8 @@ const ContactForm: React.FC = () => {
         setFormData(initialFormData);
         setIsLoading(false);
       })
-      .catch((error) => {
-        setError(error.message) 
+      .catch((err: unknown) => {
+        setErrorMessage(err instanceof Error ? err.message : String(err));
         setIsLoading(false);
       });
   };
@@ -220,6 +220,14 @@ const ContactForm: React.FC = () => {
                   fullWidth
                 />
               </Grid>
+              {errorMessage && (
+                <Grid item marginTop={2}>
+                  <Alert severity="error" sx={{ fontStyle: "italic" }}>
+                    Sorry, we couldn't submit that. Please try again or DM us on
+                    Instagram. ({errorMessage})
+                  </Alert>
+                </Grid>
+              )}
               <Grid item marginTop={2} className="appointment">
                 <LoadingButton
                   type="submit"

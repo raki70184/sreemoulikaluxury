@@ -52,7 +52,7 @@ export const Footer = () => {
           </Typography>
 
           {/* Instagram follow */}
-          <Typography className="instaRow" marginTop={1.5 as any}>
+          <Typography className="instaRow" marginTop={1.5}>
             Follow along on {" "}
             <a
               target="_blank"

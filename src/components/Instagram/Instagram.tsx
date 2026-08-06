@@ -4,10 +4,7 @@ import {Instagram as InstagramIcon } from "@mui/icons-material";
 
 import "./Instagram.css";
 
-interface InstagramProps {
-}
-
-export const Instagram: React.FC<InstagramProps> = () => (
+export const Instagram: React.FC = () => (
   <>
     <Typography variant="h4" align="center" marginBottom={10}>
       Follow along on{" "}

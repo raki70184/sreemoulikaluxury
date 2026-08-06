@@ -15,7 +15,6 @@ export const SelfIntroduction: React.FC<SelfIntroductionProps> = ({
 }) => {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down("sm"));
-  const md = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid
       container

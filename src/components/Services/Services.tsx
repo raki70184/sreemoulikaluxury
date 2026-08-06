@@ -18,7 +18,7 @@ export const Services = () => {
         marginTop={10}
         flexDirection={"row"}
       >
-        {ServicesList.map((item: any) => {
+        {ServicesList.map((item) => {
           return (
             <IconText
               text={item.title}
@@ -41,7 +41,7 @@ export const Services = () => {
                     alignItems={"baseline"}
                     flexDirection={"row"}
                   >
-                    {item.nailsEnhancement.map((nails: any) => {
+                    {item.nailsEnhancement.map((nails) => {
                       return (
                         <IconText text={nails.name}>
                           <ul className="serviceList">

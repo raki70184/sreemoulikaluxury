@@ -18,7 +18,6 @@ import {
   fashion1,
   fashion2,
   fashion3,
-  fashion4,
   makeupAparna as fashionVideo,
   haircolor1 as hairColor1,
   haircolor2 as hairColor2,

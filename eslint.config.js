@@ -6,6 +6,18 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   { ignores: ["dist"] },
+  // Node-side JS: build scripts (scripts/*.mjs) and the tooling configs. Without
+  // this block eslint matched no config for them and silently linted nothing —
+  // `npm run lint` covered only src/**/*.tsx.
+  {
+    extends: [js.configs.recommended],
+    files: ["**/*.{js,mjs,cjs}"],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: "module",
+      globals: globals.node,
+    },
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],

@@ -1,3 +1,4 @@
+import type { FunctionComponent, SVGProps } from "react";
 import {
   makeup,
   manicure,
@@ -183,7 +184,21 @@ export const NailsService = [
   },
 ];
 
-export const ServicesList = [
+/** One nail-enhancement group inside the Nails service tile. */
+export interface NailsEnhancementEntry {
+  name: string;
+  list: string[];
+}
+
+/** One tile in the Services grid. `img` is an SVG imported via `?react`. */
+export interface ServiceEntry {
+  img: FunctionComponent<SVGProps<SVGSVGElement>>;
+  title: string;
+  list: string[];
+  nailsEnhancement?: NailsEnhancementEntry[];
+}
+
+export const ServicesList: ServiceEntry[] = [
   {
     img: HairIcon,
     title: "Hair Services",

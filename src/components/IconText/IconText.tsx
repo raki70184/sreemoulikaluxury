@@ -10,7 +10,8 @@ import {
 interface IconTextProps {
   text: string;
   children: React.ReactNode;
-  Icon?: any;
+  /** SVG imported via `?react`, passed to MUI's <SvgIcon component=…>. */
+  Icon?: React.ElementType;
   isNails?: boolean;
 }
 export const IconText: React.FC<IconTextProps> = ({
