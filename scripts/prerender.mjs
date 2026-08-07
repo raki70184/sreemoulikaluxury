@@ -155,6 +155,9 @@ try {
 
     await page.waitForFunction(
       () => {
+        // This callback is serialised and evaluated inside the page, so
+        // `document` is the browser's — not a Node global.
+        // eslint-disable-next-line no-undef
         const el = document.getElementById("root");
         return el && el.children.length > 0 && el.innerText.trim().length > 50;
       },

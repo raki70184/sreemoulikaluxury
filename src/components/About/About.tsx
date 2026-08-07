@@ -5,13 +5,6 @@ import { modelparty as modelParty, aparnaHighFashion, jabiliParty as jabiliparty
 import { CldImage } from "../CldImage";
 
 export const About: React.FC = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <div className={styles.aboutPage}>
 

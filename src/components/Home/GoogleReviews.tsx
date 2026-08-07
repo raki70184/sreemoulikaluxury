@@ -52,11 +52,6 @@ const reviews = [
   },
 ];
 
-const truncateText = (text: string, maxLength: number) => {
-  if (text.length <= maxLength) return text;
-  return text.substring(0, maxLength) + '...';
-};
-
 const GoogleReviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedReviews, setExpandedReviews] = useState<{[key: number]: boolean}>({});

@@ -73,7 +73,7 @@ function toSlug(input) {
     .toLowerCase()
     .replace(/\.[a-z0-9]+$/i, "")
     .replace(/[\s_]+/g, "-")
-    .replace(/[^a-z0-9-\/]/g, "")
+    .replace(/[^a-z0-9/-]/g, "")
     .replace(/-+/g, "-")
     .replace(/(^-|-$)/g, "");
 }

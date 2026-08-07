@@ -35,9 +35,8 @@ type GallerySectionProps = Omit<GallerySectionType, 'items'> & {
 const GallerySection: React.FC<GallerySectionProps> = ({ 
   id,
   title, 
-  items, 
+  items,
   heightClasses = [],
-  videoIndex
 }) => {
   // Generate a unique ID for this section to scope the styles
   const sectionId = `section-${id || title?.toLowerCase().replace(/\s+/g, '-')}`;
@@ -47,17 +46,10 @@ const GallerySection: React.FC<GallerySectionProps> = ({
   const [showRightArrow, setShowRightArrow] = useState<boolean>(true); // Always show both arrows by default
 
   const checkScroll = () => {
-    // Always keep arrows visible
+    // Both arrows stay visible by design — the carousel wraps rather than
+    // dead-ending, so there is no start/end state to hide them on.
     setShowLeftArrow(true);
     setShowRightArrow(true);
-    
-    // The rest of the scroll logic can be used for other purposes
-    if (containerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-      // These values can be used for additional logic if needed
-      const isAtStart = scrollLeft <= 0;
-      const isAtEnd = scrollLeft >= scrollWidth - clientWidth - 1;
-    }
   };
 
   const scroll = (direction: 'left' | 'right') => {
