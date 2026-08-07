@@ -50,3 +50,10 @@ jobs:
       # needs no secret.
       - name: Production build
         run: npm run build
+
+      # Gate config + accepted-risk allowlist live in audit-ci.jsonc, each entry
+      # with a reason and an exit condition. Moderate and up, production tree
+      # only. Do NOT relax this to `|| true` — that is exactly what let four
+      # high advisories sit unnoticed in ChatPortal's production tree.
+      - name: Security audit (moderate+, production only)
+        run: npx --yes audit-ci@^7 --config ./audit-ci.jsonc
